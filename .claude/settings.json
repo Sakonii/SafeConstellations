@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat \"/Users/sakonii/Files/init/major/SteeringFail/7. [Analysis] \\(Clsutering\\).ipynb\")",
+      "Bash(python3 -c \" import json, sys nb = json.load\\(sys.stdin\\) print\\(''Last 3 cell IDs:''\\) for c in nb[''cells''][-3:]: print\\(f'' id={c.get\\(\"\"id\"\",\"\"?\"\"\\)} type={c[\"\"cell_type\"\"]} src={repr\\(\"\"\"\".join\\(c[\"\"source\"\"]\\)[:60]\\)}''\\) \")",
+      "Bash(python3 -c \" import json, sys nb = json.load\\(sys.stdin\\) print\\(''All cell IDs:''\\) for i, c in enumerate\\(nb[''cells'']\\): print\\(f'' [{i}] id={repr\\(c.get\\(\"\"id\"\",\"\"?\"\"\\)\\)} type={c[\"\"cell_type\"\"]} src={repr\\(\"\"\"\".join\\(c[\"\"source\"\"]\\)[:50]\\)}''\\) \")",
+      "Bash(python3:*)",
+      "WebSearch"
+    ]
+  }
+}
