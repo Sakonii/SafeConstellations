@@ -1,0 +1,7 @@
+{
+  "best_layer": "layer_12_input_norm",
+  "best_auroc": 1.0,
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "n_refused_harmful": 25,
+  "n_harmless_answered": 30
+}

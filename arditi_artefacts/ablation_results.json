@@ -1,0 +1,8 @@
+{
+  "baseline_harmful_refusal_rate": 0.64,
+  "ablated_harmful_refusal_rate": 0.0,
+  "baseline_harmless_refusal_rate": 0.0,
+  "ablated_harmless_refusal_rate": 0.0,
+  "baseline_asr": 0.36,
+  "ablated_asr": 1.0
+}

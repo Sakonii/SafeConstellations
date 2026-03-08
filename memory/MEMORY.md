@@ -1,51 +1,78 @@
 # SteeringFail Project Memory
 
 ## Project Overview
-**Predecessor:** SafeConstellations — mitigates LLM over-refusal using task-specific constellation steering.
 **Successor Paper:** "Why Steering Methods Fail? A Mechanistic Analysis from Safety Perspective"
-- Central thesis: Linear Representation Hypothesis (LRH) is *incomplete* — refusal is task-conditioned, not a single direction.
-- Key framing: "Refusal is not mediated by a single direction — it is task-conditioned, and the causal circuits upstream of refusal activation differ systematically by task type."
+- Central thesis: LRH is incomplete — refusal is task-conditioned, but Arditi's direction is geometrically orthogonal to task structure, not because directions diverge per task but because the refusal subspace and constellation subspace are largely orthogonal.
+- SafeConstellations targets within-task over-refusal geometry; Arditi targets cross-class harmful-refusal geometry. Different problems, different directions.
 
-## SafeConstellations Framework (Existing Work)
-- Dataset: 270 samples × 32 layers × 4096-dim embeddings (LLaMA 3.1-8B, Qwen 1.5-7B)
+## Dataset / Model
+- Model: meta-llama/Meta-Llama-3.1-8B-Instruct (32 layers, 4096-dim)
+- Dataset: 270 samples × 32 layers
 - Tasks: sentiment_analysis, translate, cryptanalysis, rag_qa, rephrase
 - Labels: response_labels (cautious/harmful/not_harmful) + refusal_class (direct_answer/direct_refusal/indirect_refusal)
-- TARGET_BEHAVIOR_MASK: (cautious | not_harmful) & direct_answer
-- OVER_REFUSAL_MASK: refusing & benign_intent_tasks
-- Key finding: Mid-layers (11–15) show best separation between target and over-refusal behaviors
-- Embeddings stored as .pt files at layer_{n}_input_norm and final_norm keys
+- TARGET_MASK: (cautious | not_harmful) & direct_answer
+- OVER_REFUSAL_MASK: refusing & benign_intent_tasks (sentiment, translate, cryptanalysis, rag_qa)
+- Embeddings: ./embeddings/ — CSV (torch_path, llm_evaluation, refusal_class) + .pt files (layer_{n}_input_norm, final_norm)
 
-## Notebook Structure (Existing)
-- 1: Dataset construction
-- 2: Over-refusal evaluation (heatmaps)
-- 3: Spider plots
-- 4: Memory Bank Construction (LLaMA + Qwen)
-- 5: SafeConstellations steering (LLaMA + Qwen)
-- 6: MMLU utility evaluation
-- 7: Clustering analysis (silhouette, Davies-Bouldin, centroid distance per layer/task)
+## Per-Notebook Summaries
 
-## Planned Successor Notebooks (see research_plan.md for full details)
-- 7 (extend): Add per-task constellation UMAP grid + cross-task centroid distance matrix + "galaxy map"
-- 8: Arditi et al. Replication — compute refusal direction, ablate, eval on harmful/harmless
-- 9: Test Universality — Q1: task-direction cosine similarity, Q2: per-task ablation suppression, Q3: cross-task transfer matrix
-- 10: Failure Mode Taxonomy — classify under/over-steering, task-mismatch, layer-mismatch; regime diagram
-- 11: Vocabulary Projection — logit lens + α sweep + "assistant" degeneration explanation
-- 12: Task-Conditioned Attention Circuits — per-task head attribution heatmaps + causal patching
+**NB1–6 (Existing work):** Dataset construction, LLM-based evaluation pipeline, SafeConstellations steering method. Established task taxonomy (5 tasks), response labels, refusal_class annotations, embedding extraction (32 layers × 4096-dim, stored as .pt files).
 
-## Arditi et al. Key Details
-- Paper: "Refusal in Language Models Is Mediated by a Single Direction" (arXiv:2406.11717)
-- GitHub: https://github.com/andyrdt/refusal_direction
-- Direction = mean(refused_harmful_embeddings) - mean(answered_harmless_embeddings) at each layer
-- Ablation: h = h - (h·d̂)d̂ (project out direction, applied at ALL layers via hooks)
-- Our data already has the needed classes: harmful_instruction+refused → "refused harmful"; benign_instruction+direct_answer → "harmless answered"
+**NB7 — Clustering Analysis (reference methodology):**
+Per-layer UMAP fitted on all 270 samples together; 32 panels, each showing all tasks simultaneously. Galaxy Map (dual view): LEFT=task identity, RIGHT=behavior on same UMAP at peak-separation layer. Per-task silhouette and centroid metrics in high-dim space. This is the gold standard for NB13a.
 
-## Key Technical Details
-- Model: meta-llama/Meta-Llama-3.1-8B-Instruct (32 layers, 4096-dim)
-- Embeddings dir: ./embeddings/ (CSV + .pt torch files)
-- CSV has columns: torch_path, llm_evaluation, refusal_class
-- Torch file keys: embeddings, thinking_content, responses, texts, text_type_labels, intended_task_labels
-- UMAP: n_components=2, n_neighbors=15, min_dist=0.1, random_state=42
-- Layer naming: layer_{n}_input_norm (n=0..31), final_norm
+**NB8 — Arditi Replication:**
+Direction extracted at L12 (best AUROC). 25 refused-harmful, 30 harmless-answered. Baseline refusal 64% (not near-100%); ablation → 100% ASR. Global direction works for harmful-refusal. Cryptanalysis and rag_qa have 0 Arditi-class samples.
 
-## Links
-- research_plan.md: Full notebook designs with code sketches
+**NB9 — Universality Test:**
+Task-specific Arditi directions vs. global: cos_align = 0.835–0.858 (nearly parallel). Global ablation achieves 0% refusal in all tasks (rephrase 75→0%, sentiment 71→0%, translate 50→0%). Cross-task transfer nearly equals self-transfer — no diagonal dominance.
+
+**NB10 — Failure Mode Taxonomy:**
+At α=1.0: Success=83, Under-steering=37, Over-steering=30, Task-mismatch=0, Layer-mismatch=0. Task-mismatch zone requires cos_align < 0.35; actual values ~0.85 → failure mode never manifests. Taxonomy collapses to under/over-steering only.
+
+**NB11 — Logit Lens / Vocabulary Projection:**
+P("assistant") = 0.0000 across α=0–3.0; model stays locked on 'I'. No "assistant…assistant" degeneration. Most disrupted layers: L0–L1 (100%). Stable: L13–L17 and L21–L31. Backwards from prediction — early layers, not mid, are most sensitive.
+
+**NB12 — Task-Conditioned Attention Circuits:**
+12a: Refusal attribution localises to specific heads, peak L31.H21=0.031. 12b: mean off-diagonal overlap=0.20 → 80% of top-K heads task-specific, but ALL in L27–L31 (not early-mid as predicted). One shared head: L31.H21. 12c: Causal patching null result — shape mismatch bug silently skips patches; inconclusive.
+
+**NB13a — Layer-by-Layer Constellation Analysis [NB7-aligned]:**
+32-panel behavior-colored galaxy grid (green=target, red=over_refusal). Inter-task silhouette: early=0.256, mid=0.341, late=0.309; peak L12=0.357. Fig 1b Dual Galaxy Map: over-refusal (red X) sits INSIDE task-colored clouds — not in global refusal space. Fig 1c: within-task target↔OR centroid gap << inter-task distance at all layers. Within-task behavioral silhouette weak (max 0.081 at L16–L19). Refusal directions converge 89% cross-task by L03.
+
+**NB13b — Constellation Centroid Map:**
+PCA of task+OR centroid trajectories across all 31 layers (PC1=28.4%, PC2=11.2%; only 39.6% variance). Inter-task L2 distances peak at L12 (mean=20.12), stable L08+. Behavior gap (target↔OR centroid, UMAP units): sentiment L12=1.492→L28=0.527; translate L12=2.453→L28=1.465. Gap SHRINKS late → refusal partially reabsorbed by L28, consistent with NB12 late-layer heads. Visual galaxy separation is partly a compressed projection artefact; silhouette scores in high-dim are the reliable metric.
+
+## Key Confirmed Findings
+1. Task constellations are real — silhouette 0.341 at mid-layers, peak L12 = 0.357
+2. Over-refusal cases sit WITHIN task clusters (Fig 1b NB13a) — behavioral separation is secondary to task identity
+3. Within-task target↔OR centroid distance << inter-task distance (Fig 1c NB13a)
+4. Arditi direction converges cross-task by L03 (89%) — orthogonal to constellation structure, not divergent
+5. Refusal crystallization weak (max silhouette 0.081) and narrow (L16–L19 only)
+6. Task-specific attention heads exist (80% unique) but in L27–L31, not early-mid
+
+## Key Failed Hypotheses
+- Task-specific refusal directions diverge: No — ~0.85 aligned globally
+- Staggered crystallization: No — 3-layer spread, all L16–L19
+- "Assistant" degeneration: No — P=0.000 at all tested α
+- Task-mismatch failure mode: Never manifests
+
+## NB14 Results (completed)
+- Sample counts: OR=48 (sentiment=20, translate=28), TARGET=169, REFUSED_HARMFUL=25
+- H1: cos(OR dir, Arditi dir) = 0.448 at L12 (vs harmful-refusal baseline 0.845–0.858). Substantially lower but NOT near-zero (~45° vs ~30° angle)
+- H2: Per-task OR direction alignment = 0.564 (vs 0.845 for harmful-refusal) — OR more task-specific; only 2 tasks valid
+- H3: Arditi suppresses harmful 65%→10% (+55pp) AND OR 55%→5% (+50pp) — similar magnitude on both
+- KEY REVISION: H3 does NOT support "Arditi blind to OR." Instead: Arditi is a BLUNT instrument that suppresses both. The geometric distinctness matters for SELECTIVITY (SafeConstellations can fix OR without touching harmful-refusal circuit), not raw suppression.
+- Paper narrative updated: "non-selective suppression" is the problem, not zero suppression
+
+## Paper (paper/acl_latex.tex)
+- Title: "Two Refusal Problems, Two Subspaces: Geometric Evidence That Representation Steering Cannot Fix Over-Refusal"
+- Venue target: EMNLP (ACL format)
+- Storyline: Two distinct geometric problems — harmful-refusal (global, early, 1D, Arditi handles it) vs. over-refusal (within-task, mid-layer, task-conditioned, Arditi blind to it)
+- Confirmed numbers in paper: silhouette 0.341/0.357, Arditi convergence 89% by L03, harmful suppression 55pp (65%→10%)
+- Placeholders remaining: NB14 H1 cosine table, H2 OR direction pairwise, H3 OR suppression rate, sample counts per mask, multi-dim probing, NB12c causal patching fix
+- §6 "Planned Experiments" lists all pending work with expected predictions
+
+## Files
+- analysis.md: Full results, verdicts, and current paper framing (authoritative)
+- analysis.txt: Older raw notes (superseded by analysis.md)
+- research_plan.md: Original notebook designs
