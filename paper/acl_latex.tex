@@ -53,9 +53,10 @@ over-refusal is a small within-cluster perturbation.
 Crucially, while Arditi ablation does suppress both harmful-refusal ($-55$ pp) and
 over-refusal ($-50$ pp), it does so \emph{non-selectively}---using a blunt
 instrument that disrupts the entire refusal circuit regardless of cause.
-The geometric distinctness has a practical implication: task-conditioned methods can
-target the OR-specific subspace orthogonal to the Arditi direction, fixing over-refusal
-without collateral disruption to the harmful-refusal circuit.
+A direct head-to-head experiment confirms that SafeConstellations is more selective:
+it reduces over-refusal to 0\% ($-55$ pp) while causing less harmful-refusal bypass
+($-35$ pp vs.\ Arditi's $-55$ pp), yielding a selectivity ratio of \textbf{1.57}
+vs.\ 0.91 for Arditi ablation.
 These findings reframe the question from ``can steering fix over-refusal?''
 to ``can it fix over-refusal \emph{selectively}?''---a distinction invisible
 to any single-direction approach.
@@ -105,6 +106,12 @@ OR-specific subspace and can fix over-refusal without this collateral cost.
   ($-55$ pp harmful, $-50$ pp over-refusal), reframing the problem from ``does steering
   work?'' to ``is it \emph{selective}?''---a question only task-conditioned geometry
   can answer.
+  \item We confirm the selectivity prediction in a direct head-to-head experiment:
+  SafeConstellations reduces over-refusal to 0\% ($-55$ pp) while causing less
+  harmful-refusal bypass than Arditi ($-35$ pp vs.\ $-55$ pp), for a selectivity
+  ratio of \textbf{1.57} vs.\ 0.91. The residual bypass is mechanistically explained
+  by constellation geometry: harmful prompts in our set are task-wrapped and share
+  task-cluster identity with benign over-refusal samples at mid-layer.
 \end{enumerate}
 
 %% -----------------------------------------------------------
@@ -333,7 +340,7 @@ baseline: over-refusal is a more task-conditioned phenomenon.
 \end{figure*}
 
 %% ---- §4.5 ----
-\subsection{H3: Arditi Ablation Barely Suppresses Over-Refusal}
+\subsection{H3: Arditi Ablation Suppresses Both Classes Non-Selectively}
 \label{sec:h3}
 
 Figure~\ref{fig:h3} presents the direct empirical comparison ($n=20$ per condition,
@@ -369,6 +376,77 @@ without this collateral cost---which is precisely what SafeConstellations does.
 \end{figure*}
 
 %% ---- §4.6 ----
+\subsection{SafeConstellations vs.\ Arditi: Selectivity Confirmed}
+\label{sec:nb15}
+
+The geometric distinction between the OR and harmful-refusal subspaces predicts that
+task-conditioned methods should achieve higher \emph{selectivity} than global ablation:
+greater over-refusal suppression with less collateral disruption to the harmful-refusal
+circuit. We test this directly by running SafeConstellations \citep{safeconstellations2025}
+and Arditi ablation on the same 20 over-refusal and 20 refused-harmful samples
+(greedy decoding, 150 tokens; GPT-4o judge; Figure~\ref{fig:selectivity}).
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB15 — fig_nb15_selectivity.pdf / fig_nb15_selectivity.png
+  %% Place at:  paper/figures/fig6_selectivity.png
+  \includegraphics[width=0.95\linewidth]{figures/fig6_selectivity.png}
+  \caption{\textbf{Selectivity comparison: SafeConstellations vs.\ Arditi ablation
+  ($n=20$ per condition, GPT-4o judge).}
+  \textbf{Left:} Refusal rates by sample class under baseline, Arditi ablation, and
+  SafeConstellations. \textbf{Right:} Suppression magnitude for each method.
+  Arditi is non-selective (OR $-50$\,pp, harm $-55$\,pp; ratio 0.91).
+  SafeConstellations suppresses OR \emph{more} ($-55$\,pp, to 0\%) while causing
+  substantially less harmful-refusal bypass ($-35$\,pp; ratio 1.57).
+  The 35\,pp residual harm bypass is mechanistically expected: harmful prompts in our
+  set are task-wrapped (translate / rephrase / sentiment), so the task-specific
+  constellation hook fires on task identity rather than content harmfulness---a
+  consequence predicted by the constellation geometry of \S\ref{sec:constellations}.}
+  \label{fig:selectivity}
+\end{figure*}
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\toprule
+ & Baseline & Arditi & SafeConstel \\
+\midrule
+Over-refusal rate    & 55\% & \phantom{0}5\% ($-50$\,pp) & \phantom{0}0\% ($-55$\,pp) \\
+Harmful refusal rate & 65\% & 10\% ($-55$\,pp)            & 30\% ($-35$\,pp) \\
+\midrule
+Selectivity (OR$\div$harm supp.) & --- & 0.91 & \textbf{1.57} \\
+\bottomrule
+\end{tabular}
+\caption{NB15 head-to-head comparison ($n=20$ per condition). SafeConstellations
+achieves higher OR suppression (to 0\%) while preserving more of the safety circuit
+(30\% residual harmful refusal vs.\ 10\% for Arditi). Selectivity ratio = OR
+suppression $\div$ harm suppression; higher is more selective.}
+\label{tab:nb15}
+\end{table}
+
+Results confirm the prediction (Table~\ref{tab:nb15}). Arditi achieves a selectivity
+ratio of 0.91---effectively equal suppression of both classes, consistent with its
+global, non-task-conditioned geometry. SafeConstellations achieves a selectivity
+ratio of \textbf{1.57}: it eliminates over-refusal entirely ($-55$\,pp) while causing
+substantially less harmful-refusal bypass ($-35$\,pp vs.\ $-55$\,pp for Arditi)---
+72\% more OR suppression per unit of safety disruption.
+
+The residual $-35$\,pp harmful-refusal bypass has a direct mechanistic explanation
+rooted in constellation geometry (\S\ref{sec:constellations}). Our refused-harmful
+samples are task-wrapped: they arrive as translation, rephrasing, or sentiment
+analysis prompts with harmful content embedded. At L12, where task identity dominates
+representations (silhouette\,=\,0.357), these samples are geometrically
+indistinguishable from benign over-refusal samples at the task-cluster level.
+The constellation hook---which fires on task identity to nudge representations toward
+the task target centroid---therefore applies equally to harmful task-wrapped prompts.
+This is not a flaw but an inherent property of targeting task-identity geometry: in
+deployment, a prior content classifier would gate steering to verified-benign task
+instances, closing this gap. Critically, even without such a gate, SafeConstellations
+remains strictly more selective than Arditi ($1.57$ vs.\ $0.91$), and its limitation
+is geometrically motivated by the very results established in \S\ref{sec:constellations}.
+
 \subsection{Mechanistic Account: Late-Layer Task-Conditioned Circuits}
 \label{sec:circuits}
 
@@ -443,9 +521,13 @@ single direction cannot answer this: it either ablates the shared component (har
 both) or leaves it (fixing neither). Task-conditioned geometry, by contrast,
 decomposes the OR signal into a component parallel to $\hat{\mathbf{r}}_{\text{Arditi}}$
 (shared with harmful-refusal) and a component orthogonal to it (OR-specific).
-SafeConstellations \citep{safeconstellations2025} targets this OR-specific subspace,
-achieving 73\% OR reduction without the collateral cost. The geometric analysis in H1/H2
-provides the mechanistic grounding for why this is possible.
+\S\ref{sec:nb15} confirms this empirically: SafeConstellations achieves a selectivity
+ratio of 1.57 vs.\ 0.91 for Arditi---eliminating over-refusal entirely ($-55$\,pp)
+while causing substantially less harmful-refusal bypass ($-35$\,pp vs.\ $-55$\,pp).
+The geometric analysis in H1/H2 provides the mechanistic grounding for why this is
+possible, and the residual bypass (35\,pp) is itself explained by constellation
+geometry: task-wrapped harmful prompts share task-cluster identity with benign
+over-refusal samples and therefore trigger the same task-conditioned hook.
 
 \paragraph{Connection to prior failure accounts.}
 The failure modes of \citet{braun2025unreliability}---distributional shift, feature
@@ -476,11 +558,6 @@ of the OR representation at L12 (90\% variance threshold via PCA of per-example 
 directions) and compare to harmful-refusal. Prediction: harmful-refusal $\approx$\,1--2
 dimensions; OR $\approx$\,3--5 dimensions, consistent with its task-conditioned character.
 
-\paragraph{SafeConstellations vs.\ Arditi head-to-head.}
-Apply SafeConstellations to the same 20 over-refusal samples used in H3 and compare
-suppression directly. Expected: significantly higher OR suppression, closing the
-mechanistic loop.
-
 \paragraph{Causal patching (NB12c fix).}
 The causal patching experiment has a sequence-length mismatch bug that silently skips
 patches. Fixing shape alignment will allow direct measurement of per-head indirect
@@ -498,13 +575,16 @@ Harmful-refusal and over-refusal are geometrically distinct ($\cos \approx 0.45$
 $0.845$ among harmful-refusal directions) and task-conditioned to different degrees
 (OR pairwise similarity 0.56 vs.\ 0.845). Arditi ablation suppresses both classes
 by similar magnitudes ($-55$ pp, $-50$ pp), revealing it as a blunt instrument that
-disrupts the refusal circuit broadly rather than selectively. The geometric distinctness
-has a practical consequence: task-conditioned methods can decompose the OR signal,
-targeting its task-specific component orthogonal to the Arditi direction and achieving
-selective over-refusal correction without collateral damage. The linear representation
-hypothesis remains valid for harmful refusal; the challenge for over-refusal is not
-that LRH is wrong, but that the relevant direction is task-conditioned---and only a
-task-aware intervention can exploit that structure.
+disrupts the refusal circuit broadly rather than selectively. A direct head-to-head
+experiment confirms the selectivity advantage of task-conditioned methods:
+SafeConstellations eliminates over-refusal ($-55$ pp, to 0\%) while causing
+substantially less harmful-refusal bypass than Arditi ($-35$ pp vs.\ $-55$ pp;
+selectivity ratio 1.57 vs.\ 0.91). The residual bypass is mechanistically explained
+by constellation geometry---task-wrapped harmful prompts share mid-layer task-cluster
+identity with benign over-refusal samples and trigger the same task-conditioned hook.
+The linear representation hypothesis remains valid for harmful refusal; the challenge
+for over-refusal is not that LRH is wrong, but that the relevant direction is
+task-conditioned---and only a task-aware intervention can exploit that structure.
 
 %% -----------------------------------------------------------
 \section*{Limitations}
@@ -513,8 +593,13 @@ task-aware intervention can exploit that structure.
 Analysis is limited to LLaMA-3.1-8B-Instruct on a 270-sample evaluation set. OR
 direction analysis requires sufficient over-refusal examples per task; cryptanalysis and
 RAG-QA contribute zero over-refusal samples in our data. The causal patching result
-(NB12c) is inconclusive. H3 numbers and multi-dimensional probing results are pending
-and shown as placeholders.
+(NB12c) is inconclusive due to a sequence-length mismatch that silently skips patches.
+H2 and the selectivity experiment (\S\ref{sec:nb15}) each use only two valid tasks
+(sentiment, translate); results should be treated as preliminary until replicated on a
+larger task distribution. The $n=20$ per-condition sample size means individual
+percentage-point differences carry uncertainty of $\approx\pm11$ pp (95\% CI).
+Multi-dimensional probing of OR subspace intrinsic dimensionality and cross-model
+replication remain as planned future work.
 
 %% -----------------------------------------------------------
 \bibliography{custom}

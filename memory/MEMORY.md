@@ -64,13 +64,22 @@ PCA of task+OR centroid trajectories across all 31 layers (PC1=28.4%, PC2=11.2%;
 - KEY REVISION: H3 does NOT support "Arditi blind to OR." Instead: Arditi is a BLUNT instrument that suppresses both. The geometric distinctness matters for SELECTIVITY (SafeConstellations can fix OR without touching harmful-refusal circuit), not raw suppression.
 - Paper narrative updated: "non-selective suppression" is the problem, not zero suppression
 
+## NB15 Results (completed)
+- SafeConstellations vs Arditi head-to-head (n=20 per condition, GPT-4o judge, seed=42)
+- OR: baseline 55% → Arditi 5% (−50pp) | SafeConstel 0% (−55pp)
+- Harm: baseline 65% → Arditi 10% (−55pp) | SafeConstel 30% (−35pp)
+- Selectivity score (OR-supp/harm-supp): Arditi 0.91, SafeConstellations 1.57
+- Mechanistic explanation for 35pp harm bypass: harmful samples are task-wrapped (translate/rephrase/sentiment), share constellation at L12 with OR samples → task hook fires on task identity, not content. Explained by NB13a finding.
+- Steering layers: [10,11,12,13,14], alpha=1.0, additive hook
+
 ## Paper (paper/acl_latex.tex)
-- Title: "Two Refusal Problems, Two Subspaces: Geometric Evidence That Representation Steering Cannot Fix Over-Refusal"
+- Title: "Over-Refusal and Subspaces: A Geometrical Analysis of Task-Conditioned Refusal in Aligned LLMs"
 - Venue target: EMNLP (ACL format)
-- Storyline: Two distinct geometric problems — harmful-refusal (global, early, 1D, Arditi handles it) vs. over-refusal (within-task, mid-layer, task-conditioned, Arditi blind to it)
-- Confirmed numbers in paper: silhouette 0.341/0.357, Arditi convergence 89% by L03, harmful suppression 55pp (65%→10%)
-- Placeholders remaining: NB14 H1 cosine table, H2 OR direction pairwise, H3 OR suppression rate, sample counts per mask, multi-dim probing, NB12c causal patching fix
-- §6 "Planned Experiments" lists all pending work with expected predictions
+- Storyline: Harmful-refusal (global, early, 1D, Arditi) vs. over-refusal (within-task, mid-layer, task-conditioned). Arditi is blunt (0.91 selectivity). SafeConstellations is more selective (1.57).
+- 6 figures: fig1_galaxy_map, fig3_silhouette_gap, fig2_cosine_h1, fig4_h2_or_tasks, fig5_h3_ablation, fig6_selectivity (NB15 → fig_nb15_selectivity.png)
+- New §4.6: SafeConstellations vs Arditi (NB15) with Table 3 and Fig 6
+- §6 Planned Experiments remaining: multi-dim probing, NB12c fix, cross-model replication
+- No placeholders remaining in main body; limitations section updated
 
 ## Files
 - analysis.md: Full results, verdicts, and current paper framing (authoritative)
