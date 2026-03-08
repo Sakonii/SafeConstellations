@@ -72,14 +72,24 @@ PCA of task+OR centroid trajectories across all 31 layers (PC1=28.4%, PC2=11.2%;
 - Mechanistic explanation for 35pp harm bypass: harmful samples are task-wrapped (translate/rephrase/sentiment), share constellation at L12 with OR samples → task hook fires on task identity, not content. Explained by NB13a finding.
 - Steering layers: [10,11,12,13,14], alpha=1.0, additive hook
 
+## NB16 Results (completed)
+- Core question: Is the OR subspace higher-dimensional than the harmful-refusal subspace?
+- Sample counts: OR=48 (sentiment=20, translate=28, crypto/rag=0), HR=25
+- At L12: HR PC1=30.3%, needs 8 components for 80%; OR PC1=24.5%, needs 11 components for 80%
+- Task PCA (fig8_nb16_task_pca): OR samples separate CLEANLY by task in PC1-PC2 — translate clusters at +PC1, sentiment at −PC1. Principal axes of OR space are task-identity directions, not a shared refusal axis.
+- Layer sweep: Pattern holds L7–L30 consistently (HR needs 7–8, OR needs 10–11). Early layers L1–L4 REVERSE (OR more concentrated) — before task constellations form.
+- KEY DISTINCTION introduced: causal 1-D-ness (ablating 1 direction = 100% ASR) ≠ representational 1-D-ness (PC1 = 30% for HR). HR is causally 1-D, OR is neither.
+- OR needs ~38% more components than HR → consistent with task-conditioned, multi-directional structure
+
 ## Paper (paper/acl_latex.tex)
 - Title: "Over-Refusal and Subspaces: A Geometrical Analysis of Task-Conditioned Refusal in Aligned LLMs"
 - Venue target: EMNLP (ACL format)
-- Storyline: Harmful-refusal (global, early, 1D, Arditi) vs. over-refusal (within-task, mid-layer, task-conditioned). Arditi is blunt (0.91 selectivity). SafeConstellations is more selective (1.57).
-- 6 figures: fig1_galaxy_map, fig3_silhouette_gap, fig2_cosine_h1, fig4_h2_or_tasks, fig5_h3_ablation, fig6_selectivity (NB15 → fig_nb15_selectivity.png)
-- New §4.6: SafeConstellations vs Arditi (NB15) with Table 3 and Fig 6
-- §6 Planned Experiments remaining: multi-dim probing, NB12c fix, cross-model replication
-- No placeholders remaining in main body; limitations section updated
+- Storyline: Harmful-refusal (global, early, causally-1D, Arditi) vs. over-refusal (within-task, mid-layer, task-conditioned, multi-dimensional). Arditi is blunt (0.91 selectivity). SafeConstellations is more selective (1.57).
+- 8 figures in main body: fig1_galaxy_map, fig3_silhouette_gap, fig2_cosine_h1, fig4_h2_or_tasks, fig7_nb16_variance, fig8_nb16_task_pca, fig5_h3_ablation, fig6_selectivity
+- Layer sweep (fig_nb16_layer_sweep) in Appendix C
+- Section structure: §4.1 Constellations | §4.2 Arditi replication | §4.3 H1 cosine | §4.4 H2 per-task OR | §4.5 H3 dimensionality (NB16) | §4.6 H4 Arditi non-selective | §4.7 SafeConstellations vs Arditi | §4.8 Circuits
+- §5 Planned Experiments remaining: NB12c fix, cross-model replication (multi-dim probing DONE → NB16)
+- Discussion updated: "Scope of LRH" now distinguishes causal vs representational 1-D-ness; "unified two-subspace account" includes dimensionality beat at step 2
 
 ## Files
 - analysis.md: Full results, verdicts, and current paper framing (authoritative)

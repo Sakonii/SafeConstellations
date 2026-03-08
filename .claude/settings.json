@@ -8,6 +8,9 @@
       "WebSearch",
       "Bash(python3 -c \":*)",
       "Read(//Users/sakonii/.claude/**)"
+    ],
+    "additionalDirectories": [
+      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail"
     ]
   }
 }
