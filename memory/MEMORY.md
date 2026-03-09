@@ -87,11 +87,28 @@ PCA of task+OR centroid trajectories across all 31 layers (PC1=28.4%, PC2=11.2%;
 - Storyline: Harmful-refusal (global, early, causally-1D, Arditi) vs. over-refusal (within-task, mid-layer, task-conditioned, multi-dimensional). Arditi is blunt (0.91 selectivity). SafeConstellations is more selective (1.57).
 - 8 figures in main body: fig1_galaxy_map, fig3_silhouette_gap, fig2_cosine_h1, fig4_h2_or_tasks, fig7_nb16_variance, fig8_nb16_task_pca, fig5_h3_ablation, fig6_selectivity
 - Layer sweep (fig_nb16_layer_sweep) in Appendix C
-- Section structure: §4.1 Constellations | §4.2 Arditi replication | §4.3 H1 cosine | §4.4 H2 per-task OR | §4.5 H3 dimensionality (NB16) | §4.6 H4 Arditi non-selective | §4.7 SafeConstellations vs Arditi | §4.8 Circuits
-- §5 Planned Experiments remaining: NB12c fix, cross-model replication (multi-dim probing DONE → NB16)
-- Discussion updated: "Scope of LRH" now distinguishes causal vs representational 1-D-ness; "unified two-subspace account" includes dimensionality beat at step 2
+- Section structure: §4.1 Constellations | §4.2 Arditi replication | §4.3 H1 cosine | §4.4 H2 per-task OR | §4.5 H3 dimensionality (NB16) | §4.6 Functional Probing (NB17) | §4.7 H4 Arditi non-selective | §4.8 SafeConstellations vs Arditi | §4.9 Circuits
+- §5 Planned Experiments remaining: NB12c fix, targeted head ablation (NB19), cross-model replication
+- Discussion updated: "Scope of LRH" now distinguishes causal vs representational 1-D-ness; "unified two-subspace account" includes dimensionality (step 2) and probing timeline
+
+## NB17 Results (completed)
+- Three probes: task (5-class n=270), refusal-behaviour (OR vs TARGET n=217), refusal-type (OR vs REFUSED_HARMFUL n=73)
+- Task probe: L1=97%, peaks L6=99.6%. Refusal-behaviour probe: L1=86%, peaks L14=93.6%.
+- Both probes activate at L1 — threshold gap = 0 (unexpected). Temporal gap = peak ordering: task saturates L6, refusal peaks L14 (8-layer gap).
+- **KEY FINDING: Refusal-type probe = 100% from L1 throughout. OR and harmful-refused perfectly separable in representation space from the very first transformer layer.**
+- Perfect separability directly motivates SafeConstellations selectivity.
+- Paper: §4.6 "Functional Probing Evidence". Figure fig9_nb17_probes.png = 3-panel probe_all3. Copy outputs/fig_nb17_probe_all3.png → paper/figures/fig9_nb17_probes.png
+
+## Phase 2 Mechanistic Experiments (remaining — see research_plan.md §"Phase 2")
+Based on survey arXiv:2601.14004 ("Locate, Steer, and Improve"). Priority order:
+1. ~~**NB17** — Linear probing~~ **DONE** (see NB17 Results above)
+2. **NB18** — Improved logit lens tracking refusal tokens per group — No GPU
+3. **NB12c fix** — Causal tracing (Meng-style), fix shape-mismatch bug — GPU
+4. **NB19** — Targeted head ablation (task-specific vs shared vs Arditi) — GPU
+5. **NB20** — OR-specific subspace steering (project out Arditi component) — GPU
+6. **NB21** — SAE feature analysis via LlamaScope — GPU, exploratory
 
 ## Files
 - analysis.md: Full results, verdicts, and current paper framing (authoritative)
 - analysis.txt: Older raw notes (superseded by analysis.md)
-- research_plan.md: Original notebook designs
+- research_plan.md: Original NB designs (NB7–12) + Phase 2 mechanistic plan (NB17–22)

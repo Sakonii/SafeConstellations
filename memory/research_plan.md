@@ -386,3 +386,153 @@ Following the brainstorming idea "locate neurons":
 - **10** — Failure Mode Taxonomy
 - **11** — Vocabulary Projection (Logit Lens)
 - **12** — Task-Conditioned Attention Circuits
+
+---
+
+## Phase 2: Deeper Mechanistic Analysis (post-NB16)
+
+Grounded in the survey "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in LLMs" (arXiv:2601.14004). The survey distinguishes **correlational evidence** (magnitude/gradient-based) from **causal evidence** (patching/ablation). Current work (NB12a/b) is correlational; Phase 2 closes that gap.
+
+**Current state of evidence:**
+- Geometric: strong (NB13a/b, NB14, NB16)
+- Behavioral: strong (NB15 selectivity)
+- Mechanistic (correlational): moderate (NB12a/b heads)
+- Mechanistic (causal): weak — NB12c is broken
+
+---
+
+### NB17 — Linear Probing Dual Curves [No GPU]
+
+**Technique:** Layer-wise linear probing (survey §3.4)
+**Core question:** Does task identity become decodable earlier in the forward pass than refusal behavior?
+
+Train two sets of logistic probes at every layer using existing embeddings:
+1. **Task probe** — 5-class classifier: which of the 5 tasks is this sample?
+2. **Refusal probe** — binary classifier: OR vs TARGET (within benign-task samples only)
+
+Plot both accuracy curves across layers 0–31 on the same axes.
+
+**Expected finding:** Task probe reaches high accuracy (>90%) by L5–L8 (before constellations peak at L12); refusal probe only becomes informative at L12–L16. This temporal gap directly grounds the paper's mechanistic claim: task-identity encoding *precedes* refusal-signal encoding, which is why task-conditioned steering (applied at L10–L14) works but global ablation (applied at L3, before task structure forms) is non-selective.
+
+**Paper value:** Functional counterpart to the representational evidence in NB13a/NB16. Converts "geometry" into "decodability" — a cleaner claim for reviewers skeptical of PCA-based arguments.
+
+**Output figures:**
+- `fig_nb17_probe_curves.png` — dual accuracy curves (task vs refusal) across layers, with constellation-peak and Arditi-convergence verticals marked
+
+---
+
+### NB18 — Improved Logit Lens: Refusal Token Tracking [No GPU]
+
+**Technique:** Vocabulary projection / Logit Lens (survey §3.5)
+**Core question:** At which layer does the model start predicting a refusal token for OR vs REFUSED_HARMFUL samples? Does OR commit refusal later?
+
+NB11 tracked `P("assistant")` which was uninformative. The correct targets:
+- Track top-1 predicted token at each layer for 3 groups: OR, TARGET, REFUSED_HARMFUL
+- Track `P("I")`, `P("cannot")`, `P("sorry")` explicitly as refusal-token proxies
+- Compare the layer at which OR samples vs REFUSED_HARMFUL samples first show elevated refusal-token probability
+
+Uses existing embeddings + model's unembedding matrix (no generation required).
+
+**Expected finding:** REFUSED_HARMFUL samples show elevated refusal-token probability earlier (consistent with early-layer Arditi convergence at L3); OR samples show it later (consistent with late-layer task-specific heads at L27–L31). This would be the most direct layer-level evidence for the two-circuit story.
+
+**Output figures:**
+- `fig_nb18_logit_lens.png` — per-group refusal-token probability across layers
+
+---
+
+### NB12c Fix — Causal Tracing, Meng-style [GPU]
+
+**Technique:** Activation patching / Causal Tracing (survey §3.2; Meng et al. ROME-style)
+**Core question:** Which (layer, token_position) stores the OR signal?
+
+Fix the shape-mismatch bug by switching to the canonical causal tracing setup:
+1. Take an OR sample (benign task, gets refused)
+2. Corrupt the input: replace content tokens with Gaussian noise, keep task-marker tokens intact
+3. Systematically restore the clean hidden state at each `(layer, token_position)` pair
+4. Measure: does restoring this state recover the probability of answering (vs. refusing)?
+5. Output: heat map of recovery score over `(layer × token_position)`
+
+**Expected finding:** Recovery peaks at mid-layer (L8–L16) for task-marker positions — i.e., the OR signal is stored in the task-identity geometry, not in an early global direction. Contrast with REFUSED_HARMFUL samples where recovery should peak at early layers (L1–L5) for content positions.
+
+**Paper value:** Upgrades the circuit claim from "attention attribution is correlated" to "causal patching confirms necessity." Closes the open wound in the paper.
+
+---
+
+### NB19 — Targeted Head Ablation: Surgical vs. Blunt [GPU]
+
+**Technique:** Ablation / Knockout (survey §3.2)
+**Core question:** Are the task-specific refusal heads (identified in NB12) causally necessary and sufficient for OR, but NOT for harmful-refusal?
+
+Three ablation conditions on the same generation setup as NB15 (n=20 per class, GPT-4o judge):
+1. **Ablate task-specific heads only** — zero-out L30.H3+L31.H13 (translate) or L31.H30+L31.H11 (sentiment) depending on sample task
+2. **Ablate shared head only** — zero-out L31.H21 for all samples
+3. **Full Arditi ablation** (existing baseline)
+
+Compare selectivity ratios:
+- Prediction: ablating task-specific heads reduces OR but not REFUSED_HARMFUL → selectivity >> 1
+- Ablating shared head reduces both equally → selectivity ≈ 1 (same as Arditi)
+
+**Paper value:** The cleanest possible mechanistic demonstration of the selectivity argument. "Surgical" head ablation should match or exceed SafeConstellations' selectivity (1.57) while Arditi (blunt) stays at 0.91.
+
+---
+
+### NB20 — OR-Specific Subspace Steering [GPU]
+
+**Technique:** Vector arithmetic in orthogonal subspace (survey §4.3)
+**Core question:** Does steering with only the OR-specific component (residual after projecting out Arditi direction) achieve higher selectivity than full Arditi ablation?
+
+Compute:
+```
+v_OR = mean(OR_emb) - mean(TARGET_emb)  # global OR direction
+v_OR_specific = v_OR - (v_OR · r_Arditi) * r_Arditi  # project out Arditi component
+```
+
+Apply `v_OR_specific` as an additive steering vector (not ablation) at layers L10–L14.
+
+Compare selectivity ratios across 4 methods: Arditi, SafeConstellations, OR-specific subspace steering, task-specific head ablation (NB19).
+
+**Expected finding:** OR-specific subspace steering > Arditi (1.57+) because it avoids the shared harmful-refusal component. Potentially comparable to SafeConstellations, providing the algebraic grounding for why SafeConstellations works.
+
+---
+
+### NB21 — SAE Feature Analysis [GPU, exploratory]
+
+**Technique:** SAE feature probing (survey §3.4; LlamaScope)
+**Core question:** What monosemantic features activate differentially for OR vs TARGET vs REFUSED_HARMFUL?
+
+LlamaScope pre-trained SAEs exist for LLaMA-3.1-8B at multiple layers. For OR samples at L12:
+- Decompose residual stream into sparse features via SAE encoder
+- Rank features by mean activation difference: OR vs TARGET and OR vs REFUSED_HARMFUL
+- Inspect top differentially-activating features: are they "task content" features (expected) or "harmfulness" features (unexpected)?
+
+**Paper value:** Most interpretable result possible. If top features are task-identity features (e.g., "translation context", "sentiment analysis"), this directly corroborates the task-conditioned account at a feature-level granularity beyond PCA.
+
+---
+
+### NB22 — FFN Neuron Analysis [No GPU]
+
+**Technique:** Dynamic component ranking / magnitude analysis (survey §3.1)
+**Core question:** Which FFN neurons fire differentially for OR vs REFUSED_HARMFUL?
+
+Using existing embeddings + FFN intermediate activations (if extractable from stored .pt files, else needs model):
+- For each FFN layer, compute mean activation per neuron for OR, TARGET, REFUSED_HARMFUL groups
+- Rank neurons by |mean_OR - mean_REFUSED_HARMFUL|
+- Check whether top neurons cluster in mid-layers (L8–L16, constellation zone) or late layers (L27–L31, circuit zone)
+
+**Paper value:** Lower priority; provides supporting detail. Useful if SAE analysis (NB21) is not feasible.
+
+---
+
+## Phase 2 Priority & Sequencing
+
+| NB | GPU? | Impact | Depends on | Status |
+|----|------|--------|-----------|--------|
+| NB17 | No | ★★★ | Existing embeddings | Ready to run |
+| NB18 | No | ★★ | Existing embeddings + unembedding matrix | Ready to run |
+| NB12c fix | Yes | ★★★ | Model on GPU | Bug fix needed |
+| NB19 | Yes | ★★★ | Model + NB12 head list | Ready after NB12c |
+| NB20 | Yes | ★★★ | NB14 Arditi direction | Ready to run |
+| NB21 | Yes | ★★ | LlamaScope SAEs | Exploratory |
+| NB22 | No | ★ | Existing embeddings | Low priority |
+
+**Recommended order:** NB17 → NB18 → NB12c fix → NB19 → NB20 → NB21 (optional)

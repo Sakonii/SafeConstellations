@@ -7,7 +7,8 @@
       "Bash(python3:*)",
       "WebSearch",
       "Bash(python3 -c \":*)",
-      "Read(//Users/sakonii/.claude/**)"
+      "Read(//Users/sakonii/.claude/**)",
+      "WebFetch(domain:arxiv.org)"
     ],
     "additionalDirectories": [
       "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail"

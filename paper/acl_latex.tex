@@ -414,6 +414,72 @@ absorbed into task-identity geometry and briefly appears more concentrated.
 \end{figure}
 
 %% ---- §4.6 ----
+\subsection{Functional Probing Evidence: Task and Refusal Separability}
+\label{sec:probing}
+
+The PCA results of \S\ref{sec:h3_dim} established that the OR subspace is geometrically
+higher-dimensional and task-structured. We complement this with a functional test:
+can a linear probe decode (i) task identity, (ii) refusal behaviour (OR vs.\ TARGET),
+and (iii) refusal \emph{type} (OR vs.\ REFUSED\_HARMFUL) from residual-stream
+activations, and at which layers?
+
+\paragraph{Setup.}
+We train three logistic-regression probes at each of the 31 layers via
+5-fold stratified cross-validation with balanced accuracy as the metric.
+\textbf{Task probe} (5-class, $n=270$): predict task identity.
+\textbf{Refusal-behaviour probe} (binary, $n=217$): OR ($n=48$) vs.\ TARGET ($n=169$) within
+benign-task samples.
+\textbf{Refusal-type probe} (binary, $n=73$): OR ($n=48$) vs.\ REFUSED\_HARMFUL ($n=25$)---two
+refused populations separated by cause, not content.
+
+\paragraph{Results (Figure~\ref{fig:nb17_probes}).}
+
+\begin{enumerate}
+  \item \textbf{Task identity encodes immediately and saturates early.}
+  The task probe reaches 97\% at L1 (vs.\ 20\% chance) and saturates at
+  \textbf{99.6\%} by L6---well before the constellation silhouette peaks at L12.
+
+  \item \textbf{Refusal behaviour encodes early but peaks later.}
+  The refusal-behaviour probe activates at L1 (86\%), but continues to improve,
+  peaking at \textbf{93.6\%} at L14---8 layers after task-probe saturation and
+  2 layers after the constellation peak (L12). Task identity is set up first;
+  within-task refusal behaviour consolidates after.
+
+  \item \textbf{OR and harmful-refusal are perfectly separable throughout.}
+  The refusal-type probe achieves \textbf{100\%} balanced accuracy from L1 onward
+  and never drops below chance. Even at the first transformer layer, the model's
+  representations \emph{perfectly} distinguish erroneous over-refusal from legitimate
+  harmful-refusal. The two refusal causes occupy non-overlapping regions of
+  representation space at every layer.
+\end{enumerate}
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB17 — fig_nb17_probe_all3.png
+  %% Copy to: paper/figures/fig9_nb17_probes.png
+  \includegraphics[width=0.95\linewidth]{figures/fig9_nb17_probes.png}
+  \caption{\textbf{Linear probe accuracy across layers (NB17).}
+  \textbf{(a)} Task-identity probe (5-class, $n=270$): reaches 97\% at L1 and
+  saturates at 99.6\% by L6.
+  \textbf{(b)} Refusal-behaviour probe (OR vs.\ TARGET, $n=217$): activates at L1
+  (86\%) but peaks at L14 (93.6\%)---2 layers after the constellation peak (L12),
+  consistent with over-refusal consolidating \emph{within} established task structure.
+  \textbf{(c)} Refusal-type probe (OR vs.\ REFUSED\_HARMFUL, $n=73$): 100\% balanced
+  accuracy from L1 onward---over-refusal and harmful-refusal occupy non-overlapping
+  representation subspaces throughout the entire network.
+  Dashed verticals: Arditi convergence (L3) and constellation peak (L12).}
+  \label{fig:nb17_probes}
+\end{figure*}
+
+The 100\% refusal-type accuracy is geometrically consistent with the two-subspace account:
+if OR and harmful-refusal live in distinct subspaces ($\cos \approx 0.45$,
+Figure~\ref{fig:cosine}), a linear probe separating them will trivially succeed even at
+early layers. Crucially, this finding directly motivates selectivity: if the two refusal
+types are representationally distinct throughout the network, a method that targets
+task-conditioned geometry should suppress one without disrupting the other---confirmed in
+\S\ref{sec:nb15}.
+
+%% ---- §4.7 ----
 \subsection{H4: Arditi Ablation Suppresses Both Classes Non-Selectively}
 \label{sec:h3}
 
@@ -579,6 +645,8 @@ Across layers, refusal in aligned LLMs involves two distinct geometric structure
   ($\cos \approx 0.45$). The OR subspace is higher-dimensional (11 components for 80\%
   variance vs.\ 8 for harmful-refusal at L12), and its principal axes are task-identity
   directions---confirmed by clean task-separation in OR PC space (Figure~\ref{fig:nb16_task_pca}).
+  The refusal-behaviour probe peaks at L14 (93.6\%), 8 layers after task saturation (L6),
+  providing functional confirmation of this mid-layer consolidation timeline.
   \item \textbf{Late (L20--L31):} Task-specific attention heads (L27--L31, 80\% unique
   per task) commit the final refusal decision. The within-task behavioral gap shrinks
   here, consistent with late heads selectively reading task-conditioned signals.
@@ -642,6 +710,11 @@ the 0.564 pairwise cosine should be treated as preliminary.
 The causal patching experiment has a sequence-length mismatch bug that silently skips
 patches. Fixing shape alignment will allow direct measurement of per-head indirect
 effect, providing component-level evidence for the task-specific head claim.
+
+\paragraph{Targeted head ablation.}
+Ablating the task-specific heads identified in \S\ref{sec:circuits} (L27--L31) selectively
+should suppress OR without disrupting harmful-refusal handling, providing a circuit-level
+complement to the subspace-level selectivity result in \S\ref{sec:nb15}.
 
 \paragraph{Cross-model replication.}
 Replicate constellation geometry and OR direction analysis on Qwen1.5-7B-Chat.
