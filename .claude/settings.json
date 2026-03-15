@@ -8,10 +8,20 @@
       "WebSearch",
       "Bash(python3 -c \":*)",
       "Read(//Users/sakonii/.claude/**)",
-      "WebFetch(domain:arxiv.org)"
+      "WebFetch(domain:arxiv.org)",
+      "Bash(cat /Users/sakonii/Files/init/major/SteeringFail/12_[Analysis]_Task_Conditioned_Attention_Circuits.ipynb)",
+      "Bash(ls -lah \"/Users/sakonii/Files/init/major/SteeringFail/\"13*ipynb)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(ls -la /Users/sakonii/Files/init/major/SteeringFail/*.ipynb)",
+      "Bash(ls -lh /private/tmp/claude-501/-Users-sakonii-Files-init-major-SteeringFail/tasks/*.output)",
+      "Bash(ls /Users/sakonii/Files/init/major/SteeringFail/*.ipynb)",
+      "Bash(find /Users/sakonii/Files/init/major/SteeringFail -name *.csv -o -name *.pt -o -name *.pkl)",
+      "Bash(ls -lh /Users/sakonii/Files/init/major/SteeringFail/paper/figures/fig_nb7_*.png)"
     ],
     "additionalDirectories": [
-      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail"
+      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail",
+      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail/memory"
     ]
   }
 }

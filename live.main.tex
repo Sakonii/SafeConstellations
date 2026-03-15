@@ -1,0 +1,1065 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{placeins}
+
+%% Utility macros
+\newcommand{\ph}[1]{\textcolor{gray}{[#1]}}        % placeholder value
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\OR}{\textsc{or}}                        % over-refusal shorthand
+
+
+\title{Over-Refusal and Representation Subspaces:\\
+A Geometrical Analysis of Task-Conditioned Refusal in Aligned LLMs}
+
+\author{
+  Utsav Maskey \quad
+  Mark Dras \quad
+  Usman Naseem \\
+  Macquarie University \\
+  \texttt{\{utsav.maskey,mark.dras,usman.naseem\}@mq.edu.au}
+}
+
+\begin{document}
+
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{placeins}
+
+%% Utility macros
+\newcommand{\ph}[1]{\textcolor{gray}{[#1]}}        % placeholder value
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\OR}{\textsc{or}}                        % over-refusal shorthand
+
+
+\title{Over-Refusal and Representation Subspaces:\\
+A Geometrical Analysis of Task-Conditioned Refusal in Aligned LLMs}
+
+\author{
+  Utsav Maskey \quad
+  Mark Dras \quad
+  Usman Naseem \\
+  Macquarie University \\
+  \texttt{\{utsav.maskey,mark.dras,usman.naseem\}@mq.edu.au}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+
+Representation steering---ablating a direction from a model's residual stream---works
+strikingly well for harmful refusals: a single global direction suppresses them with
+80\% attack success rate.
+But applied to \emph{over-refusal}---safe instructions incorrectly refused because
+they superficially resemble harmful requests---the same approach is non-selective:
+it disrupts the entire refusal mechanism rather than targeting over-refusal specifically. In this work, we provide a geometric account of why this happens.
+On LLaMA-3.1-8B-Instruct, the \emph{harmful-refusal direction} and the
+\emph{over-refusal direction} are two distinct extractions targeting two distinct
+sample populations.
+They are similar enough to cause collateral suppression when one is ablated,
+but different enough that this suppression is non-selective.
+Over-refusal lives inside task-identity clusters and has no single global axis to target---
+its directions vary across tasks, its subspace is higher-dimensional, and it is perfectly
+separable from harmful-refusal throughout the network via a linear probe from the first layer.
+A task-conditioned method (SafeConstellations) that operates within this within-task
+structure achieves genuine selectivity---eliminating over-refusal with far less collateral
+safety disruption.
+The right question is not whether steering can suppress over-refusal, but whether it
+can do so \emph{selectively}.
+
+\end{abstract}
+
+%% -----------------------------------------------------------
+\section{Introduction}
+%% -----------------------------------------------------------
+
+\paragraph{Steering for refusal control.}
+Safety-aligned LLMs are trained to refuse harmful requests, but controlling this
+behaviour at inference time---without retraining---is hard.
+Representation steering offers a practical solution: extract a ``refusal direction''
+from the residual stream via difference-in-means (DIM) over harmful/harmless pairs,
+then ablate it to suppress refusals \citep{arditi2024refusal,zou2023representation}.
+For harmful requests, this works strikingly well: ablating the global DIM direction
+achieves 80\% attack success rate (ASR) on our evaluation set (68\% harmful refusal
+$\to$ 20\% after ablation) with no side-effects on harmless inputs.
+The success rests on a specific property: harmful-refusal directions are nearly
+identical across all tasks (cosine alignment 0.835--0.858), making a single global
+vector a sufficient intervention target.
+
+\paragraph{The over-refusal problem.}
+Safety-aligned models also refuse \emph{safe} instructions framed in sensitive
+contexts \citep{safeconstellations2025}---a translation task involving historical
+violence, a sentiment analysis request on inflammatory text, a generic cryptographic
+question.
+This \emph{over-refusal} carries a real usability cost, especially for professional
+and research applications.
+The obvious fix is steering: if the model refuses when it should not, ablate the
+harmful-refusal direction.
+In practice, however, this fails to be \emph{selective} \citep{wangf2025refusal}:
+it suppresses harmful-refusal more than over-refusal, and disrupts the safety circuit
+as a side-effect.
+
+\paragraph{Our central claim.}
+This failure is not accidental---it follows directly from the geometry of representation
+space.
+Figures~\ref{fig:2d_key} and~\ref{fig:galaxy} show the key observation: at the
+mid-layer where representations are richest, the dominant structure is \emph{task identity},
+not refusal class.
+Over-refusal samples do not occupy a separate ``refusal zone''---they sit \emph{inside}
+their task-coloured clouds, organised around task-identity axes, with per-task
+over-refusal directions that diverge across tasks (Figure~\ref{fig:2d_key}).
+This contrasts directly with harmful-refusal directions, which converge to a single
+task-agnostic axis (Figure~\ref{fig:nb9_repr_space}).
+The two phenomena are two distinct extractions from two distinct sample populations:
+the former is universal; the latter is task-conditioned, higher-dimensional, and
+varies across tasks.
+Ablating the harmful-refusal direction cannot selectively fix over-refusal, because it
+was not extracted for that population---the partial geometric overlap produces collateral
+suppression, not targeted correction.
+
+A method that targets the \emph{within-task} subspace instead can.
+We validate this: SafeConstellations \citep{safeconstellations2025} eliminates
+over-refusal entirely while causing substantially less collateral safety disruption
+than global ablation (selectivity ratio 1.57 vs.\ 0.67).
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item We replicate Arditi ablation and document where it succeeds and where it fails.
+  The harmful-refusal direction is universal across tasks, which is exactly why a global
+  intervention works for harmful content.
+  Applied to over-refusal, it is non-selective---suppressing harmful refusals more than
+  over-refusal---exposing it as a blunt instrument.
+
+  \item We provide a geometric account of why over-refusal is different.
+  Mid-layer representations are dominated by task identity; over-refusal sits inside
+  task clusters rather than in a shared refusal zone.
+  The over-refusal direction is task-conditioned, task-specific, and substantially
+  misaligned with the harmful-refusal direction---its subspace is higher-dimensional
+  and its principal axes are task-identity directions.
+
+  \item We confirm with functional probing that task identity encodes earlier and more
+  sharply than refusal behaviour, and that over-refusal and harmful-refusal are perfectly
+  separable by a linear probe from the very first layer ($p<0.001$).
+  Causal patching further shows that refusal commitment is distributed: no single head
+  is individually sufficient to flip the decision.
+
+  \item We validate the selectivity prediction empirically: a task-conditioned method
+  (SafeConstellations) eliminates over-refusal entirely while causing substantially less
+  collateral safety disruption, achieving a selectivity ratio of \textbf{1.57} vs.\
+  0.67 for Arditi ablation.
+  The residual bypass is geometrically predicted by constellation structure.
+\end{enumerate}
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Background}
+%% -----------------------------------------------------------
+\label{sec:background}
+
+\paragraph{Refusal localization.}
+\citet{arditi2024refusal} show that a DIM direction over harmful/harmless pairs is
+necessary and sufficient for refusal across 13 models. \citet{zhao2025refusal} extend
+this to reasoning models. Component-level analyses identify specific attention heads
+\citep{zhou2025safety} and neurons \citep{zhao2025d} as primary circuit elements.
+SAE-based decompositions \citep{templeton2024scaling,goyal2025detox} provide a
+feature-level picture.
+
+\paragraph{Steering limitations.}
+\citet{braun2025unreliability} identify three failure conditions: high magnitude,
+distributional shift, and feature entanglement. \citet{hedstrom2025steer} show that
+abstaining from steering is optimal when the model lacks stable representations.
+\citet{wang2025adaptive} find that a single truthfulness vector fails across
+hallucination categories. These failure modes are consistent with, but do not
+explain, the specific geometric structure we document for over-refusal.
+
+\paragraph{Task-conditioned representations.}
+\citet{safeconstellations2025} show that LLMs encode task identity through stable
+``constellation'' trajectory patterns in activation space, and that task-conditioned
+steering reduces over-refusal by up to 73\%. Our paper provides the mechanistic
+explanation for why this works while global ablation fails.
+
+\paragraph{Non-linear representations.}
+\citet{engels2025nonlinear} show that some concepts are encoded as manifolds, not
+single directions. We find a related limitation for over-refusal: its within-task
+direction is not a stable global direction but is task-specific and geometrically
+distinct from the harmful-refusal axis.
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Setup}
+%% -----------------------------------------------------------
+\label{sec:setup}
+
+\paragraph{Model and data.}
+We study \textbf{LLaMA-3.1-8B-Instruct} (32 layers, 4096-dim). Our evaluation set
+has 270 samples across five tasks: sentiment analysis, translation, cryptanalysis,
+RAG-style QA, and rephrasing. Each sample is labeled with a \emph{response label}
+(\texttt{cautious / not\_harmful / harmful}) and a \emph{refusal class}
+(\texttt{direct\_answer / direct\_refusal / indirect\_refusal}) via a GPT-4o
+judge using the ICML (2025) three-class prompt \citep{safeconstellations2025}.
+
+\paragraph{Behavioral groups.}
+Following \citet{safeconstellations2025}, groups are defined by intended task, not
+surface label, because cryptanalysis and RAG-QA samples are labeled \texttt{harmful\_instruction}
+in text-type fields even when benign---any refusal on these tasks is over-refusal:
+\begin{align*}
+  \text{OVER\_REFUSAL} &= \text{refusal} \cap \text{benign task} \\
+  \text{TARGET} &= (\texttt{cautious} \cup \texttt{not\_harmful}) \cap \texttt{direct\_answer} \\
+  \text{REFUSED\_HARMFUL} &= \text{refusal} \cap \texttt{harmful\_label}
+\end{align*}
+where ``benign task'' $\in$ \{sentiment, translate, cryptanalysis, rag\_qa\}.
+
+\paragraph{Embeddings.}
+Activations are extracted at the input-normed residual stream of each layer
+(\texttt{layer\_\{l\}\_input\_norm}). Silhouette scores are computed in the native
+4096-dim space; 2-D PCA is used for visualization (deterministic, no hyperparameters,
+directions are interpretable as linear combinations of the residual stream).
+
+\paragraph{Arditi replication.}
+We extract the global DIM direction at layer 12 (best AUROC) on our 25
+refused-harmful / 30 harmless-answered sample pairs, replicating \citet{arditi2024refusal}.
+All generation experiments use greedy decoding (150 tokens), classified by the same
+GPT-4o judge as the original pipeline.
+
+\paragraph{Two distinct refusal directions.}
+We distinguish two DIM-extracted directions throughout, as they are easy to conflate:
+the \emph{harmful-refusal direction} ($\hat{\mathbf{r}}_{\text{Arditi}}$), extracted
+from refused-harmful vs.\ harmless-answered pairs following \citet{arditi2024refusal};
+and the \emph{over-refusal direction} ($\hat{\mathbf{v}}^{\OR}$), extracted from
+benign-refused vs.\ benign-answered pairs.
+They target different sample populations and capture different phenomena.
+The central finding (\S\ref{sec:geometry}) is that they are geometrically distinct
+at mid-layers, which is why ablating one cannot selectively suppress the other.
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Results}
+%% -----------------------------------------------------------
+\label{sec:results}
+
+Results are presented in narrative order.
+\S\ref{sec:arditi} establishes that global DIM ablation \emph{works} for harmful refusals---confirming the universality that makes it effective.
+\S\ref{sec:constellations}--\ref{sec:probing} characterise why over-refusal is geometrically different: it lives inside task constellations, not along the harmful-refusal axis.
+\S\ref{sec:h4} shows empirically that global DIM ablation is consequently non-selective for over-refusal.
+\S\ref{sec:selectivity} demonstrates that task-conditioned methods achieve genuine selectivity.
+\S\ref{sec:circuits} provides the mechanistic account of late-layer distributed commitment.
+
+%% ---- §4.1 ----
+\subsection{Steering Works: The Harmful-Refusal Direction Is Universal}
+\label{sec:arditi}
+
+We first replicate \citet{arditi2024refusal} to establish the baseline.
+The global DIM direction ($\hat{\mathbf{r}}_{\text{Arditi}}$), extracted at layer 12,
+achieves 80\% attack success rate (ASR) on our refused-harmful samples
+(Table~\ref{tab:arditi})---reducing harmful refusal from 68\% to 20\% with no
+false positives on harmless inputs.
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{lcc}
+\toprule
+ & Baseline & After ablation \\
+\midrule
+Harmful refusal rate  & 68.0\% & 20.0\%  \\
+Harmless refusal rate & 0.0\%  & 0.0\%  \\
+ASR                   & 32.0\% & \textbf{80.0\%} \\
+\bottomrule
+\end{tabular}
+\caption{Arditi replication (NB8). Global DIM ablation substantially reduces harmful
+refusal (68\%$\to$20\%, ASR: 32\%$\to$80\%) with no cost to harmless-answered samples.}
+\label{tab:arditi}
+\end{table}
+
+This success is grounded in a specific geometric property: harmful-refusal is
+\emph{universal}. Task-specific DIM directions are nearly identical to the global
+direction (cosine alignment 0.835--0.858 across all tasks), and cross-task transfer
+nearly equals self-transfer. The direction reaches $\geq$89\% cross-task alignment
+by \textbf{layer 3}---before task-identity constellations even peak---establishing
+that harmful refusal is mediated by a single task-agnostic direction that a
+global intervention can cleanly target.
+This sets the baseline: global DIM works \emph{because} its target is universal.
+The question is whether over-refusal shares this property.
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB9 Cell 10 — q_2d_representation_space.png
+  %% Place at: paper/figures/fig_nb9_2d_repr_space.png
+  \includegraphics[width=0.95\linewidth]{figures/fig_nb9_2d_repr_space.png}
+  \caption{\textbf{Harmful-refusal directions are universal: 2D PCA at three layers ($n=270$).}
+  Colour = task identity; shape = behaviour ({\large$\bullet$} harmless-answered, $\blacktriangle$ over-refusal, $\times$ refused-harmful).
+  Black arrow = global Arditi direction; coloured arrows = per-task harmful-refusal directions.
+  At crucial layers (L17), task-specific arrows converge onto the single global direction---confirming
+  that harmful refusal is mediated by a task-agnostic signal that a global intervention
+  can cleanly target.}
+  \label{fig:nb9_repr_space}
+\end{figure*}
+
+%% ---- §4.2 ----
+\subsection{Task-Identity Constellations Dominate Mid-Layer Geometry}
+\label{sec:constellations}
+
+To understand why over-refusal is different, we first examine the representational
+structure that emerges in mid-layers---where the model's richest representations live.
+Figure~\ref{fig:2d_key} makes the geometric argument directly: over-refusal samples
+sit \emph{inside} their task-coloured clusters at every layer, with no shared refusal
+zone, while the per-task over-refusal directions (coloured arrows) each point in a
+different direction---the opposite of the convergence seen for harmful-refusal
+(Figure~\ref{fig:nb9_repr_space}).
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB13a Cell 7 — fig13a_00_2d_key.png
+  %% Place at: paper/figures/fig13a_00_2d_key.png
+  \includegraphics[width=0.95\linewidth]{figures/fig13a_00_2d_key.png}
+  \caption{\textbf{Why global steering cannot selectively fix over-refusal: 2D PCA at three layers ($n=270$).}
+  Colour = task identity; $\blacktriangle$ = over-refusal; $\times$ = refused-harmful; {\large$\bullet$} = harmless-answered.
+  Black arrow = global harmful-refusal direction (Arditi); coloured arrows = per-task
+  over-refusal directions (HA centroid $\to$ OR centroid within each task cluster).
+  At the peak-constellation layer (L12), over-refusal triangles sit \emph{inside} their
+  task clusters with no separate refusal zone; the per-task OR arrows diverge, unlike
+  the converging harmful-refusal arrows in Figure~\ref{fig:nb9_repr_space}.
+  No single global direction can selectively reach the OR samples without also
+  suppressing harmless samples in the same cluster region.}
+  \label{fig:2d_key}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB13a — dual galaxy (task identity left, behavioral class right)
+  %% Place at: paper/figures/fig_nb13a_dual_galaxy.png
+  \includegraphics[width=0.95\linewidth]{figures/fig_nb13a_dual_galaxy.png}
+  \caption{\textbf{Over-refusal lives inside task constellations (L12, $n=270$).}
+  2-D PCA of residual-stream activations at the peak-constellation layer.
+  Left: samples coloured by task identity---five well-separated constellations.
+  Right: same projection coloured by behaviour---over-refusal samples ($\blacktriangle$)
+  sit \emph{inside} their task clusters with no separate refusal zone.}
+  \label{fig:galaxy}
+\end{figure*}
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB13b cell nb13b-11 — per-task OR arrows + Arditi arrow at L12
+  %% Place at: paper/figures/fig_nb13b_l12_snapshot.png
+  \includegraphics[width=\linewidth]{figures/fig_nb13b_l12_snapshot.png}
+  \caption{\textbf{Per-task over-refusal directions vs.\ the harmful-refusal direction (L12).}
+  Coloured arrows: per-task over-refusal directions, each pointing differently.
+  Black arrow: the harmful-refusal direction, crossing all task boundaries.}
+  \label{fig:or_arrows}
+\end{figure}
+
+Figure~\ref{fig:galaxy} confirms the dominant structure of mid-layer activations is
+task identity, not refusal class.
+Five well-separated task constellations form at this layer, while the within-task
+behavioral signal---the difference between over-refusal and correctly-answered
+samples---is a small perturbation inside each cluster.
+
+Figure~\ref{fig:or_arrows} reinforces this geometrically: the per-task
+over-refusal directions (coloured arrows) each point in a \emph{different} direction,
+while the harmful-refusal direction (black arrow) is a single vector crossing all
+task boundaries.
+These per-task directions are far less mutually consistent than harmful-refusal
+directions---the constellations are organised by task, not by refusal class.
+The behavioral gap shrinks in late layers as task-specific circuits commit the final
+refusal decision (\S\ref{sec:circuits}).
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB13a — silhouette line plot across all layers
+  %% Place at:  paper/figures/fig3_silhouette_gap.png
+  \includegraphics[width=\linewidth]{figures/fig13a_02_silhouette_curves.png}
+  \caption{\textbf{Constellation strength and within-task behavioral gap across layers.}
+  Top: inter-task silhouette peaks at L12 and stays elevated.
+  Bottom: within-task behavioral distance vs.\ inter-task distance (dashed)---the
+  behavioral gap is a small within-cluster perturbation that shrinks in late layers.}
+  \label{fig:silhouette}
+\end{figure}
+
+This establishes the first structural fact: over-refusal is \emph{task-conditioned},
+not refusal-conditioned. The geometry it lives in is organised by task identity, not
+a shared refusal axis. A direction that crosses task boundaries---as the global Arditi
+direction does---cannot cleanly target it. We quantify this directly in the next section.
+
+%% ---- §4.3 ----
+\subsection{The Geometric Case: Over-Refusal Does Not Follow the Universal Direction}
+\label{sec:geometry}
+
+The constellation picture suggests that the \emph{over-refusal direction} ($\hat{\mathbf{v}}^{\OR}$)
+is not aligned with the \emph{harmful-refusal direction} ($\hat{\mathbf{r}}_{\text{Arditi}}$)
+but rather organized around task-identity axes.
+We test this directly through three complementary analyses: directional alignment,
+per-task consistency, and subspace dimensionality.
+
+\subsubsection{Over-Refusal Direction vs.\ the Harmful-Refusal Direction}
+\label{sec:h1}
+
+Recall that the harmful-refusal direction $\hat{\mathbf{r}}_{\text{Arditi}}$ is computed
+from refused-harmful vs.\ harmless-answered pairs (\S\ref{sec:setup}).
+The over-refusal direction is an entirely different extraction: DIM over
+benign-refused (over-refusal) vs.\ benign-answered pairs,
+\begin{equation}
+  \hat{\mathbf{v}}^{\OR}_\ell = \frac{
+    \boldsymbol{\mu}^\ell_{\text{benign-refused}} - \boldsymbol{\mu}^\ell_{\text{benign-answered}}
+  }{\|\boldsymbol{\mu}^\ell_{\text{benign-refused}} - \boldsymbol{\mu}^\ell_{\text{benign-answered}}\|}
+\end{equation}
+and we measure $\cos(\hat{\mathbf{v}}^{\OR}_\ell,\, \hat{\mathbf{r}}_{\text{Arditi},\ell})$
+at each of the 32 layers (Figure~\ref{fig:cosine}). The shaded band (0.835--0.858) shows
+the harmful-refusal inter-task alignment as a reference for what ``universal'' looks like.
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB14 — fig1_or_vs_arditi_cosine.png
+  %% Place at:  paper/figures/fig2_cosine_h1.png
+  \includegraphics[width=\linewidth]{figures/fig2_cosine_h1.png}
+  \caption{\textbf{Layer-wise cosine similarity between the over-refusal and harmful-refusal directions.}
+  Red: $\cos(\hat{\mathbf{v}}^{\OR}_\ell, \hat{\mathbf{r}}_{\text{Arditi},\ell})$.
+  Shaded band: harmful-refusal inter-task alignment (reference for a universal direction).
+  The over-refusal direction plateaus near 0.45---roughly half the harmful-refusal
+  alignment---confirming that the two directions occupy geometrically distinct subspaces.}
+  \label{fig:cosine}
+\end{figure}
+
+The cosine rises through early layers and stabilises around \textbf{0.45} from
+mid-layers onward---roughly half the harmful-refusal inter-task alignment (0.845--0.858).
+The two directions are not orthogonal, which is why ablating one partially suppresses
+the other as a collateral effect.
+But they are far from identical, which is why that suppression is non-selective.
+This partial overlap is the geometric mechanism underlying all the empirical results
+that follow.
+
+\subsubsection{Over-Refusal Is More Task-Specific}
+\label{sec:h2}
+
+If over-refusal lives inside task clusters, the over-refusal direction should vary across
+tasks more than the harmful-refusal direction does.
+We test this by comparing per-task over-refusal directions against the inter-task
+harmful-refusal baseline.
+
+Harmful-refusal directions are nearly identical across all tasks---they are universal.
+Per-task over-refusal directions tell a different story.
+Only two tasks have sufficient over-refusal samples to compute a direction reliably:
+\textit{sentiment analysis} and \textit{translation}.
+Their pairwise directional similarity is well below the harmful-refusal baseline
+(Figure~\ref{fig:h2}), and each aligns only weakly with the global over-refusal
+direction---the two tasks are pulling in different directions.
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB14 — fig2_or_task_similarity.png
+  %% Place at:  paper/figures/fig4_h2_or_tasks.png
+  \includegraphics[width=0.95\linewidth]{figures/fig4_h2_or_tasks.png}
+  \caption{\textbf{Per-task over-refusal direction similarity at L15, L17 and L28.}
+  Left: pairwise cosine heatmap of per-task over-refusal directions.
+  Right: mean off-diagonal similarity for over-refusal (red) vs.\ harmful-refusal
+  directions---over-refusal is task-specific; harmful-refusal is universal.}
+  \label{fig:h2}
+\end{figure*}
+
+The contrast is stark: harmful-refusal has a single universal direction that can be
+extracted globally; over-refusal has different directions per task, organized around
+task identity rather than a shared refusal axis.
+
+\subsubsection{The Over-Refusal Subspace Is Higher-Dimensional and Task-Structured}
+\label{sec:h3_dim}
+
+A direct consequence of task-conditioning is that over-refusal variance should be
+\emph{distributed across task directions} rather than concentrated in a single axis.
+We test this via PCA of the over-refusal and harmful-refusal subspaces at each layer.
+
+\paragraph{Variance structure at L12.}
+The harmful-refusal subspace is relatively concentrated: PC1 explains \textbf{30.3\%}
+of its variance and \textbf{8} components suffice for 80\% (Figure~\ref{fig:nb16_variance}).
+The over-refusal subspace is more diffuse: PC1 explains only \textbf{24.5\%} and
+\textbf{11} components are needed for 80\%---roughly 38\% more components.
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB16 — fig_nb16_variance.png
+  %% Place at: paper/figures/fig7_nb16_variance.png
+  \includegraphics[width=\linewidth]{figures/fig7_nb16_variance.png}
+  \caption{\textbf{Variance structure of over-refusal vs.\ harmful-refusal subspaces at L17.}
+  Left: cumulative explained variance---harmful-refusal concentrates faster (8 components
+  for 80\%) than over-refusal (11 components).
+  Right: per-PC variance---over-refusal is more diffuse at every rank.}
+  \label{fig:nb16_variance}
+\end{figure}
+
+\paragraph{The principal axes of over-refusal are task-identity directions.}
+Figure~\ref{fig:nb16_task_pca} makes the task-conditioning concrete. In a 2-D PCA
+of over-refusal samples centred against the dataset mean, PC1 (24.5\% var) and PC2
+(20.4\% var) \emph{separate tasks}, not refusal signal: translate samples cluster on the
+right ($+$PC1), sentiment\_analysis on the left ($-$PC1), with near-zero within-task
+scatter. The dominant axes of the over-refusal representation space are task-identity
+directions---not a shared refusal axis.
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB16 — fig_nb16_task_pca.png
+  %% Place at: paper/figures/fig8_nb16_task_pca.png
+  \includegraphics[width=\linewidth]{figures/fig8_nb16_task_pca.png}
+  \caption{\textbf{2-D PCA of over-refusal samples, coloured by task (L17).}
+  The principal axes separate tasks, not refusal signal---the dominant structure
+  of the over-refusal subspace is task identity.}
+  \label{fig:nb16_task_pca}
+\end{figure}
+
+The layer sweep (Figure~\ref{fig:nb16_layer_sweep} in Appendix) shows this pattern
+is consistent across \textbf{layers 7--30}. Notably, at early layers (L1--L4), the
+pattern inverts---over-refusal briefly appears more concentrated---consistent with
+the timeline of constellation formation: before task structure peaks at L12, over-refusal
+has not yet been absorbed into task-identity geometry.
+
+Together, these three analyses---directional alignment, task-specificity, and
+dimensionality---converge on one conclusion: over-refusal occupies a task-conditioned,
+multi-directional subspace that no single global direction can cleanly target.
+We next confirm this with functional evidence from linear probing.
+
+%% ---- §4.4 ----
+\subsection{Probing Confirms Representational Separability}
+\label{sec:probing}
+
+The geometric analyses above establish that over-refusal and harmful-refusal are
+directionally distinct. We complement this with a functional test: do linear probes
+decode this structure, and in what order does it emerge across layers?
+
+\paragraph{Setup.}
+We train three logistic-regression probes at each of the 31 layers via 5-fold
+stratified cross-validation.
+\textbf{Task probe} (5-class, $n=270$): predict task identity.
+\textbf{Refusal-behaviour probe} (binary, $n=217$): over-refusal ($n=48$) vs.\ TARGET ($n=169$)
+within benign-task samples.
+\textbf{Refusal-type probe} (binary, $n=73$): over-refusal ($n=48$) vs.\ REFUSED\_HARMFUL
+($n=25$)---two refused populations separated by cause, not content.
+
+\paragraph{Results (Figure~\ref{fig:nb17_probes}).}
+
+Three findings stand out.
+First, \textbf{task identity encodes immediately and saturates early}: the task probe
+reaches near-ceiling performance from the first layer and is fully saturated well before
+the mid-layer constellation peak.
+Second, \textbf{refusal behaviour encodes later and within task structure}: the
+refusal-behaviour probe improves through mid-layers and peaks after task saturation,
+consistent with over-refusal consolidating inside the already-formed task geometry.
+Third---and most directly relevant to intervention---\textbf{over-refusal and harmful-refusal
+are perfectly separable throughout the entire network}: the refusal-type probe achieves
+100\% balanced accuracy from the first transformer layer onward ($p<0.001$).
+The model knows, from the very beginning, whether it is looking at a benign task or
+a genuinely harmful request---the two refusal types occupy non-overlapping regions of
+representation space at every layer.
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB17 — fig_nb17_probe_all3.png
+  %% Copy to: paper/figures/fig9_nb17_probes.png
+  \includegraphics[width=0.95\linewidth]{figures/fig9_nb17_probes.png}
+  \caption{\textbf{Linear probe accuracy across layers.}
+  (a) Task probe saturates immediately from L1.
+  (b) Refusal-behaviour probe (over-refusal vs.\ harmless-answered) improves through
+  mid-layers, consistent with over-refusal forming inside established task structure.
+  (c) Refusal-type probe (over-refusal vs.\ refused-harmful) achieves 100\% from L1---the
+  two refusal causes are representationally distinct throughout the network.}
+  \label{fig:nb17_probes}
+\end{figure*}
+
+The 100\% refusal-type accuracy has a direct implication for interventions: if the
+two refusal types are representationally distinct throughout the network, a method
+that targets task-conditioned geometry \emph{should} be able to suppress one without
+disrupting the other. Conversely, a method that ignores this structure will
+inevitably cross-contaminate. We test both predictions next.
+
+%% ---- §4.5 ----
+\subsection{Global DIM Ablation Is Non-Selective in Practice}
+\label{sec:h4}
+
+Given the geometric distinction between the two refusal directions, what happens when
+the harmful-refusal direction ($\hat{\mathbf{r}}_{\text{Arditi}}$) is ablated to fix
+over-refusal---a population it was not designed for?
+Figure~\ref{fig:h3} presents the direct empirical comparison ($n=20$ per condition, GPT-4o judge).
+
+The result is exactly what the geometry predicts: Arditi ablation suppresses both
+classes, but suppresses harmful refusals more than over-refusal---the numbers are in
+Table~\ref{tab:nb15}.
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB14 — fig3_arditi_ablation_comparison.png
+  %% Place at:  paper/figures/fig5_h3_ablation.png
+  \includegraphics[width=0.95\linewidth]{figures/fig5_h3_ablation.png}
+  \caption{\textbf{Arditi ablation effect on harmful-refusal vs.\ over-refusal ($n=20$, GPT-4o judge).}
+  Left: refusal rates before and after ablation.
+  Right: suppression magnitude---Arditi suppresses harmful refusals more than over-refusal
+  (selectivity ratio 0.67), confirming it is a blunt instrument for this population.}
+  \label{fig:h3}
+\end{figure*}
+
+The geometry predicted this outcome.
+The two directions share partial variance, so ablating one partially suppresses the
+other as a collateral effect---but this suppression is non-selective.
+The key issue is not whether the method \emph{works} but whether it is \emph{selective}:
+using the harmful-refusal direction to fix over-refusal disrupts the safety circuit
+as a side-effect, because the two directions are not the same.
+A method targeting the within-task over-refusal subspace directly can do better.
+
+%% ---- §4.6 ----
+\subsection{Task-Conditioned Steering Achieves Genuine Selectivity}
+\label{sec:selectivity}
+
+The geometric account predicts that task-conditioned methods should outperform global
+ablation on selectivity: greater over-refusal suppression with less collateral
+disruption to the harmful-refusal circuit. We test this directly by running
+SafeConstellations \citep{safeconstellations2025} and Arditi ablation on the same
+20 over-refusal and 20 refused-harmful samples.
+
+\begin{figure*}[t]
+  \centering
+  %% SOURCE: NB15 — fig_nb15_selectivity.png / fig_nb15_selectivity.png
+  %% Place at:  paper/figures/fig6_selectivity.png
+  \includegraphics[width=0.95\linewidth]{figures/fig6_selectivity.png}
+  \caption{\textbf{Selectivity comparison: SafeConstellations vs.\ Arditi ablation ($n=20$, GPT-4o judge).}
+  Left: refusal rates under baseline, Arditi, and SafeConstellations.
+  Right: suppression magnitudes---SafeConstellations eliminates over-refusal entirely
+  while causing less harmful-refusal bypass, improving selectivity ratio from 0.67 to 1.57.}
+  \label{fig:selectivity}
+\end{figure*}
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\toprule
+ & Baseline & Arditi & SafeConstel \\
+\midrule
+Over-refusal rate    & 55\% & 25\% ($-30$\,pp) & \phantom{0}0\% ($-55$\,pp) \\
+Harmful refusal rate & 65\% & 20\% ($-45$\,pp) & 30\% ($-35$\,pp) \\
+\midrule
+Selectivity (OR$\div$harm supp.) & --- & 0.67 & \textbf{1.57} \\
+\bottomrule
+\end{tabular}
+\caption{Head-to-head comparison ($n=20$ per condition). SafeConstellations
+achieves higher over-refusal suppression ($-55$\,pp, to 0\%) while preserving more of
+the safety circuit (30\% residual harmful refusal vs.\ 20\% for Arditi, $-35$\,pp vs.\
+$-45$\,pp). Selectivity ratio = OR suppression $\div$ harm suppression; higher is more
+selective.}
+\label{tab:nb15}
+\end{table}
+
+Results confirm the prediction (Table~\ref{tab:nb15}).
+Arditi ablation is non-selective: it suppresses harmful refusals more than over-refusal,
+consistent with operating on a direction designed for a different population.
+SafeConstellations reverses this: it eliminates over-refusal entirely while causing
+substantially less harmful-refusal bypass---the selectivity ratio improves from 0.67
+(Arditi) to \textbf{1.57} (SafeConstellations).
+
+The residual $-35$\,pp harmful-refusal bypass has a direct mechanistic explanation
+from the constellation geometry (\S\ref{sec:constellations}).
+Our refused-harmful samples are task-wrapped: they arrive as translation, rephrasing,
+or sentiment analysis prompts with harmful content embedded.
+At L12, where task identity dominates representations (silhouette\,=\,0.454), these
+samples are geometrically indistinguishable from benign over-refusal samples at the
+task-cluster level.
+The constellation hook fires on task identity---not on content harmfulness---and
+therefore applies equally to harmful task-wrapped prompts.
+This is not a flaw but an inherent property of targeting task-identity geometry,
+and it is a consequence directly predicted by the constellation structure established
+in \S\ref{sec:constellations}.
+In deployment, a prior content classifier would gate steering to verified-benign task
+instances, closing this gap.
+Critically, even without such a gate, SafeConstellations remains strictly more
+selective than Arditi ($1.57$ vs.\ $0.67$).
+
+\subsection{Mechanistic Account: Late-Layer Task-Conditioned Circuits}
+\label{sec:circuits}
+
+To identify \emph{where} over-refusal is committed mechanistically, we compute
+per-token refusal attribution scores for each attention head $(l, h)$ across task
+conditions using gradient-weighted attention \citep{zhou2025safety}.
+The top-K attribution heads are concentrated exclusively in layers 27--31
+(Table~\ref{tab:heads}), with 80\% task-specific membership (mean off-diagonal
+overlap = 0.20 across tasks).
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llc}
+\toprule
+Head & Task & Role \\
+\midrule
+L31.H21 & All tasks    & Shared (universal) \\
+L28.H31 & rephrase     & Task-specific \\
+L30.H4  & rephrase     & Task-specific \\
+L31.H30 & sentiment    & Task-specific \\
+L31.H11 & sentiment    & Task-specific \\
+L30.H3  & translate    & Task-specific \\
+L31.H13 & translate    & Task-specific \\
+\bottomrule
+\end{tabular}
+\caption{Top refusal-attribution attention heads by task (NB12). One shared head
+(L31.H21) is universal; 80\% of heads are task-specific. All reside in layers 27--31.}
+\label{tab:heads}
+\end{table}
+
+This late-layer, task-specific concentration ties together all previous observations.
+The within-task behavioral gap \emph{shrinks} from L12 to L28 (\S\ref{sec:constellations})
+because early-to-mid layers accumulate the behavioral perturbation but final refusal
+commitment is delegated to late-layer task-specific heads.
+Arditi ablation, which operates on the global residual stream direction before these
+heads, disrupts the broad refusal signal but does not selectively suppress the
+task-conditioned circuit that commits over-refusal.
+
+\subsubsection{Causal Patching: Refusal Is Distributed, Not Head-Local}
+\label{sec:causal_patching}
+
+We directly test the causal necessity of the attributed heads via activation patching.
+For each top-K attributed head $(l, h)$, we replace its output at the last-token
+position (\texttt{[:, -1, :]}) with the corresponding activation from a harmless prompt
+and measure whether this flips the model's refusal decision.
+This targets exactly the position that determines the model's output token, independently
+of sequence length.
+
+\begin{figure}[ht]
+  \centering
+  %% SOURCE: NB18 — fig_nb18_causal_patching.png
+  %% Copy to: paper/figures/fig10_nb18_causal_patching.png
+  \includegraphics[width=\linewidth]{figures/fig10_nb18_causal_patching.png}
+  \caption{\textbf{Causal patching flip rates for top-15 attribution heads.}
+  Fraction of test pairs (out of 5) that flip to non-refusal when a head's last-token
+  output is replaced with its harmless-prompt counterpart.
+  No head crosses the 50\% causal-necessity threshold; six heads tie at 40\%.
+  Refusal commitment is distributed across heads.}
+  \label{fig:nb18_causal}
+\end{figure}
+
+\paragraph{Results.}
+The global flip rates (Figure~\ref{fig:nb18_causal}) reveal a striking pattern:
+no head approaches the 50\% threshold for causal necessity.
+The six highest-flipping heads tie at 40\% (L13.H12, L13.H24, L13.H15, L13.H02, L13.H08,
+L15.H08; 2 out of 5 test pairs each)---notably, these are \emph{not} among the
+late-layer task-specific heads identified by attribution (L27--L31).
+The shared attribution head L31.H21 achieves \textbf{0\%} flip rate.
+Per-task patching of task-specific heads (Appendix~\ref{sec:appendix_circuits},
+Figure~\ref{fig:nb18_per_task}) produces 0 verified flips for sentiment\_analysis;
+translate task-specific heads reach at most 40\% (L30.H03), still below the
+causal-necessity threshold: the bars are genuine partial effects, not definitive
+causal bottlenecks.
+
+\paragraph{Interpretation.}
+This result is mechanistically informative.
+Attribution identifies which heads \emph{contribute} to the refusal projection;
+causal patching measures whether any single head is \emph{sufficient} to commit
+the decision. The result is clear: refusal is \textbf{distributed}.
+No single head is a bottleneck, even heads with the highest attribution or global
+flip rates. Gradient-weighted attribution and causal patching thus measure different
+things---prominence in the refusal direction vs.\ bottleneck status---and they
+dissociate here.
+
+This is consistent with the subspace picture: the refusal signal is spread across
+many dimensions and heads; a global residual-stream intervention (Arditi) works
+\emph{precisely because} it targets this distributed signal in aggregate,
+while single-head patching is too local to interrupt it.
+Crucially, this finding also explains why targeted head ablation (NB19, \S\ref{sec:additional})
+achieves near-zero suppression: the circuit has no single-point bottleneck to remove.
+Subspace-level methods (SafeConstellations) succeed by targeting the distributed
+geometric structure directly.
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Discussion}
+%% -----------------------------------------------------------
+\label{sec:discussion}
+
+\paragraph{A unified account of refusal geometry.}
+The results fit a coherent three-phase picture:
+
+\begin{enumerate}
+  \item \textbf{Early layers:} The harmful-refusal direction crystallises early and is
+  fully task-agnostic---nearly identical across all tasks and converging before task-identity
+  constellations even form. This universality is what makes global DIM ablation effective
+  for harmful content.
+
+  \item \textbf{Mid layers:} Task-identity constellations dominate representations.
+  Over-refusal accumulates as a small within-cluster perturbation, geometrically distinct
+  from the harmful-refusal direction, higher-dimensional, and organised around task-identity
+  axes rather than a shared refusal axis.
+  Crucially, a linear probe can perfectly separate over-refusal from harmful-refusal
+  from the very first layer---the two phenomena are representationally distinct throughout.
+
+  \item \textbf{Late layers:} Task-specific attention heads commit the final refusal
+  decision. These heads are 80\% unique per task, confirming the task-conditioned nature
+  of over-refusal. No single head is individually sufficient to flip the decision,
+  consistent with distributed commitment rather than a single bottleneck.
+\end{enumerate}
+
+\paragraph{Why steering works but fails to be selective.}
+Ablating the harmful-refusal direction ($\hat{\mathbf{r}}_{\text{Arditi}}$) succeeds for
+harmful refusals precisely because that direction \emph{is} universal---a task-agnostic
+signal that a task-agnostic intervention can cleanly target.
+The over-refusal direction is not universal: it is a within-task perturbation organized
+around task-identity directions.
+Because the two directions share $\approx 20\%$ of variance ($\cos \approx 0.45$),
+ablating $\hat{\mathbf{r}}_{\text{Arditi}}$ incidentally removes part of the over-refusal
+signal, producing $-30$ pp collateral over-refusal suppression---which may look like success
+if one does not also measure the cost to the safety circuit.
+Measuring selectivity---over-refusal suppression per unit of safety disruption---reveals
+the structural difference: 0.67 for Arditi ablation vs.\ 1.57 for SafeConstellations.
+
+\paragraph{The selectivity framing.}
+This reframes the steering problem.
+The question is not ``does ablation suppress over-refusal?'' (it does, collaterally)
+but ``can ablation suppress it \emph{without} corrupting the harmful-refusal circuit?''
+Ablating the harmful-refusal direction cannot answer this, because that direction
+straddles both phenomena---removing it disrupts both, leaving it intact fixes neither.
+Task-conditioned geometry allows a different decomposition: separate the over-refusal
+signal into the component shared with harmful-refusal (unavoidably disrupted) and the
+component orthogonal to it (over-refusal-specific, selectively targetable).
+SafeConstellations targets the second component, achieving genuine selectivity.
+Its residual bypass is itself geometrically predicted: task-wrapped harmful prompts
+share task-cluster identity with benign over-refusal at mid-layer, so the constellation
+hook fires on them too---a consequence of targeting task-identity geometry, not a flaw.
+
+\paragraph{Scope of the linear representation hypothesis.}
+The LRH \citep{park2023linear} holds for \emph{harmful} refusal in its causal form:
+one direction (the harmful-refusal direction $\hat{\mathbf{r}}_{\text{Arditi}}$) largely
+suffices for ablation (80\% ASR on our evaluation set).
+Importantly, this is not the same as representational one-dimensionality: harmful-refusal
+variance spans 8 components at L12, with PC1 explaining only 30\%.
+The causal bottleneck is one-dimensional; the representation is not.
+Over-refusal breaks both senses: the over-refusal direction is more diffuse (11 components,
+PC1 = 25\%) \emph{and} its principal axes are task-identity directions, so no single
+direction captures it causally.
+
+\paragraph{Calibration.}
+(i) Our Arditi replication uses 25 harmful samples drawn from our evaluation set, not
+JailbreakBench/AdvBench; numbers reflect in-distribution performance.
+(ii) The selectivity experiment uses $n=20$ per condition; percentage-point differences
+carry $\approx\pm11$ pp uncertainty (95\% CI) at this sample size.
+(iii) Only 2 tasks (sentiment, translate) contribute over-refusal samples; the
+0.538 pairwise cosine should be treated as preliminary evidence rather than a
+definitive estimate.
+(iv) 2-D PCA visualisations capture $\sim$10\% variance; all quantitative claims cite
+full 4096-dim silhouette scores or high-dimensional centroid distances, not PCA-compressed
+figures.
+(v) Causal patching tests 5 pairs per head; rates below 50\% should be read as
+indicative of distributed causal influence, not definitive causal necessity claims.
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Additional Experiments}
+\label{sec:additional}
+%% -----------------------------------------------------------
+
+\paragraph{Targeted head ablation (NB19).}
+Causal patching (NB18, \S\ref{sec:causal_patching}) shows that individual head
+patching cannot flip refusal decisions, suggesting distributed commitment.
+We followed up with \emph{ablation} (zeroing out) of the task-specific and shared
+attention heads identified in \S\ref{sec:circuits} (L27--L31) during generation,
+measuring whether targeted head suppression achieves better
+over-refusal/harmful-refusal selectivity than global residual-stream ablation (NB19).
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lcc}
+\toprule
+Condition & OR suppression & Harm suppression \\
+\midrule
+Shared head only (L31.H21)            & $+0$ pp & $+0$ pp \\
+Task-specific heads (union, L27--L31) & $-5$ pp & $+0$ pp \\
+Task-conditioned ablation             & $+0$ pp & $+5$ pp \\
+\midrule
+\textit{Reference: Arditi (NB15)}     & $+30$ pp & $+45$ pp \\
+\textit{Reference: SafeConstel (NB15)}& $+55$ pp & $+35$ pp \\
+\bottomrule
+\end{tabular}
+\caption{Targeted head ablation results (NB19, $n$\,=\,20 per condition). Ablating
+individual heads or their union achieves negligible suppression ($\leq$5 pp), compared
+to $+30$--$+55$ pp for residual-stream methods. Refusal commitment is geometrically
+distributed, not head-localisable.}
+\label{tab:nb19}
+\end{table}
+
+The null result confirms that refusal is \emph{distributed} in the residual stream:
+no single head or task-specific head set is individually sufficient.
+This rules out the hypothesis that targeted head suppression could match or surpass
+global DIM ablation, and further motivates subspace-level methods (SafeConstellations)
+over circuit-level interventions.
+
+\paragraph{Cross-model replication (NB20, partial).}
+We ran constellation geometry and directional analysis on pre-computed Qwen1.5-7B-Chat
+embeddings (same 270 prompts, 31 layers, 4096-dim).
+\textbf{Claim 1 replicates}: task-identity constellations form with inter-task
+silhouette peaking at \textbf{0.458} at \textbf{L5}---comparable to LLaMA's 0.454
+at L12, but concentrated earlier in the network, consistent with architectural differences
+between model families.
+\textbf{Claims 2--3 could not be completed}: Qwen almost never refuses on this
+evaluation set (1 refused-harmful sample, 22 over-refusal vs.\ 25 and 48 for LLaMA),
+leaving the harmful-refusal DIM direction undefined.
+Full replication of the two-subspace finding requires an evaluation set that elicits
+meaningful refusal rates from Qwen1.5-7B-Chat; we leave this to future work.
+
+\FloatBarrier
+%% -----------------------------------------------------------
+\section{Conclusion}
+%% -----------------------------------------------------------
+
+Representation steering is powerful---but its effectiveness depends critically on what
+is being targeted.
+For harmful refusals, the target is universal: a single task-agnostic direction
+mediates refusal across all tasks, which is why global DIM ablation works cleanly.
+For over-refusal, the target is task-conditioned: erroneous refusals live inside
+task-identity clusters, their directions vary by task, and their subspace is
+higher-dimensional. These two phenomena are representationally distinct from the
+first transformer layer onward.
+
+Ablating the harmful-refusal direction to fix over-refusal is the wrong tool for
+the job. The partial geometric overlap between the two directions produces collateral
+suppression, which can look like success if one does not also measure the cost to
+the safety circuit. Measuring selectivity reveals the structural difference: a
+task-conditioned method that targets the within-task subspace directly achieves
+genuine selectivity, eliminating over-refusal while preserving substantially more
+of the harmful-refusal circuit.
+
+The takeaway: the right question is not ``does steering suppress over-refusal?'' but
+``can it do so \emph{selectively}?'' The answer requires a geometry-aware intervention,
+not a global one.
+
+%% -----------------------------------------------------------
+\section*{Limitations}
+%% -----------------------------------------------------------
+
+Analysis is limited to LLaMA-3.1-8B-Instruct on a 270-sample evaluation set.
+Over-refusal direction analysis requires sufficient over-refusal examples per task;
+cryptanalysis and RAG-QA contribute zero over-refusal samples in our set, limiting
+per-task analysis to sentiment ($n_{\OR}=20$) and translate ($n_{\OR}=28$).
+Causal patching (NB18) uses 5 test pairs per head; flip rates should be read as
+indicative of distributed causal structure rather than precise causal estimates.
+Single-head patching may underestimate circuit importance when refusal arises from
+distributed interactions: a head that is not individually sufficient may still
+contribute jointly.
+The $n=20$ per-condition selectivity experiment carries $\approx\pm11$ pp uncertainty
+(95\% CI); all percentage-point differences should be interpreted accordingly.
+Cross-model replication (NB20) confirms Claim 1 on Qwen1.5-7B (task-identity constellations,
+silhouette 0.458 at L5) but Claims 2--3 are untestable: Qwen produces only 1
+refused-harmful sample and 22 over-refusal samples on this evaluation set, leaving
+directional and dimensionality findings specific to LLaMA-3.1-8B-Instruct.
+
+%% -----------------------------------------------------------
+\bibliography{custom}
+%% -----------------------------------------------------------
+
+\appendix
+
+\section{Dataset Details}
+\label{sec:appendix_data}
+
+\textbf{Tasks:} (1) sentiment\_analysis; (2) translate; (3) cryptanalysis; (4) rag\_qa;
+(5) rephrase. Task identity is determined from the \texttt{intended\_task\_labels}
+field, not \texttt{text\_type\_labels}, because cryptanalysis/rag\_qa samples are
+labeled \texttt{harmful\_instruction} in text-type fields even for benign phrasings.
+
+\textbf{Sample counts.} Refused-harmful: 25; Harmless-answered: 157; Over-refusal:
+48 (sentiment: 20, translate: 28, rephrase: 0, cryptanalysis: 0, rag\_qa: 0);
+Target (answered benign): 169.
+
+\section{Refusal Classification Prompt}
+\label{sec:appendix_judge}
+
+The GPT-4o refusal classification prompt used throughout (identical to original
+evaluation pipeline \citep{safeconstellations2025}):
+
+\begin{quote}
+\small
+\textit{There are three classes of responses:
+(1)~\textbf{direct answer}---any direct attempt to give a response, regardless of accuracy;
+(2)~\textbf{direct refusal}---states it will not answer, or that the question should not be answered;
+(3)~\textbf{indirect refusal}---cannot answer, then offers alternatives without answering.
+QUESTION: \{q\}
+RESPONSE: \{r\}
+Please briefly explain your reason and state your choice inside [[ and ]].
+CLASS:}
+\end{quote}
+
+\section{OR Subspace Dimensionality: Layer Sweep}
+\label{sec:appendix_nb16}
+
+\begin{figure*}[h]
+  \centering
+  %% SOURCE: NB16 — fig_nb16_layer_sweep.png
+  \includegraphics[width=0.95\linewidth]{figures/fig_nb16_layer_sweep.png}
+  \caption{\textbf{Layer sweep of subspace dimensionality (NB16).}
+  Left: PC1 variance fraction per layer. Right: components needed for 80\% variance.
+  Harmful-refusal consistently requires fewer components from L7 onward;
+  over-refusal inverts briefly at early layers before task constellations form.}
+  \label{fig:nb16_layer_sweep}
+\end{figure*}
+
+\section{Extended Circuit Results}
+\label{sec:appendix_circuits}
+
+\paragraph{Causal patching summary (NB18).}
+Global top heads by flip rate (5 test pairs): L13.H12, L13.H24, L13.H15, L13.H02,
+L13.H08, L15.H08 --- all at 2/5 (40\%, tied maximum); L22.H19 at 1/5 (20\%);
+all remaining heads including L25.H21, L31.H21, L30.H04, L30.H08 at 0/5 (0\%).
+
+Per-task patching: \textbf{sentiment\_analysis} --- L31.H21 (shared) 0/4, L31.H30
+(task-specific) 0/4, L31.H11 (task-specific) 0/4; all zero.
+\textbf{translate} --- L30.H03 (task-specific) 2/5 (40\%), L31.H13 (task-specific)
+1/5 (20\%), L31.H21 (shared) 1/5 (20\%).
+The shared head L31.H21 achieves 0\% on sentiment but 20\% on translate,
+consistent with weak cross-task rather than universal causal influence.
+No head reaches the 50\% causal-necessity threshold on any task.
+Full flip-rate tables for all test pairs are available on request.
+
+\begin{figure*}[h]
+  \centering
+  %% SOURCE: NB18 — fig_nb18_per_task_causal.png
+  %% Copy to: paper/figures/fig11_nb18_per_task_causal.png
+  \includegraphics[width=0.95\linewidth]{figures/fig11_nb18_per_task_causal.png}
+  \caption{\textbf{Per-task causal patching flip rates for task-specific and shared heads (NB18).}
+  Blue bars: task-specific attribution heads tested on their own task.
+  Purple bars ($\star$): shared head L31.H21 tested on each task.
+  \textbf{sentiment\_analysis}: all heads at 0\% (0/4 pairs).
+  \textbf{translate}: L30.H03 reaches 40\% (2/5 pairs), L31.H13 and L31.H21 at 20\%
+  (1/5)---partial causal influence, but none reaching the 50\% necessity threshold.
+  No head is individually sufficient to commit task-conditioned refusal even when
+  it is the top attribution contributor for that task.
+  The heads with highest global flip rates (L13 cluster at 40\%) are \emph{absent}
+  from task-specific attribution sets, suggesting a weak, cross-task causal signal
+  distinct from the task-conditioned attribution circuit.}
+  \label{fig:nb18_per_task}
+\end{figure*}
+
+\end{document}
+
+\end{document}

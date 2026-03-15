@@ -1,5 +1,13 @@
 
-@article{arditi2024refusal,
+@inproceedings{cui2025orbench,
+  title     = {{OR}-Bench: An Over-Refusal Benchmark for Large Language Models},
+  author    = {Cui, Justin and Chiang, Wei-Lin and Stoica, Ion and Hsieh, Cho-Jui},
+  booktitle = {Forty-second International Conference on Machine Learning},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=CdFnEu0JZV}
+}
+
+@inproceedings{arditi2024refusal,
   title     = {Refusal in Language Models Is Mediated by a Single Direction},
   author    = {Arditi, Andy and Obeso, Oscar and Syed, Aaquib and
                Cunningham, Hoagy and Guo, Phillip and Rajendran, Gavin and
@@ -10,30 +18,43 @@
   url       = {https://arxiv.org/abs/2406.11717}
 }
 
-@article{braun2025unreliability,
+@inproceedings{braun2025unreliability,
   title     = {Understanding {(Un)Reliability} of Steering Vectors in Language Models},
-  author    = {Braun, Daniel and others},
-  journal   = {arXiv preprint},
-  year      = {2025}
+  author    = {Braun, Joschka and Eickhoff, Carsten and Krueger, David and
+               Bahrainian, Seyed Ali and Krasheninnikov, Dmitrii},
+  booktitle = {{ICLR} 2025 Workshop on Foundation Models in the Wild},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2505.22637}
 }
 
-@article{hedstrom2025steer,
-  title     = {To Steer or Not to Steer: Mechanistic Error Reduction
+@inproceedings{hedstrom2025steer,
+  title     = {To Steer or Not to Steer? {M}echanistic Error Reduction
                with Abstention for Language Models},
-  author    = {Hedstr{\"o}m, Anna and others},
-  journal   = {arXiv preprint},
-  year      = {2025}
+  author    = {Hedstr{\"o}m, Anna and Amoukou, Salim I. and Bewley, Tom and
+               Mishra, Saumitra and Veloso, Manuela},
+  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {267},
+  pages     = {22924--22945},
+  publisher = {PMLR},
+  year      = {2025},
+  url       = {https://proceedings.mlr.press/v267/hedstrom25a.html}
 }
 
-@article{wang2025adaptive,
+@inproceedings{wang2025adaptive,
   title     = {Adaptive Activation Steering: A Tuning-Free {LLM} Truthfulness
-               Improvement Method for Diverse Hallucination},
-  author    = {Wang, Tianlong and others},
-  journal   = {arXiv preprint},
-  year      = {2025}
+               Improvement Method for Diverse Hallucination Categories},
+  author    = {Wang, Tianlong and Jiao, Xianfeng and Zhu, Yinghao and
+               Chen, Zhongzhi and He, Yifan and Chu, Xu and Gao, Junyi and
+               Wang, Yasha and Ma, Liantao},
+  booktitle = {Proceedings of the {ACM} on Web Conference 2025 ({WWW}'25)},
+  pages     = {2562--2578},
+  publisher = {ACM},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2406.00034}
 }
 
-@article{engels2025nonlinear,
+@inproceedings{engels2025nonlinear,
   title     = {Not All Language Model Features Are One-Dimensionally Linear},
   author    = {Engels, Joshua and Michaud, Eric J. and Liao, Isaac and
                Gurnee, Wes and Tegmark, Max},
@@ -42,16 +63,14 @@
   url       = {https://arxiv.org/abs/2405.14860}
 }
 
-% ---------------------------------------------------------------
-% Our prior work
-% ---------------------------------------------------------------
-
-@article{safeconstellations2025,
-  title     = {{SafeConstellations}: Mitigating Over-Refusals in {LLMs}
-               Through Task-Aware Representation Steering},
-  author    = {Anonymous},
-  journal   = {ACL submission (under review)},
-  year      = {2025}
+@misc{safeconstellations2025,
+      title={SafeConstellations: Steering LLM Safety to Reduce Over-Refusals Through Task-Specific Trajectory}, 
+      author={Utsav Maskey and Sumit Yadav and Mark Dras and Usman Naseem},
+      year={2025},
+      eprint={2508.11290},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2508.11290}, 
 }
 
 % ---------------------------------------------------------------
@@ -72,16 +91,29 @@
 @article{lu2025alignment,
   title     = {Alignment and Safety in Large Language Models: Safety Mechanisms,
                Training Paradigms, and Emerging Challenges},
-  author    = {Lu, [Authors]},
-  journal   = {arXiv preprint},
-  year      = {2025}
+  author    = {Lu, Haoran and Fang, Luyang and Zhang, Ruidong and Li, Xinliang and
+               Cai, Jiazhang and Cheng, Huimin and Tang, Lin and Liu, Ziyu and
+               Sun, Zeliang and Wang, Tao and Zhang, Yingchuan and
+               Zidan, Arif Hassan and Xu, Jinwen and Yu, Jincheng and
+               Yu, Meizhi and Jiang, Hanqi and Gong, Xilin and Luo, Weidi and
+               Sun, Bolun and Chen, Yongkai and Ma, Terry and Wu, Shushan and
+               Zhou, Yifan and Chen, Junhao and Xiang, Haotian and Zhang, Jing and
+               Jahin, Afrar and Ruan, Wei and Deng, Ke and Pan, Yi and
+               Wang, Peilong and Li, Jiahui and Liu, Zhengliang and Zhang, Lu and
+               Zhao, Lin and Liu, Wei and Zhu, Dajiang and Xing, Xin and
+               Dou, Fei and Zhang, Wei and Huang, Chao and Liu, Rongjie and
+               Zhang, Mengrui and Liu, Yiwen and Sun, Xiaoxiao and Lu, Qin and
+               Xiang, Zhen and Zhong, Wenxuan and Liu, Tianming and Ma, Ping},
+  journal   = {arXiv preprint arXiv:2507.19672},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2507.19672}
 }
 
 % ---------------------------------------------------------------
 % Safety alignment training
 % ---------------------------------------------------------------
 
-@article{ouyang2022instructgpt,
+@inproceedings{ouyang2022instructgpt,
   title     = {Training Language Models to Follow Instructions with Human Feedback},
   author    = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and
                Wainwright, Carroll and Mishkin, Pamela and Zhang, Chong and
@@ -117,35 +149,43 @@
   url       = {https://arxiv.org/abs/2402.05162}
 }
 
-@article{zhou2025safety,
-  title     = {Safety Heads: Localizing Safety-Critical Attention Heads in
-               Aligned Language Models},
-  author    = {Zhou, [Authors]},
+@inproceedings{zhou2025safety,
+  title     = {On the Role of Attention Heads in Large Language Model Safety},
+  author    = {Zhou, Zhenhong and Yu, Haiyang and Zhang, Xinghua and Xu, Rongwu and
+               Huang, Fei and Wang, Kun and Liu, Yang and Fang, Junfeng and
+               Li, Yongbin},
   booktitle = {International Conference on Learning Representations},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.13708}
 }
 
 @article{yin2025refusal,
-  title     = {The Refusal-Cliff Phenomenon: Refusal Suppression in Reasoning Models},
-  author    = {Yin, [Authors]},
-  journal   = {arXiv preprint},
-  year      = {2025}
+  title     = {Refusal Falls off a Cliff: How Safety Alignment Fails in Reasoning?},
+  author    = {Yin, Qingyu and Leong, Chak Tou and Yang, Linyi and Huang, Wenxuan and
+               Li, Wenjie and Wang, Xiting and Yoon, Jaehong and
+               YunXing and XingYu and Gu, Jinjin},
+  journal   = {arXiv preprint arXiv:2510.06036},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2510.06036}
 }
 
-@article{zhao2025d,
-  title     = {Safety Neurons: Identifying and Tuning Safety-Governing Neurons
-               in Large Language Models},
-  author    = {Zhao, [Authors]},
+@inproceedings{zhao2025d,
+  title     = {Understanding and Enhancing Safety Mechanisms of {LLM}s
+               via Safety-Specific Neuron},
+  author    = {Zhao, Yiran and Zhang, Wenxuan and Xie, Yuxi and Goyal, Anirudh and
+               Kawaguchi, Kenji and Shieh, Michael},
   booktitle = {International Conference on Learning Representations},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=yR47RmND1m}
 }
 
-@article{suau2024toxicity,
-  title     = {Localizing and Suppressing Toxicity at Inference Time via
-               Neuron-Level Interventions},
+@inproceedings{suau2024toxicity,
+  title     = {Whispering Experts: Neural Interventions for Toxicity Mitigation
+               in Language Models},
   author    = {Suau, Xavier and others},
   booktitle = {International Conference on Machine Learning},
-  year      = {2024}
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2407.12824}
 }
 
 @article{templeton2024scaling,
@@ -160,17 +200,17 @@
   url       = {https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html}
 }
 
-@article{yeo2025sae,
+@inproceedings{yeo2025sae,
   title     = {{SAE}-Based Analysis of Harm and Refusal Features in
                Language Models},
-  author    = {Yeo, [Authors]},
+  author    = {Yeo and others},
   booktitle = {Empirical Methods in Natural Language Processing},
   year      = {2025}
 }
 
-@article{goyal2025detox,
+@inproceedings{goyal2025detox,
   title     = {Detoxifying Language Models via Targeted {SAE} Feature Suppression},
-  author    = {Goyal, [Authors]},
+  author    = {Goyal and others},
   booktitle = {Empirical Methods in Natural Language Processing},
   year      = {2025}
 }
@@ -200,30 +240,33 @@
   url       = {https://arxiv.org/abs/2312.06681}
 }
 
-@article{zhao2025refusal,
-  title     = {Refusal Directions as Low-Dimensional Subspaces},
-  author    = {Zhao, [Authors]},
+@inproceedings{zhao2025refusal,
+  title     = {{LLMs} Encode Harmfulness and Refusal Separately},
+  author    = {Zhao, Jiachen and others},
   booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=zLkpt30ngy}
 }
 
-@article{wangf2025refusal,
-  title     = {Calibrating Refusal: A Training-Free Vector Ablation Approach},
-  author    = {Wang, [Authors]},
+@inproceedings{wangf2025refusal,
+  title     = {Surgical, Cheap, and Flexible: Mitigating False Refusal
+               in Language Models via Single Vector Ablation},
+  author    = {Wang, Xinpeng and Hu, Chengzhi and R{\"o}ttger, Paul and Plank, Barbara},
   booktitle = {International Conference on Learning Representations},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.03415}
 }
 
-@article{wang2025g,
-  title     = {Cross-Lingual Universality of Refusal Directions in
-               Safety-Aligned {LLMs}},
-  author    = {Wang, [Authors]},
+@inproceedings{wang2025g,
+  title     = {Refusal Direction Is Universal Across Safety-Aligned Languages},
+  author    = {Wang, Xinpeng and others},
   booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2505.17306}
 }
 
-@article{chuang2024contrastive,
-  title     = {Dola: Decoding by Contrasting Layers Improves Factuality in
+@inproceedings{chuang2024contrastive,
+  title     = {{DoLa}: Decoding by Contrasting Layers Improves Factuality in
                Large Language Models},
   author    = {Chuang, Yung-Sung and Xie, Yujia and Luo, Hongyin and
                Kim, Yoon and Glass, James and He, Pengcheng},
@@ -232,19 +275,24 @@
   url       = {https://arxiv.org/abs/2309.03883}
 }
 
-@article{orgad2025detecting,
-  title     = {Detecting Hallucination in Internal Representations before
-               Output},
-  author    = {Orgad, [Authors]},
+@inproceedings{orgad2025detecting,
+  title     = {{LLMs} Know More Than They Show: On the Intrinsic Representation
+               of {LLM} Hallucinations},
+  author    = {Orgad, Hadas and Toker, Michael and Gekhman, Zorik and
+               Reichart, Roi and Szpektor, Idan and Kotek, Hadas and Belinkov, Yonatan},
   booktitle = {International Conference on Learning Representations},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.02707}
 }
 
-@article{stolfo2025instruction,
-  title     = {Improving Instruction Following via Vector Arithmetic Steering},
-  author    = {Stolfo, Alessandro and others},
-  booktitle = {Empirical Methods in Natural Language Processing},
-  year      = {2025}
+@inproceedings{stolfo2025instruction,
+  title     = {Improving Instruction-Following in Language Models through
+               Activation Steering},
+  author    = {Stolfo, Alessandro and Balachandran, Vidhisha and Yousefi, Safoora and
+               Horvitz, Eric and Nushi, Besmira},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.12877}
 }
 
 % ---------------------------------------------------------------
@@ -259,19 +307,24 @@
   url          = {https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens}
 }
 
-@article{wendler2024languages,
-  title     = {Do {LLMs} Think in English? Vocabulary Projection Reveals
-               Language-Processing Phases},
-  author    = {Wendler, [Authors]},
-  booktitle = {Empirical Methods in Natural Language Processing},
-  year      = {2024}
+@inproceedings{wendler2024languages,
+  title     = {Do {LLaMA}s Work in {English}? On the Latent Language of
+               Multilingual Transformers},
+  author    = {Wendler, Chris and Veselovsky, Veniamin and Monea, Giovanni and
+               West, Robert},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the
+               Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages     = {1365--1378},
+  publisher = {Association for Computational Linguistics},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2402.10588}
 }
 
 % ---------------------------------------------------------------
 % Causal attribution and circuit discovery
 % ---------------------------------------------------------------
 
-@article{meng2022locating,
+@inproceedings{meng2022locating,
   title     = {Locating and Editing Factual Associations in {GPT}},
   author    = {Meng, Kevin and Bau, David and Andonian, Alex and Belinkov, Yonatan},
   booktitle = {Advances in Neural Information Processing Systems},
@@ -289,7 +342,7 @@
   url       = {https://arxiv.org/abs/2304.05969}
 }
 
-@article{conmy2023automated,
+@inproceedings{conmy2023automated,
   title     = {Towards Automated Circuit Discovery for Mechanistic Interpretability},
   author    = {Conmy, Arthur and Mavor-Parker, Augustine and Lynch, Aengus and
                Heimersheim, Stefan and Garriga-Alonso, Adri{\`a}},
@@ -307,7 +360,7 @@
   url       = {https://arxiv.org/abs/2310.10348}
 }
 
-@article{wang2022indirect,
+@inproceedings{wang2022indirect,
   title     = {Interpretability in the Wild: A Circuit for Indirect Object
                Identification in {GPT-2} Small},
   author    = {Wang, Kevin Ro and Variengien, Alexandre and Conmy, Arthur and
@@ -384,7 +437,7 @@
   url       = {https://arxiv.org/abs/2310.06824}
 }
 
-@article{geva2021transformer,
+@inproceedings{geva2021transformer,
   title     = {Transformer Feed-Forward Layers Are Key-Value Memories},
   author    = {Geva, Mor and Schuster, Roei and Berant, Jonathan and Levy, Omer},
   booktitle = {Empirical Methods in Natural Language Processing},

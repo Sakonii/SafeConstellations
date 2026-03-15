@@ -1,0 +1,89 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Arditi et~al.(2024)Arditi, Obeso, Syed, Cunningham, Guo, Rajendran, Conmy, and Nanda}]{arditi2024refusal}
+Andy Arditi, Oscar Obeso, Aaquib Syed, Hoagy Cunningham, Phillip Guo, Gavin Rajendran, Arthur Conmy, and Neel Nanda. 2024.
+\newblock \href {https://arxiv.org/abs/2406.11717} {Refusal in language models is mediated by a single direction}.
+\newblock In \emph{Advances in Neural Information Processing Systems}, volume~37.
+
+\bibitem[{Braun et~al.(2025)Braun, Eickhoff, Krueger, Bahrainian, and Krasheninnikov}]{braun2025unreliability}
+Joschka Braun, Carsten Eickhoff, David Krueger, Seyed~Ali Bahrainian, and Dmitrii Krasheninnikov. 2025.
+\newblock \href {https://arxiv.org/abs/2505.22637} {Understanding {(Un)Reliability} of steering vectors in language models}.
+\newblock In \emph{{ICLR} 2025 Workshop on Foundation Models in the Wild}.
+
+\bibitem[{Chao et~al.(2024)Chao, Debenedetti, Sichermann, Andriushchenko et~al.}]{chao2024jailbreakbench}
+Patrick Chao, Edgar Debenedetti, Alexander Sichermann, Maksym Andriushchenko, and 1 others. 2024.
+\newblock \href {https://arxiv.org/abs/2404.01318} {{JailbreakBench}: An open robustness benchmark for jailbreaking large language models}.
+\newblock \emph{arXiv preprint arXiv:2404.01318}.
+
+\bibitem[{Cui et~al.(2025)Cui, Chiang, Stoica, and Hsieh}]{cui2025orbench}
+Justin Cui, Wei-Lin Chiang, Ion Stoica, and Cho-Jui Hsieh. 2025.
+\newblock \href {https://openreview.net/forum?id=CdFnEu0JZV} {{OR}-bench: An over-refusal benchmark for large language models}.
+\newblock In \emph{Forty-second International Conference on Machine Learning}.
+
+\bibitem[{Engels et~al.(2025)Engels, Michaud, Liao, Gurnee, and Tegmark}]{engels2025nonlinear}
+Joshua Engels, Eric~J. Michaud, Isaac Liao, Wes Gurnee, and Max Tegmark. 2025.
+\newblock \href {https://arxiv.org/abs/2405.14860} {Not all language model features are one-dimensionally linear}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Goyal et~al.(2025)}]{goyal2025detox}
+Goyal and 1 others. 2025.
+\newblock Detoxifying language models via targeted {SAE} feature suppression.
+\newblock In \emph{Empirical Methods in Natural Language Processing}.
+
+\bibitem[{Hedstr{\"o}m et~al.(2025)Hedstr{\"o}m, Amoukou, Bewley, Mishra, and Veloso}]{hedstrom2025steer}
+Anna Hedstr{\"o}m, Salim~I. Amoukou, Tom Bewley, Saumitra Mishra, and Manuela Veloso. 2025.
+\newblock \href {https://proceedings.mlr.press/v267/hedstrom25a.html} {To steer or not to steer? {M}echanistic error reduction with abstention for language models}.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine Learning}, volume 267 of \emph{Proceedings of Machine Learning Research}, pages 22924--22945. PMLR.
+
+\bibitem[{Maskey et~al.(2025)Maskey, Yadav, Dras, and Naseem}]{safeconstellations2025}
+Utsav Maskey, Sumit Yadav, Mark Dras, and Usman Naseem. 2025.
+\newblock \href {https://arxiv.org/abs/2508.11290} {Safeconstellations: Steering llm safety to reduce over-refusals through task-specific trajectory}.
+\newblock \emph{Preprint}, arXiv:2508.11290.
+
+\bibitem[{Park et~al.(2023)Park, Choe, and Veitch}]{park2023linear}
+Kiho Park, Yo~Joong Choe, and Victor Veitch. 2023.
+\newblock \href {https://arxiv.org/abs/2311.03658} {The linear representation hypothesis and the geometry of large language models}.
+\newblock \emph{arXiv preprint arXiv:2311.03658}.
+
+\bibitem[{Taori et~al.(2023)Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}]{taori2023alpaca}
+Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li, Carlos Guestrin, Percy Liang, and Tatsunori~B. Hashimoto. 2023.
+\newblock Alpaca: A strong, replicable instruction-following model.
+\newblock \url{https://crfm.stanford.edu/2023/03/13/alpaca.html}.
+
+\bibitem[{Templeton et~al.(2024)Templeton, Conerly, Marcus, Lindsey, Bricken, Chen, Pearce, Citro, Ameisen, Jones et~al.}]{templeton2024scaling}
+Adly Templeton, Tom Conerly, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, and 1 others. 2024.
+\newblock \href {https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html} {Scaling monosemanticity: Extracting interpretable features from {Claude} 3 sonnet}.
+\newblock \emph{Transformer Circuits Thread}.
+
+\bibitem[{Wang et~al.(2025{\natexlab{a}})Wang, Jiao, Zhu, Chen, He, Chu, Gao, Wang, and Ma}]{wang2025adaptive}
+Tianlong Wang, Xianfeng Jiao, Yinghao Zhu, Zhongzhi Chen, Yifan He, Xu~Chu, Junyi Gao, Yasha Wang, and Liantao Ma. 2025{\natexlab{a}}.
+\newblock \href {https://arxiv.org/abs/2406.00034} {Adaptive activation steering: A tuning-free {LLM} truthfulness improvement method for diverse hallucination categories}.
+\newblock In \emph{Proceedings of the {ACM} on Web Conference 2025 ({WWW}'25)}, pages 2562--2578. ACM.
+
+\bibitem[{Wang et~al.(2025{\natexlab{b}})Wang, Hu, R{\"o}ttger, and Plank}]{wangf2025refusal}
+Xinpeng Wang, Chengzhi Hu, Paul R{\"o}ttger, and Barbara Plank. 2025{\natexlab{b}}.
+\newblock \href {https://arxiv.org/abs/2410.03415} {Surgical, cheap, and flexible: Mitigating false refusal in language models via single vector ablation}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Zhao et~al.(2025{\natexlab{a}})}]{zhao2025refusal}
+Jiachen Zhao and 1 others. 2025{\natexlab{a}}.
+\newblock \href {https://openreview.net/forum?id=zLkpt30ngy} {{LLMs} encode harmfulness and refusal separately}.
+\newblock In \emph{Advances in Neural Information Processing Systems}.
+
+\bibitem[{Zhao et~al.(2025{\natexlab{b}})Zhao, Zhang, Xie, Goyal, Kawaguchi, and Shieh}]{zhao2025d}
+Yiran Zhao, Wenxuan Zhang, Yuxi Xie, Anirudh Goyal, Kenji Kawaguchi, and Michael Shieh. 2025{\natexlab{b}}.
+\newblock \href {https://openreview.net/forum?id=yR47RmND1m} {Understanding and enhancing safety mechanisms of {LLM}s via safety-specific neuron}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Zhou et~al.(2025)Zhou, Yu, Zhang, Xu, Huang, Wang, Liu, Fang, and Li}]{zhou2025safety}
+Zhenhong Zhou, Haiyang Yu, Xinghua Zhang, Rongwu Xu, Fei Huang, Kun Wang, Yang Liu, Junfeng Fang, and Yongbin Li. 2025.
+\newblock \href {https://arxiv.org/abs/2410.13708} {On the role of attention heads in large language model safety}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Zou et~al.(2023)Zou, Phan, Chen, Campbell, Guo, Ren, Pan, Yin, Mazeika, Dombrowski et~al.}]{zou2023representation}
+Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren, Alexander Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, and 1 others. 2023.
+\newblock \href {https://arxiv.org/abs/2310.01405} {Representation engineering: A top-down approach to {AI} transparency}.
+\newblock \emph{arXiv preprint arXiv:2310.01405}.
+
+\end{thebibliography}
