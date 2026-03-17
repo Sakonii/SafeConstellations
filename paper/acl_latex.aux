@@ -3,8 +3,9 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{cui2025orbench,rottger2024xstest}
 \citation{arditi2024refusal,zou2023representation}
-\citation{wangf2025refusal}
+\citation{arditi2024refusal}
 \@LN{0}{0}
 \@LN{1}{0}
 \@LN{2}{0}
@@ -30,8 +31,8 @@
 \@LN{22}{0}
 \@LN{23}{0}
 \@LN{24}{0}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@LN{25}{0}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@LN{26}{0}
 \@LN{27}{0}
 \@LN{28}{0}
@@ -48,6 +49,9 @@
 \@LN{39}{0}
 \@LN{40}{0}
 \@LN{41}{0}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces PCA of residual stream at early, mid and late layers. Black arrow: global DIM (difference-in-mean) refusal direction; colored arrows: NLP task-specific directions (Sentiment Analysis, Rephrase, etc.). Top row: harmful-refusal---task-specific directions converge onto the global vector by mid-layers, confirming a single task-agnostic direction suffices. Bottom row: over-refusal---task-specific directions diverge, with no shared refusal zone, making any global intervention structurally imprecise.}}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:combined_geometry}{{1}{1}{PCA of residual stream at early, mid and late layers. Black arrow: global DIM (difference-in-mean) refusal direction; colored arrows: NLP task-specific directions (Sentiment Analysis, Rephrase, etc.). Top row: harmful-refusal---task-specific directions converge onto the global vector by mid-layers, confirming a single task-agnostic direction suffices. Bottom row: over-refusal---task-specific directions diverge, with no shared refusal zone, making any global intervention structurally imprecise}{figure.caption.1}{}}
 \def\@LN@column{1}
 \@LN{42}{0}
 \@LN{43}{0}
@@ -62,51 +66,57 @@
 \@LN{52}{0}
 \@LN{53}{0}
 \@LN{54}{0}
-\@LN{55}{0}
-\@LN{56}{0}
-\@LN{57}{0}
-\@LN{58}{0}
-\@LN{59}{0}
-\@LN{60}{0}
-\@LN{61}{0}
-\@LN{62}{0}
-\@LN{63}{0}
-\@LN{64}{0}
-\@LN{65}{0}
-\@LN{66}{0}
-\@LN{67}{0}
-\@LN{68}{0}
-\@LN{69}{0}
-\@LN{70}{0}
-\@LN{71}{0}
-\@LN{72}{0}
-\@LN{73}{0}
-\@LN{74}{0}
-\@LN{75}{0}
-\@LN{76}{0}
-\@LN{77}{0}
-\@LN{78}{0}
-\@LN{79}{0}
-\@LN{80}{0}
 \citation{arditi2024refusal}
-\citation{zhao2025refusal}
+\citation{rottger2024xstest}
+\citation{cui2025orbench}
+\citation{karaman2025porover}
+\citation{falsereject2025}
+\citation{levi2025mosr}
+\citation{han2025safeswitch}
+\citation{arditi2024refusal}
 \citation{zhou2025safety}
 \citation{zhao2025d}
-\citation{templeton2024scaling,goyal2025detox}
+\citation{zhao2025refusal}
+\citation{wang2025g}
+\citation{yin2025refusal}
+\citation{templeton2024scaling,yeo2025sae,goyal2025detox}
+\citation{zou2023representation,panickssery2023steering}
+\citation{stolfo2025instruction}
+\citation{suau2024toxicity}
+\citation{wangf2025refusal}
 \citation{braun2025unreliability}
 \citation{hedstrom2025steer}
 \citation{wang2025adaptive}
 \citation{safeconstellations2025}
 \citation{engels2025nonlinear}
-\citation{taori2023alpaca}
-\citation{chao2024jailbreakbench}
-\citation{cui2025orbench}
-\citation{arditi2024refusal}
 \def\@LN@column{2}
+\@LN{55}{1}
+\@LN{56}{1}
+\@LN{57}{1}
+\@LN{58}{1}
+\@LN{59}{1}
+\@LN{60}{1}
+\@LN{61}{1}
+\@LN{62}{1}
+\@LN{63}{1}
+\@LN{64}{1}
+\@LN{65}{1}
+\@LN{66}{1}
+\@LN{67}{1}
+\@LN{68}{1}
+\@LN{69}{1}
+\@LN{70}{1}
+\@LN{71}{1}
+\@LN{72}{1}
+\@LN{73}{1}
+\@LN{74}{1}
+\@LN{75}{1}
+\@LN{76}{1}
+\@LN{77}{1}
+\@LN{78}{1}
+\@LN{79}{1}
+\@LN{80}{1}
 \@LN{81}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}{section.2}\protected@file@percent }
-\newlabel{sec:background}{{2}{2}{Background}{section.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Refusal localization.}{2}{section*.1}\protected@file@percent }
 \@LN{82}{1}
 \@LN{83}{1}
 \@LN{84}{1}
@@ -117,9 +127,11 @@
 \@LN{89}{1}
 \@LN{90}{1}
 \@LN{91}{1}
-\@writefile{toc}{\contentsline {paragraph}{Steering limitations.}{2}{section*.2}\protected@file@percent }
 \@LN{92}{1}
 \@LN{93}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{2}{2}{Background}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Over-refusal Benchmarks and Mitigation.}{2}{section*.2}\protected@file@percent }
 \@LN{94}{1}
 \@LN{95}{1}
 \@LN{96}{1}
@@ -129,9 +141,9 @@
 \@LN{100}{1}
 \@LN{101}{1}
 \@LN{102}{1}
-\@writefile{toc}{\contentsline {paragraph}{Task-conditioned representations.}{2}{section*.3}\protected@file@percent }
 \@LN{103}{1}
 \@LN{104}{1}
+\def\@LN@column{1}
 \@LN{105}{1}
 \@LN{106}{1}
 \@LN{107}{1}
@@ -139,16 +151,14 @@
 \@LN{109}{1}
 \@LN{110}{1}
 \@LN{111}{1}
-\@writefile{toc}{\contentsline {paragraph}{Non-linear representations.}{2}{section*.4}\protected@file@percent }
 \@LN{112}{1}
+\@writefile{toc}{\contentsline {paragraph}{Refusal Localization.}{2}{section*.3}\protected@file@percent }
 \@LN{113}{1}
 \@LN{114}{1}
 \@LN{115}{1}
 \@LN{116}{1}
 \@LN{117}{1}
 \@LN{118}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Experimental Setup}{2}{section.3}\protected@file@percent }
-\newlabel{sec:setup}{{3}{2}{Experimental Setup}{section.3}{}}
 \@LN{119}{1}
 \@LN{120}{1}
 \@LN{121}{1}
@@ -159,10 +169,7 @@
 \@LN{126}{1}
 \@LN{127}{1}
 \@LN{128}{1}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Benign task examples that can cause over-refusal.}}{2}{table.caption.5}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:examples}{{1}{2}{Benign task examples that can cause over-refusal}{table.caption.5}{}}
-\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{Steering vectors.}{2}{section*.4}\protected@file@percent }
 \@LN{129}{1}
 \@LN{130}{1}
 \@LN{131}{1}
@@ -190,24 +197,27 @@
 \@LN{153}{1}
 \@LN{154}{1}
 \@LN{155}{1}
-\@LN{156}{1}
-\@LN{157}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Analysis and Discussion}{2}{section.4}\protected@file@percent }
-\newlabel{sec:results}{{4}{2}{Analysis and Discussion}{section.4}{}}
-\@LN{158}{1}
-\@LN{159}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Is Harmful Refusal Mediated by a Single Universal Direction?}{2}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:arditi}{{4.1}{2}{Is Harmful Refusal Mediated by a Single Universal Direction?}{subsection.4.1}{}}
-\@LN{160}{1}
-\@LN{161}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 2-D PCA at three layers. Colour = task; circles = harmless; triangles = over-refusal; crosses = refused-harmful; black arrow = global harmful-refusal direction; coloured arrows = per-task directions. Top: per-task harmful-refusal directions converge by mid-layers. Bottom: per-task over-refusal directions diverge; samples sit inside task clusters.}}{3}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:combined_geometry}{{1}{3}{2-D PCA at three layers. Colour = task; circles = harmless; triangles = over-refusal; crosses = refused-harmful; black arrow = global harmful-refusal direction; coloured arrows = per-task directions. Top: per-task harmful-refusal directions converge by mid-layers. Bottom: per-task over-refusal directions diverge; samples sit inside task clusters}{figure.caption.6}{}}
+\citation{zhang2026locate}
+\citation{marks2023geometry,park2023linear}
+\citation{meng2022locating,conmy2023automated}
+\citation{syed2023attribution}
+\citation{safeconstellations2025}
+\citation{taori2023alpaca}
+\citation{rottger2024xstest}
+\citation{chao2024jailbreakbench}
+\citation{cui2025orbench}
+\citation{rousseeuw1987silhouettes}
 \def\@LN@column{2}
+\@LN{156}{2}
+\@LN{157}{2}
+\@writefile{toc}{\contentsline {paragraph}{Mechanistic Methods.}{3}{section*.5}\protected@file@percent }
+\@LN{158}{2}
+\@LN{159}{2}
+\@LN{160}{2}
+\@LN{161}{2}
 \@LN{162}{2}
 \@LN{163}{2}
 \@LN{164}{2}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Global direction ablation replication. Harmful refusal drops substantially; harmless samples are unaffected.}}{3}{table.caption.7}\protected@file@percent }
-\newlabel{tab:arditi}{{2}{3}{Global direction ablation replication. Harmful refusal drops substantially; harmless samples are unaffected}{table.caption.7}{}}
 \@LN{165}{2}
 \@LN{166}{2}
 \@LN{167}{2}
@@ -218,11 +228,8 @@
 \@LN{172}{2}
 \@LN{173}{2}
 \@LN{174}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}What Representational Structure Emerges at Mid-Layers?}{3}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:constellations}{{4.2}{3}{What Representational Structure Emerges at Mid-Layers?}{subsection.4.2}{}}
 \@LN{175}{2}
 \@LN{176}{2}
-\def\@LN@column{1}
 \@LN{177}{2}
 \@LN{178}{2}
 \@LN{179}{2}
@@ -230,7 +237,10 @@
 \@LN{181}{2}
 \@LN{182}{2}
 \@LN{183}{2}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experimental Setup}{3}{section.3}\protected@file@percent }
+\newlabel{sec:setup}{{3}{3}{Experimental Setup}{section.3}{}}
 \@LN{184}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset}{3}{subsection.3.1}\protected@file@percent }
 \@LN{185}{2}
 \@LN{186}{2}
 \@LN{187}{2}
@@ -247,11 +257,14 @@
 \@LN{198}{2}
 \@LN{199}{2}
 \@LN{200}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Is the Over-Refusal Direction Geometrically Distinct?}{3}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:geometry}{{4.3}{3}{Is the Over-Refusal Direction Geometrically Distinct?}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Analysing Target Responses}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:analyse_target_resp}{{3.2}{3}{Analysing Target Responses}{subsection.3.2}{}}
 \@LN{201}{2}
 \@LN{202}{2}
 \@LN{203}{2}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Examples of the two refusal groups. Harmful-Refusal is correct, but over-refusal is a erroneous.}}{3}{table.caption.6}\protected@file@percent }
+\newlabel{tab:examples}{{1}{3}{Examples of the two refusal groups. Harmful-Refusal is correct, but over-refusal is a erroneous}{table.caption.6}{}}
+\def\@LN@column{1}
 \@LN{204}{2}
 \@LN{205}{2}
 \@LN{206}{2}
@@ -265,6 +278,7 @@
 \@LN{214}{2}
 \@LN{215}{2}
 \@LN{216}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Geometrical Evaluation}{3}{subsection.3.3}\protected@file@percent }
 \@LN{217}{2}
 \@LN{218}{2}
 \@LN{219}{2}
@@ -275,22 +289,21 @@
 \@LN{224}{2}
 \@LN{225}{2}
 \@LN{226}{2}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 2-D PCA at the peak task-identity layer (layer 12). Left: task identity---five well-separated constellations. Right: behaviour---over-refusal (triangles) sits inside task clusters, not in a shared zone.}}{4}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:galaxy}{{2}{4}{2-D PCA at the peak task-identity layer (layer 12). Left: task identity---five well-separated constellations. Right: behaviour---over-refusal (triangles) sits inside task clusters, not in a shared zone}{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Top: inter-task silhouette across layers, peaking at layer 12. Bottom: within-task behavioral distance relative to inter-task distance (dashed).}}{4}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:silhouette}{{3}{4}{Top: inter-task silhouette across layers, peaking at layer 12. Bottom: within-task behavioral distance relative to inter-task distance (dashed)}{figure.caption.9}{}}
+\@LN{227}{2}
+\@LN{228}{2}
+\@LN{229}{2}
+\@LN{230}{2}
+\@LN{231}{2}
+\@LN{232}{2}
+\citation{arditi2024refusal}
 \def\@LN@column{2}
-\@LN{227}{3}
-\@LN{228}{3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Are the Two Refusal Types Representationally Separable?}{4}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:probing}{{4.4}{4}{Are the Two Refusal Types Representationally Separable?}{subsection.4.4}{}}
-\@LN{229}{3}
-\@LN{230}{3}
-\@LN{231}{3}
-\@LN{232}{3}
 \@LN{233}{3}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Analysis and Discussion}{4}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{4}{Analysis and Discussion}{section.4}{}}
 \@LN{234}{3}
 \@LN{235}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Is Harmful-Refusal Mediated by a Single Universal Direction?}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:arditi}{{4.1}{4}{Is Harmful-Refusal Mediated by a Single Universal Direction?}{subsection.4.1}{}}
 \@LN{236}{3}
 \@LN{237}{3}
 \@LN{238}{3}
@@ -298,9 +311,6 @@
 \@LN{240}{3}
 \@LN{241}{3}
 \@LN{242}{3}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Layer-wise cosine between $\hat  {\mathbf  {v}}^\textsc  {or}_\ell $ and $\hat  {\mathbf  {r}}_\ell $. Shaded band: inter-task alignment of harmful-refusal directions (reference for universality). The over-refusal direction plateaus at roughly half this alignment.}}{4}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:cosine}{{4}{4}{Layer-wise cosine between $\hat {\mathbf {v}}^\OR _\ell $ and $\hat {\mathbf {r}}_\ell $. Shaded band: inter-task alignment of harmful-refusal directions (reference for universality). The over-refusal direction plateaus at roughly half this alignment}{figure.caption.10}{}}
-\def\@LN@column{1}
 \@LN{243}{3}
 \@LN{244}{3}
 \@LN{245}{3}
@@ -308,61 +318,64 @@
 \@LN{247}{3}
 \@LN{248}{3}
 \@LN{249}{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Harmful-refusal DIM direction selection. Left: projection score distributions at L11---refused-harmful and harmless-answered are cleanly separated. Right: score gap across layers, peaking at L11 and L17.}}{4}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:nb8_projection}{{2}{4}{Harmful-refusal DIM direction selection. Left: projection score distributions at L11---refused-harmful and harmless-answered are cleanly separated. Right: score gap across layers, peaking at L11 and L17}{figure.caption.7}{}}
 \@LN{250}{3}
 \@LN{251}{3}
 \@LN{252}{3}
 \@LN{253}{3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Does Global Ablation Differentially Target Over-Refusal?}{4}{subsection.4.5}\protected@file@percent }
-\newlabel{sec:h4}{{4.5}{4}{Does Global Ablation Differentially Target Over-Refusal?}{subsection.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Global refusal direction ablation.}}{4}{table.caption.8}\protected@file@percent }
+\newlabel{tab:arditi}{{2}{4}{Global refusal direction ablation}{table.caption.8}{}}
 \@LN{254}{3}
 \@LN{255}{3}
 \@LN{256}{3}
 \@LN{257}{3}
 \@LN{258}{3}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Linear probe accuracy across layers. (a) Task probe saturates from layer 1. (b) Refusal-behaviour probe improves through mid-layers. (c) Refusal-type probe achieves perfect accuracy from layer 1.}}{5}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:nb17_probes}{{5}{5}{Linear probe accuracy across layers. (a) Task probe saturates from layer 1. (b) Refusal-behaviour probe improves through mid-layers. (c) Refusal-type probe achieves perfect accuracy from layer 1}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Effect of global ablation on harmful-refusal vs.\ over-refusal ($n=20$ per condition). Ablation suppresses harmful refusals more than over-refusal.}}{5}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:h3}{{6}{5}{Effect of global ablation on harmful-refusal vs.\ over-refusal ($n=20$ per condition). Ablation suppresses harmful refusals more than over-refusal}{figure.caption.12}{}}
-\def\@LN@column{2}
-\@LN{259}{4}
-\@LN{260}{4}
-\@LN{261}{4}
-\@LN{262}{4}
-\@LN{263}{4}
-\@LN{264}{4}
-\@LN{265}{4}
-\@LN{266}{4}
-\@LN{267}{4}
-\@LN{268}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Where Is Refusal Committed?}{5}{subsection.4.6}\protected@file@percent }
-\newlabel{sec:circuits}{{4.6}{5}{Where Is Refusal Committed?}{subsection.4.6}{}}
-\@LN{269}{4}
-\@LN{270}{4}
-\@LN{271}{4}
+\@LN{259}{3}
+\@LN{260}{3}
+\@LN{261}{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 2-D PCA at the peak task-identity layer (layer~12). Left: five task clusters. Right: over-refusal (triangles) sits overlapping within the non-refusal clusters.}}{4}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:galaxy}{{3}{4}{2-D PCA at the peak task-identity layer (layer~12). Left: five task clusters. Right: over-refusal (triangles) sits overlapping within the non-refusal clusters}{figure.caption.9}{}}
 \def\@LN@column{1}
-\@LN{272}{4}
-\@LN{273}{4}
-\@LN{274}{4}
-\@LN{275}{4}
-\@LN{276}{4}
-\@LN{277}{4}
-\@LN{278}{4}
-\@LN{279}{4}
-\@LN{280}{4}
-\@LN{281}{4}
-\@LN{282}{4}
-\@LN{283}{4}
-\@LN{284}{4}
-\@LN{285}{4}
-\@LN{286}{4}
-\@LN{287}{4}
+\@LN{262}{3}
+\@LN{263}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Is Over-Refusal Mediated by a Single Direction?}{4}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:geometry}{{4.2}{4}{Is Over-Refusal Mediated by a Single Direction?}{subsection.4.2}{}}
+\@LN{264}{3}
+\@LN{265}{3}
+\@LN{266}{3}
+\@LN{267}{3}
+\@LN{268}{3}
+\@LN{269}{3}
+\@LN{270}{3}
+\@LN{271}{3}
+\@LN{272}{3}
+\@LN{273}{3}
+\@LN{274}{3}
+\@LN{275}{3}
+\@LN{276}{3}
+\@LN{277}{3}
+\@LN{278}{3}
+\@LN{279}{3}
+\@LN{280}{3}
+\@LN{281}{3}
+\@LN{282}{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Within-task behavioral gap vs.\ inter-task / global centroid distances across layers. The gap confirms that over-refusal is a within-cluster perturbation rather than a cross-task signal.}}{4}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:nb7_cluster_sep}{{4}{4}{Within-task behavioral gap vs.\ inter-task / global centroid distances across layers. The gap confirms that over-refusal is a within-cluster perturbation rather than a cross-task signal}{figure.caption.10}{}}
+\@LN{283}{3}
+\@LN{284}{3}
+\@LN{285}{3}
+\@LN{286}{3}
+\@LN{287}{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Inter-task silhouette (left) peaks at layer~12; within-task behavioral silhouette (right) peaks later and much weaker---task structure forms earlier and stronger than behavioral separation.}}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:silhouette}{{5}{5}{Inter-task silhouette (left) peaks at layer~12; within-task behavioral silhouette (right) peaks later and much weaker---task structure forms earlier and stronger than behavioral separation}{figure.caption.11}{}}
+\def\@LN@column{2}
+\@writefile{toc}{\contentsline {paragraph}{No shared over-refusal direction.}{5}{section*.12}\protected@file@percent }
 \@LN{288}{4}
 \@LN{289}{4}
 \@LN{290}{4}
 \@LN{291}{4}
 \@LN{292}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Do Task-Conditioned Methods Address the Geometry?}{5}{subsection.4.7}\protected@file@percent }
-\newlabel{sec:selectivity}{{4.7}{5}{Do Task-Conditioned Methods Address the Geometry?}{subsection.4.7}{}}
 \@LN{293}{4}
 \@LN{294}{4}
 \@LN{295}{4}
@@ -370,208 +383,223 @@
 \@LN{297}{4}
 \@LN{298}{4}
 \@LN{299}{4}
-\citation{safeconstellations2025}
-\citation{safeconstellations2025}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Causal patching flip rates for the top attribution heads. No head crosses the causal-necessity threshold (50\%).}}{6}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:nb18_causal}{{7}{6}{Causal patching flip rates for the top attribution heads. No head crosses the causal-necessity threshold (50\%)}{figure.caption.13}{}}
-\def\@LN@column{2}
-\@LN{300}{5}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Head-to-head comparison ($n=20$). OR = over-refusal rate; RH = refused-harmful rate. Suppression ratio = \% OR reduction / \% RH reduction. Task-conditioned method: SafeConstellations \citep  {safeconstellations2025}.}}{6}{table.caption.15}\protected@file@percent }
-\newlabel{tab:comparison}{{3}{6}{Head-to-head comparison ($n=20$). OR = over-refusal rate; RH = refused-harmful rate. Suppression ratio = \% OR reduction / \% RH reduction. Task-conditioned method: SafeConstellations \citep {safeconstellations2025}}{table.caption.15}{}}
-\@LN{301}{5}
-\@LN{302}{5}
-\@LN{303}{5}
-\@LN{304}{5}
-\@LN{305}{5}
-\@LN{306}{5}
-\@LN{307}{5}
-\@LN{308}{5}
-\@LN{309}{5}
-\@LN{310}{5}
-\@LN{311}{5}
-\@LN{312}{5}
-\@LN{313}{5}
-\@LN{314}{5}
-\@LN{315}{5}
-\@LN{316}{5}
-\@LN{317}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Layer-wise cosine between $\hat  {\mathbf  {v}}^\textsc  {or}_\ell $ and $\hat  {\mathbf  {r}}_\ell $. Shaded band: inter-task harmful-refusal alignment. The over-refusal direction plateaus well below the harmful-refusal reference.}}{5}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:cosine}{{6}{5}{Layer-wise cosine between $\hat {\mathbf {v}}^\OR _\ell $ and $\hat {\mathbf {r}}_\ell $. Shaded band: inter-task harmful-refusal alignment. The over-refusal direction plateaus well below the harmful-refusal reference}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {paragraph}{Over-refusal and a higher-dimensional subspace.}{5}{section*.15}\protected@file@percent }
+\@LN{300}{4}
+\@LN{301}{4}
+\@LN{302}{4}
+\@LN{303}{4}
+\@LN{304}{4}
+\@LN{305}{4}
+\@LN{306}{4}
+\@LN{307}{4}
+\@LN{308}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 2-D PCA at three representative layers. Top row: residual-stream activations of harmless-answered (HA) and over-refusal (OR) samples with HA and OR centroids marked. Bottom row: the over-refusal DIM direction (HA$\to $OR centroid) and the Arditi harmful-refusal direction overlaid in the same plane. The over-refusal direction diverges from the harmful-refusal direction and varies across layers.}}{5}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:h2}{{7}{5}{2-D PCA at three representative layers. Top row: residual-stream activations of harmless-answered (HA) and over-refusal (OR) samples with HA and OR centroids marked. Bottom row: the over-refusal DIM direction (HA$\to $OR centroid) and the Arditi harmful-refusal direction overlaid in the same plane. The over-refusal direction diverges from the harmful-refusal direction and varies across layers}{figure.caption.14}{}}
 \def\@LN@column{1}
-\@LN{318}{5}
-\@LN{319}{5}
-\@LN{320}{5}
-\@LN{321}{5}
-\citation{park2023linear}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Global ablation vs.\ task-conditioned steering ($n=20$). Task-conditioned steering eliminates over-refusal while preserving more of the harmful-refusal mechanism.}}{7}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:selectivity_fig}{{8}{7}{Global ablation vs.\ task-conditioned steering ($n=20$). Task-conditioned steering eliminates over-refusal while preserving more of the harmful-refusal mechanism}{figure.caption.14}{}}
+\@LN{309}{4}
+\@LN{310}{4}
+\@LN{311}{4}
+\@LN{312}{4}
+\@LN{313}{4}
+\@LN{314}{4}
+\@LN{315}{4}
+\@LN{316}{4}
+\@LN{317}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces No. of Principal Components needed to reach 80\% explained variance) across layers for over-refusal (red) and harmful-refusal (black). Over-refusal is consistently multi-dimensional and although harmful-refusal has higher PC1 variance, over-refusal consistently requires more components to reach the 80\% threshold throughout mid-layers.}}{5}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:nb16_layer_sweep}{{8}{5}{No. of Principal Components needed to reach 80\% explained variance) across layers for over-refusal (red) and harmful-refusal (black). Over-refusal is consistently multi-dimensional and although harmful-refusal has higher PC1 variance, over-refusal consistently requires more components to reach the 80\% threshold throughout mid-layers}{figure.caption.16}{}}
+\@LN{318}{4}
+\@LN{319}{4}
+\@LN{320}{4}
+\@LN{321}{4}
+\@LN{322}{4}
+\citation{safeconstellations2025}
+\citation{safeconstellations2025}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Linear probe accuracy across layers. (a) Task identity saturates from early layers. (b) Refusal behaviour consolidates through mid-layers. (c) Refusal type perfect accuracy from early layers.}}{6}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:nb17_probes}{{9}{6}{Linear probe accuracy across layers. (a) Task identity saturates from early layers. (b) Refusal behaviour consolidates through mid-layers. (c) Refusal type perfect accuracy from early layers}{figure.caption.17}{}}
 \def\@LN@column{2}
-\@LN{322}{6}
+\@LN{323}{5}
+\@LN{324}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Are Harmful-Refusal and Over-Refusal Representationally Separable?}{6}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:probing}{{4.3}{6}{Are Harmful-Refusal and Over-Refusal Representationally Separable?}{subsection.4.3}{}}
+\@LN{325}{5}
+\@LN{326}{5}
+\@LN{327}{5}
+\@LN{328}{5}
+\@LN{329}{5}
+\@LN{330}{5}
+\@LN{331}{5}
+\@LN{332}{5}
+\@LN{333}{5}
+\@LN{334}{5}
+\@LN{335}{5}
+\@LN{336}{5}
+\@LN{337}{5}
+\@LN{338}{5}
+\@LN{339}{5}
+\@LN{340}{5}
+\@LN{341}{5}
+\@LN{342}{5}
+\@LN{343}{5}
+\@LN{344}{5}
+\@LN{345}{5}
+\@LN{346}{5}
+\@LN{347}{5}
+\@LN{348}{5}
+\@LN{349}{5}
+\@LN{350}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Does Global Ablation Suppress Over-Refusal?}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:h4}{{4.4}{6}{Does Global Ablation Suppress Over-Refusal?}{subsection.4.4}{}}
+\@LN{351}{5}
+\@LN{352}{5}
+\@LN{353}{5}
+\@LN{354}{5}
+\@LN{355}{5}
+\@LN{356}{5}
+\@LN{357}{5}
+\@LN{358}{5}
+\@LN{359}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Effect of global ablation on harmful-refusal vs.\ over-refusal prompts ($n=20$ per condition). Ablation suppresses harmful refusals more than over-refusal.}}{6}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:h3}{{10}{6}{Effect of global ablation on harmful-refusal vs.\ over-refusal prompts ($n=20$ per condition). Ablation suppresses harmful refusals more than over-refusal}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Global ablation vs.\ task-conditioned steering ($n=20$). Task-conditioned steering eliminates over-refusal while preserving more of the harmful-refusal mechanism.}}{6}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:selectivity_fig}{{11}{6}{Global ablation vs.\ task-conditioned steering ($n=20$). Task-conditioned steering eliminates over-refusal while preserving more of the harmful-refusal mechanism}{figure.caption.19}{}}
+\def\@LN@column{1}
+\@LN{360}{5}
+\@LN{361}{5}
+\@LN{362}{5}
+\@LN{363}{5}
+\@LN{364}{5}
+\@LN{365}{5}
+\@LN{366}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Does Task-Conditioned Steering Outperform Global Ablation?}{6}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:selectivity}{{4.5}{6}{Does Task-Conditioned Steering Outperform Global Ablation?}{subsection.4.5}{}}
+\@LN{367}{5}
+\@LN{368}{5}
+\@LN{369}{5}
+\@LN{370}{5}
+\@LN{371}{5}
+\@LN{372}{5}
+\@LN{373}{5}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Head-to-head comparison ($n=20$). OR = over-refusal rate; RH = refused-harmful rate. Suppression = \% OR reduction / \% RH reduction. Task-conditioned method: SafeConstellations \citep  {safeconstellations2025}.}}{6}{table.caption.20}\protected@file@percent }
+\newlabel{tab:comparison}{{3}{6}{Head-to-head comparison ($n=20$). OR = over-refusal rate; RH = refused-harmful rate. Suppression = \% OR reduction / \% RH reduction. Task-conditioned method: SafeConstellations \citep {safeconstellations2025}}{table.caption.20}{}}
+\@LN{374}{5}
+\@LN{375}{5}
+\@LN{376}{5}
+\citation{park2023linear}
+\def\@LN@column{2}
+\@LN{377}{6}
+\@LN{378}{6}
+\@LN{379}{6}
+\@LN{380}{6}
+\@LN{381}{6}
+\@LN{382}{6}
+\@LN{383}{6}
+\@LN{384}{6}
+\@LN{385}{6}
+\@LN{386}{6}
+\@LN{387}{6}
+\@LN{388}{6}
+\@LN{389}{6}
+\@LN{390}{6}
+\@LN{391}{6}
+\@LN{392}{6}
+\@LN{393}{6}
+\@LN{394}{6}
+\@LN{395}{6}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Localizing the Refusal Circuit}{7}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:circuits}{{4.6}{7}{Localizing the Refusal Circuit}{subsection.4.6}{}}
+\@LN{396}{6}
+\@LN{397}{6}
+\@LN{398}{6}
+\@LN{399}{6}
+\@LN{400}{6}
+\@LN{401}{6}
+\@LN{402}{6}
+\@LN{403}{6}
+\@LN{404}{6}
+\@LN{405}{6}
+\@LN{406}{6}
+\@LN{407}{6}
+\@LN{408}{6}
+\@LN{409}{6}
+\@LN{410}{6}
+\@LN{411}{6}
+\@LN{412}{6}
+\@LN{413}{6}
+\@LN{414}{6}
+\@LN{415}{6}
+\@LN{416}{6}
+\@LN{417}{6}
+\@LN{418}{6}
+\@LN{419}{6}
+\@LN{420}{6}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{7}{section.5}\protected@file@percent }
 \newlabel{sec:discussion}{{5}{7}{Discussion}{section.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Three-phase geometry of refusal.}{7}{section*.16}\protected@file@percent }
-\@LN{323}{6}
-\@LN{324}{6}
-\@LN{325}{6}
-\@LN{326}{6}
-\@LN{327}{6}
-\@LN{328}{6}
-\@LN{329}{6}
-\@LN{330}{6}
-\@LN{331}{6}
-\@LN{332}{6}
-\@LN{333}{6}
-\@LN{334}{6}
-\@writefile{toc}{\contentsline {paragraph}{Why global ablation is structurally insufficient.}{7}{section*.17}\protected@file@percent }
-\@LN{335}{6}
-\@LN{336}{6}
-\@LN{337}{6}
-\@LN{338}{6}
-\@LN{339}{6}
-\@LN{340}{6}
-\@LN{341}{6}
-\@LN{342}{6}
-\@LN{343}{6}
-\@LN{344}{6}
-\@LN{345}{6}
-\@LN{346}{6}
-\@LN{347}{6}
-\@writefile{toc}{\contentsline {paragraph}{Scope of the linear representation hypothesis.}{7}{section*.18}\protected@file@percent }
-\@LN{348}{6}
-\@LN{349}{6}
+\@writefile{toc}{\contentsline {paragraph}{Three-phase geometry of refusal.}{7}{section*.22}\protected@file@percent }
+\@LN{421}{6}
+\@LN{422}{6}
+\@LN{423}{6}
+\@LN{424}{6}
+\@LN{425}{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Causal patching flip rates for the top attribution heads (5 pairs per head). No head consistently crosses the causal-necessity threshold (50\%), indicative of distributed refusal commitment.}}{7}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:nb18_causal}{{12}{7}{Causal patching flip rates for the top attribution heads (5 pairs per head). No head consistently crosses the causal-necessity threshold (50\%), indicative of distributed refusal commitment}{figure.caption.21}{}}
 \def\@LN@column{1}
-\@LN{350}{6}
-\@LN{351}{6}
-\@LN{352}{6}
-\@LN{353}{6}
-\@LN{354}{6}
-\@LN{355}{6}
-\@LN{356}{6}
-\@LN{357}{6}
-\@LN{358}{6}
-\@LN{359}{6}
-\@LN{360}{6}
-\@writefile{toc}{\contentsline {paragraph}{Calibration.}{7}{section*.19}\protected@file@percent }
-\@LN{361}{6}
-\@LN{362}{6}
-\@LN{363}{6}
-\@LN{364}{6}
-\@LN{365}{6}
-\@LN{366}{6}
-\@LN{367}{6}
-\@LN{368}{6}
-\@LN{369}{6}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{7}{section.6}\protected@file@percent }
-\@LN{370}{6}
-\@LN{371}{6}
-\@LN{372}{6}
-\@LN{373}{6}
-\@LN{374}{6}
-\@LN{375}{6}
-\@LN{376}{6}
-\@LN{377}{6}
+\@LN{426}{6}
+\@LN{427}{6}
+\@LN{428}{6}
+\@LN{429}{6}
+\@LN{430}{6}
+\@LN{431}{6}
+\@LN{432}{6}
+\@LN{433}{6}
+\@LN{434}{6}
+\@LN{435}{6}
+\@LN{436}{6}
+\@writefile{toc}{\contentsline {paragraph}{Why global ablation is structurally insufficient.}{7}{section*.23}\protected@file@percent }
+\@LN{437}{6}
+\@LN{438}{6}
+\@LN{439}{6}
+\@LN{440}{6}
+\@LN{441}{6}
+\@LN{442}{6}
+\@LN{443}{6}
+\@LN{444}{6}
+\@LN{445}{6}
+\@LN{446}{6}
+\@LN{447}{6}
+\@LN{448}{6}
+\@LN{449}{6}
+\@writefile{toc}{\contentsline {paragraph}{Scope of the linear representation hypothesis.}{7}{section*.24}\protected@file@percent }
+\@LN{450}{6}
+\@LN{451}{6}
+\@LN{452}{6}
+\@LN{453}{6}
+\@LN{454}{6}
+\@LN{455}{6}
+\@LN{456}{6}
+\@LN{457}{6}
+\@LN{458}{6}
+\@LN{459}{6}
 \bibdata{custom}
 \bibcite{arditi2024refusal}{{1}{2024}{{Arditi et~al.}}{{Arditi, Obeso, Syed, Cunningham, Guo, Rajendran, Conmy, and Nanda}}}
 \bibcite{braun2025unreliability}{{2}{2025}{{Braun et~al.}}{{Braun, Eickhoff, Krueger, Bahrainian, and Krasheninnikov}}}
 \bibcite{chao2024jailbreakbench}{{3}{2024}{{Chao et~al.}}{{Chao, Debenedetti, Sichermann, Andriushchenko et~al.}}}
-\bibcite{cui2025orbench}{{4}{2025}{{Cui et~al.}}{{Cui, Chiang, Stoica, and Hsieh}}}
-\bibcite{engels2025nonlinear}{{5}{2025}{{Engels et~al.}}{{Engels, Michaud, Liao, Gurnee, and Tegmark}}}
-\bibcite{goyal2025detox}{{6}{2025}{{Goyal et~al.}}{{}}}
-\bibcite{hedstrom2025steer}{{7}{2025}{{Hedstr{\"o}m et~al.}}{{Hedstr{\"o}m, Amoukou, Bewley, Mishra, and Veloso}}}
-\bibcite{safeconstellations2025}{{8}{2025}{{Maskey et~al.}}{{Maskey, Yadav, Dras, and Naseem}}}
-\bibcite{park2023linear}{{9}{2023}{{Park et~al.}}{{Park, Choe, and Veitch}}}
-\bibcite{taori2023alpaca}{{10}{2023}{{Taori et~al.}}{{Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}}}
-\bibcite{templeton2024scaling}{{11}{2024}{{Templeton et~al.}}{{Templeton, Conerly, Marcus, Lindsey, Bricken, Chen, Pearce, Citro, Ameisen, Jones et~al.}}}
-\bibcite{wang2025adaptive}{{12}{2025{a}}{{Wang et~al.}}{{Wang, Jiao, Zhu, Chen, He, Chu, Gao, Wang, and Ma}}}
-\bibcite{wangf2025refusal}{{13}{2025{b}}{{Wang et~al.}}{{Wang, Hu, R{\"o}ttger, and Plank}}}
-\bibcite{zhao2025refusal}{{14}{2025{a}}{{Zhao et~al.}}{{}}}
-\bibcite{zhao2025d}{{15}{2025{b}}{{Zhao et~al.}}{{Zhao, Zhang, Xie, Goyal, Kawaguchi, and Shieh}}}
-\bibcite{zhou2025safety}{{16}{2025}{{Zhou et~al.}}{{Zhou, Yu, Zhang, Xu, Huang, Wang, Liu, Fang, and Li}}}
+\bibcite{conmy2023automated}{{4}{2023}{{Conmy et~al.}}{{Conmy, Mavor-Parker, Lynch, Heimersheim, and Garriga-Alonso}}}
+\bibcite{cui2025orbench}{{5}{2025}{{Cui et~al.}}{{Cui, Chiang, Stoica, and Hsieh}}}
+\bibcite{engels2025nonlinear}{{6}{2025}{{Engels et~al.}}{{Engels, Michaud, Liao, Gurnee, and Tegmark}}}
+\bibcite{goyal2025detox}{{7}{2025}{{Goyal et~al.}}{{}}}
+\bibcite{han2025safeswitch}{{8}{2025}{{Han et~al.}}{{}}}
+\bibcite{hedstrom2025steer}{{9}{2025}{{Hedstr{\"o}m et~al.}}{{Hedstr{\"o}m, Amoukou, Bewley, Mishra, and Veloso}}}
+\bibcite{karaman2025porover}{{10}{2025}{{Karaman et~al.}}{{}}}
+\bibcite{levi2025mosr}{{11}{2025}{{Levi et~al.}}{{}}}
+\bibcite{marks2023geometry}{{12}{2023}{{Marks and Tegmark}}{{}}}
+\bibcite{safeconstellations2025}{{13}{2025}{{Maskey et~al.}}{{Maskey, Yadav, Dras, and Naseem}}}
 \def\@LN@column{2}
-\@LN{378}{7}
-\@LN{379}{7}
-\@LN{380}{7}
-\@LN{381}{7}
-\@LN{382}{7}
-\@LN{383}{7}
-\@LN{384}{7}
-\@LN{385}{7}
-\@LN{386}{7}
-\@LN{387}{7}
-\@LN{388}{7}
-\@LN{389}{7}
-\@LN{390}{7}
-\@LN{391}{7}
-\@LN{392}{7}
-\@LN{393}{7}
-\@LN{394}{7}
-\@LN{395}{7}
-\@LN{396}{7}
-\@LN{397}{7}
-\@LN{398}{7}
-\@LN{399}{7}
-\@LN{400}{7}
-\@LN{401}{7}
-\@LN{402}{7}
-\@LN{403}{7}
-\@LN{404}{7}
-\@LN{405}{7}
-\@LN{406}{7}
-\@LN{407}{7}
-\@LN{408}{7}
-\@LN{409}{7}
-\@LN{410}{7}
-\@LN{411}{7}
-\@LN{412}{7}
-\@LN{413}{7}
-\@LN{414}{7}
-\@LN{415}{7}
-\@LN{416}{7}
-\@LN{417}{7}
-\@LN{418}{7}
-\@LN{419}{7}
-\@LN{420}{7}
-\@LN{421}{7}
-\@LN{422}{7}
-\@LN{423}{7}
-\@LN{424}{7}
-\@LN{425}{7}
-\@LN{426}{7}
-\@LN{427}{7}
-\def\@LN@column{1}
-\@LN{428}{7}
-\@LN{429}{7}
-\@LN{430}{7}
-\@LN{431}{7}
-\@LN{432}{7}
-\@LN{433}{7}
-\@LN{434}{7}
-\@LN{435}{7}
-\@LN{436}{7}
-\@LN{437}{7}
-\@LN{438}{7}
-\@LN{439}{7}
-\@LN{440}{7}
-\@LN{441}{7}
-\@LN{442}{7}
-\@LN{443}{7}
-\@LN{444}{7}
-\@LN{445}{7}
-\@LN{446}{7}
-\@LN{447}{7}
-\@LN{448}{7}
-\@LN{449}{7}
-\@LN{450}{7}
-\@LN{451}{7}
-\@LN{452}{7}
-\@LN{453}{7}
-\@LN{454}{7}
-\@LN{455}{7}
-\@LN{456}{7}
-\@LN{457}{7}
-\@LN{458}{7}
-\@LN{459}{7}
 \@LN{460}{7}
 \@LN{461}{7}
 \@LN{462}{7}
+\@writefile{toc}{\contentsline {paragraph}{Calibration.}{8}{section*.25}\protected@file@percent }
 \@LN{463}{7}
 \@LN{464}{7}
 \@LN{465}{7}
@@ -581,6 +609,7 @@
 \@LN{469}{7}
 \@LN{470}{7}
 \@LN{471}{7}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{8}{section.6}\protected@file@percent }
 \@LN{472}{7}
 \@LN{473}{7}
 \@LN{474}{7}
@@ -590,145 +619,453 @@
 \@LN{478}{7}
 \@LN{479}{7}
 \@LN{480}{7}
-\bibcite{zou2023representation}{{17}{2023}{{Zou et~al.}}{{Zou, Phan, Chen, Campbell, Guo, Ren, Pan, Yin, Mazeika, Dombrowski et~al.}}}
-\citation{taori2023alpaca}
-\citation{chao2024jailbreakbench}
-\citation{cui2025orbench}
-\def\@LN@column{2}
-\@LN{481}{8}
-\@LN{482}{8}
-\@LN{483}{8}
-\@LN{484}{8}
-\@LN{485}{8}
-\@LN{486}{8}
-\@LN{487}{8}
-\@LN{488}{8}
-\@LN{489}{8}
-\@LN{490}{8}
-\@LN{491}{8}
-\@LN{492}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Dataset Details}{9}{appendix.A}\protected@file@percent }
-\newlabel{sec:appendix_data}{{A}{9}{Dataset Details}{appendix.A}{}}
-\@LN{493}{8}
-\@LN{494}{8}
-\@LN{495}{8}
-\@LN{496}{8}
-\@LN{497}{8}
-\@LN{498}{8}
-\@LN{499}{8}
-\@LN{500}{8}
-\@LN{501}{8}
-\@LN{502}{8}
-\@LN{503}{8}
-\@LN{504}{8}
-\@LN{505}{8}
-\@LN{506}{8}
-\@LN{507}{8}
-\@LN{508}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Refusal Classification Prompt}{9}{appendix.B}\protected@file@percent }
-\newlabel{sec:appendix_judge}{{B}{9}{Refusal Classification Prompt}{appendix.B}{}}
-\@LN{509}{8}
-\@LN{510}{8}
-\@LN{511}{8}
-\@LN{512}{8}
-\@LN{513}{8}
-\@LN{514}{8}
-\@LN{515}{8}
-\@LN{516}{8}
-\@LN{517}{8}
-\@LN{518}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Cluster Separation and Cross-Task Distance Analysis}{9}{appendix.C}\protected@file@percent }
-\newlabel{sec:appendix_nb7}{{C}{9}{Cluster Separation and Cross-Task Distance Analysis}{appendix.C}{}}
-\@LN{519}{8}
-\@LN{520}{8}
-\@LN{521}{8}
-\@LN{522}{8}
-\@LN{523}{8}
-\@LN{524}{8}
-\@LN{525}{8}
-\@LN{526}{8}
-\@LN{527}{8}
-\@LN{528}{8}
-\@LN{529}{8}
+\@LN{481}{7}
+\@LN{482}{7}
+\@LN{483}{7}
+\@LN{484}{7}
+\@LN{485}{7}
+\@LN{486}{7}
+\@LN{487}{7}
+\@LN{488}{7}
+\@LN{489}{7}
+\@LN{490}{7}
+\@LN{491}{7}
+\@LN{492}{7}
+\@LN{493}{7}
+\@LN{494}{7}
+\@LN{495}{7}
+\@LN{496}{7}
+\@LN{497}{7}
+\@LN{498}{7}
+\@LN{499}{7}
+\@LN{500}{7}
+\@LN{501}{7}
+\@LN{502}{7}
+\@LN{503}{7}
+\@LN{504}{7}
+\@LN{505}{7}
+\@LN{506}{7}
+\@LN{507}{7}
+\@LN{508}{7}
 \def\@LN@column{1}
-\@LN{530}{8}
-\@LN{531}{8}
-\@LN{532}{8}
-\@LN{533}{8}
-\@LN{534}{8}
-\@LN{535}{8}
-\@LN{536}{8}
-\@LN{537}{8}
-\@LN{538}{8}
-\@LN{539}{8}
-\@LN{540}{8}
-\@LN{541}{8}
-\@LN{542}{8}
-\@LN{543}{8}
-\@LN{544}{8}
-\@LN{545}{8}
-\@LN{546}{8}
-\@LN{547}{8}
-\@LN{548}{8}
-\@LN{549}{8}
-\@LN{550}{8}
-\@LN{551}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Geometric Analyses: Extended Results}{9}{appendix.D}\protected@file@percent }
-\newlabel{sec:appendix_geometry}{{D}{9}{Geometric Analyses: Extended Results}{appendix.D}{}}
-\@LN{552}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Extended Circuit Results}{9}{appendix.E}\protected@file@percent }
-\newlabel{sec:appendix_circuits}{{E}{9}{Extended Circuit Results}{appendix.E}{}}
-\@LN{553}{8}
-\@LN{554}{8}
-\@LN{555}{8}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Top refusal-attribution heads. 80\% are task-specific.}}{9}{table.caption.29}\protected@file@percent }
-\newlabel{tab:heads}{{4}{9}{Top refusal-attribution heads. 80\% are task-specific}{table.caption.29}{}}
-\@LN{556}{8}
-\@LN{557}{8}
-\@LN{558}{8}
-\@LN{559}{8}
-\@LN{560}{8}
-\@LN{561}{8}
-\@LN{562}{8}
-\@LN{563}{8}
-\@LN{564}{8}
+\@LN{509}{7}
+\@LN{510}{7}
+\@LN{511}{7}
+\@LN{512}{7}
+\@LN{513}{7}
+\@LN{514}{7}
+\@LN{515}{7}
+\@LN{516}{7}
+\@LN{517}{7}
+\@LN{518}{7}
+\@LN{519}{7}
+\@LN{520}{7}
+\@LN{521}{7}
+\@LN{522}{7}
+\@LN{523}{7}
+\@LN{524}{7}
+\@LN{525}{7}
+\@LN{526}{7}
+\@LN{527}{7}
+\@LN{528}{7}
+\@LN{529}{7}
+\@LN{530}{7}
+\@LN{531}{7}
+\@LN{532}{7}
+\@LN{533}{7}
+\@LN{534}{7}
+\@LN{535}{7}
+\@LN{536}{7}
+\@LN{537}{7}
+\@LN{538}{7}
+\@LN{539}{7}
+\@LN{540}{7}
+\@LN{541}{7}
+\@LN{542}{7}
+\@LN{543}{7}
+\@LN{544}{7}
+\@LN{545}{7}
+\@LN{546}{7}
+\@LN{547}{7}
+\@LN{548}{7}
+\@LN{549}{7}
+\@LN{550}{7}
+\@LN{551}{7}
+\@LN{552}{7}
+\@LN{553}{7}
+\@LN{554}{7}
+\@LN{555}{7}
+\@LN{556}{7}
+\@LN{557}{7}
+\@LN{558}{7}
+\@LN{559}{7}
+\@LN{560}{7}
+\@LN{561}{7}
+\@LN{562}{7}
+\@LN{563}{7}
+\@LN{564}{7}
+\bibcite{meng2022locating}{{14}{2022}{{Meng et~al.}}{{Meng, Bau, Andonian, and Belinkov}}}
+\bibcite{panickssery2023steering}{{15}{2023}{{Panickssery et~al.}}{{Panickssery, Rimsky, Tong, Schraagen, Hubinger, Turner, Kolter, and Sch{\"o}lkopf}}}
+\bibcite{park2023linear}{{16}{2023}{{Park et~al.}}{{Park, Choe, and Veitch}}}
+\bibcite{rottger2024xstest}{{17}{2024}{{R{\"o}ttger et~al.}}{{R{\"o}ttger, Kirk, Vidgen, Attanasio, Bianchi, and Hovy}}}
+\bibcite{rousseeuw1987silhouettes}{{18}{1987}{{Rousseeuw}}{{}}}
+\bibcite{stolfo2025instruction}{{19}{2025}{{Stolfo et~al.}}{{Stolfo, Balachandran, Yousefi, Horvitz, and Nushi}}}
+\bibcite{suau2024toxicity}{{20}{2024}{{Suau et~al.}}{{}}}
+\bibcite{syed2023attribution}{{21}{2023}{{Syed et~al.}}{{Syed, Rager, and Conmy}}}
+\bibcite{taori2023alpaca}{{22}{2023}{{Taori et~al.}}{{Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}}}
+\bibcite{templeton2024scaling}{{23}{2024}{{Templeton et~al.}}{{Templeton, Conerly, Marcus, Lindsey, Bricken, Chen, Pearce, Citro, Ameisen, Jones et~al.}}}
+\bibcite{wang2025adaptive}{{24}{2025{a}}{{Wang et~al.}}{{Wang, Jiao, Zhu, Chen, He, Chu, Gao, Wang, and Ma}}}
+\bibcite{wangf2025refusal}{{25}{2025{b}}{{Wang et~al.}}{{Wang, Hu, R{\"o}ttger, and Plank}}}
+\bibcite{wang2025g}{{26}{2025{c}}{{Wang et~al.}}{{}}}
+\bibcite{yeo2025sae}{{27}{2025}{{Yeo et~al.}}{{}}}
+\bibcite{yin2025refusal}{{28}{2025}{{Yin et~al.}}{{Yin, Leong, Yang, Huang, Li, Wang, Yoon, YunXing, XingYu, and Gu}}}
+\bibcite{zhang2026locate}{{29}{2026}{{Zhang et~al.}}{{Zhang, Zhang, Wang, Su, Wang, Wang, Yuan, Nie, Duan, Xue et~al.}}}
+\bibcite{falsereject2025}{{30}{2025}{{Zhang et~al.}}{{Zhang, Xu, Wu, and Reddy}}}
+\bibcite{zhao2025refusal}{{31}{2025{a}}{{Zhao et~al.}}{{}}}
+\bibcite{zhao2025d}{{32}{2025{b}}{{Zhao et~al.}}{{Zhao, Zhang, Xie, Goyal, Kawaguchi, and Shieh}}}
+\bibcite{zhou2025safety}{{33}{2025}{{Zhou et~al.}}{{Zhou, Yu, Zhang, Xu, Huang, Wang, Liu, Fang, and Li}}}
+\bibcite{zou2023representation}{{34}{2023}{{Zou et~al.}}{{Zou, Phan, Chen, Campbell, Guo, Ren, Pan, Yin, Mazeika, Dombrowski et~al.}}}
+\citation{taori2023alpaca}
+\citation{rottger2024xstest}
+\citation{chao2024jailbreakbench}
+\def\@LN@column{2}
 \@LN{565}{8}
 \@LN{566}{8}
 \@LN{567}{8}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Per-task behavioral separation across layers. Top: L2 centroid distance between over-refusal and target behavior samples (solid) vs.\ mean inter-task distance (dashed reference). Bottom: within-task silhouette separating refused from answered samples. Behavioral gap is small relative to inter-task distances at every layer.}}{10}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:nb7_cluster_sep}{{9}{10}{Per-task behavioral separation across layers. Top: L2 centroid distance between over-refusal and target behavior samples (solid) vs.\ mean inter-task distance (dashed reference). Bottom: within-task silhouette separating refused from answered samples. Behavioral gap is small relative to inter-task distances at every layer}{figure.caption.22}{}}
-\def\@LN@column{2}
-\@LN{568}{9}
-\@LN{569}{9}
-\@LN{570}{9}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Cross-Model Replication}{10}{appendix.F}\protected@file@percent }
-\newlabel{sec:appendix_qwen}{{F}{10}{Cross-Model Replication}{appendix.F}{}}
-\@LN{571}{9}
-\@LN{572}{9}
-\@LN{573}{9}
-\@LN{574}{9}
-\@LN{575}{9}
-\@LN{576}{9}
-\@LN{577}{9}
-\@LN{578}{9}
-\@LN{579}{9}
-\@LN{580}{9}
-\@LN{581}{9}
-\@LN{582}{9}
+\@LN{568}{8}
+\@LN{569}{8}
+\@LN{570}{8}
+\@LN{571}{8}
+\@LN{572}{8}
+\@LN{573}{8}
+\@LN{574}{8}
+\@LN{575}{8}
+\@LN{576}{8}
+\@LN{577}{8}
+\@LN{578}{8}
+\@LN{579}{8}
+\@LN{580}{8}
+\@LN{581}{8}
+\@LN{582}{8}
+\@LN{583}{8}
+\@LN{584}{8}
+\@LN{585}{8}
+\@LN{586}{8}
+\@LN{587}{8}
+\@LN{588}{8}
+\@LN{589}{8}
+\@LN{590}{8}
+\@LN{591}{8}
+\@LN{592}{8}
+\@LN{593}{8}
+\@LN{594}{8}
+\@LN{595}{8}
+\@LN{596}{8}
+\@LN{597}{8}
+\@LN{598}{8}
+\@LN{599}{8}
+\@LN{600}{8}
+\@LN{601}{8}
+\@LN{602}{8}
+\@LN{603}{8}
+\@LN{604}{8}
+\@LN{605}{8}
+\@LN{606}{8}
+\@LN{607}{8}
+\@LN{608}{8}
+\@LN{609}{8}
+\@LN{610}{8}
+\@LN{611}{8}
+\@LN{612}{8}
+\@LN{613}{8}
+\@LN{614}{8}
+\@LN{615}{8}
+\@LN{616}{8}
+\@LN{617}{8}
 \def\@LN@column{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Cross-task centroid distance matrices at four key layers (L05, L12, L20, L30). Cell values are L2 distances between task centroids; all panels share the same colour scale. Off-diagonal values grow from early to mid-layers and contract late, consistent with the constellation formation pattern.}}{11}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:nb7_cross_task}{{10}{11}{Cross-task centroid distance matrices at four key layers (L05, L12, L20, L30). Cell values are L2 distances between task centroids; all panels share the same colour scale. Off-diagonal values grow from early to mid-layers and contract late, consistent with the constellation formation pattern}{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Per-task over-refusal direction similarity. Left: pairwise cosine heatmap. Right: mean off-diagonal similarity for over-refusal (red) vs.\ harmful-refusal directions.}}{11}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:h2}{{11}{11}{Per-task over-refusal direction similarity. Left: pairwise cosine heatmap. Right: mean off-diagonal similarity for over-refusal (red) vs.\ harmful-refusal directions}{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Per-task over-refusal directions (coloured) vs.\ global harmful-refusal direction (black) at layer 12.}}{12}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:or_arrows}{{12}{12}{Per-task over-refusal directions (coloured) vs.\ global harmful-refusal direction (black) at layer 12}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Variance structure at layer 12. Left: cumulative explained variance. Right: per-PC variance. Over-refusal requires more components for equivalent coverage.}}{12}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:nb16_variance}{{13}{12}{Variance structure at layer 12. Left: cumulative explained variance. Right: per-PC variance. Over-refusal requires more components for equivalent coverage}{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 2-D PCA of over-refusal samples at layer 12, coloured by task. Principal axes separate tasks, not refusal signal.}}{12}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:nb16_task_pca}{{14}{12}{2-D PCA of over-refusal samples at layer 12, coloured by task. Principal axes separate tasks, not refusal signal}{figure.caption.27}{}}
+\@LN{618}{8}
+\@LN{619}{8}
+\@LN{620}{8}
+\@LN{621}{8}
+\@LN{622}{8}
+\@LN{623}{8}
+\@LN{624}{8}
+\@LN{625}{8}
+\@LN{626}{8}
+\@LN{627}{8}
+\@LN{628}{8}
+\@LN{629}{8}
+\@LN{630}{8}
+\@LN{631}{8}
+\@LN{632}{8}
+\@LN{633}{8}
+\@LN{634}{8}
+\@LN{635}{8}
+\@LN{636}{8}
+\@LN{637}{8}
+\@LN{638}{8}
+\@LN{639}{8}
+\@LN{640}{8}
+\@LN{641}{8}
+\@LN{642}{8}
+\@LN{643}{8}
+\@LN{644}{8}
+\@LN{645}{8}
+\@LN{646}{8}
+\@LN{647}{8}
+\@LN{648}{8}
+\@LN{649}{8}
+\@LN{650}{8}
+\@LN{651}{8}
+\@LN{652}{8}
+\@LN{653}{8}
+\@LN{654}{8}
+\@LN{655}{8}
+\@LN{656}{8}
+\@LN{657}{8}
+\@LN{658}{8}
+\@LN{659}{8}
+\@LN{660}{8}
+\@LN{661}{8}
+\@LN{662}{8}
+\@LN{663}{8}
+\@LN{664}{8}
+\@LN{665}{8}
+\@LN{666}{8}
+\@LN{667}{8}
+\@LN{668}{8}
+\@LN{669}{8}
+\@LN{670}{8}
+\@LN{671}{8}
+\citation{cui2025orbench}
 \def\@LN@column{2}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Layer sweep of subspace dimensionality. Left: PC1 variance fraction. Right: components for 80\% variance. Harmful-refusal is more concentrated from mid-layers onward.}}{13}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:nb16_layer_sweep}{{15}{13}{Layer sweep of subspace dimensionality. Left: PC1 variance fraction. Right: components for 80\% variance. Harmful-refusal is more concentrated from mid-layers onward}{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Per-task causal patching flip rates. Blue: task-specific heads; purple ($\star $): shared head L31.H21. No head reaches the 50\% necessity threshold.}}{13}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:nb18_per_task}{{16}{13}{Per-task causal patching flip rates. Blue: task-specific heads; purple ($\star $): shared head L31.H21. No head reaches the 50\% necessity threshold}{figure.caption.30}{}}
-\gdef \@abspage@last{13}
+\@LN{672}{9}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix}{10}{appendix.A}\protected@file@percent }
+\@LN{673}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Dataset Details}{10}{subsection.A.1}\protected@file@percent }
+\newlabel{sec:appendix_data}{{A.1}{10}{Dataset Details}{subsection.A.1}{}}
+\@LN{674}{9}
+\@LN{675}{9}
+\@LN{676}{9}
+\@LN{677}{9}
+\@LN{678}{9}
+\@LN{679}{9}
+\@LN{680}{9}
+\@LN{681}{9}
+\@LN{682}{9}
+\@LN{683}{9}
+\@LN{684}{9}
+\@LN{685}{9}
+\@LN{686}{9}
+\@LN{687}{9}
+\@LN{688}{9}
+\@LN{689}{9}
+\@LN{690}{9}
+\@LN{691}{9}
+\@LN{692}{9}
+\@LN{693}{9}
+\@LN{694}{9}
+\@LN{695}{9}
+\@LN{696}{9}
+\@LN{697}{9}
+\@LN{698}{9}
+\@LN{699}{9}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Sample counts by task frame and response category. OR = over-refusal (benign task, refused --- model error); RH = refused-harmful (harmful instruction, refused --- correct); HA = harmless answered. RH samples appear across all tasks because harmful-instruction content can be formatted within any task frame; OR is absent in three tasks because the model does not over-refuse for those task types on this set.}}{10}{table.caption.28}\protected@file@percent }
+\newlabel{tab:dataset}{{4}{10}{Sample counts by task frame and response category. OR = over-refusal (benign task, refused --- model error); RH = refused-harmful (harmful instruction, refused --- correct); HA = harmless answered. RH samples appear across all tasks because harmful-instruction content can be formatted within any task frame; OR is absent in three tasks because the model does not over-refuse for those task types on this set}{table.caption.28}{}}
+\@LN{700}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Refusal Classification Prompt}{10}{subsection.A.2}\protected@file@percent }
+\newlabel{sec:appendix_judge}{{A.2}{10}{Refusal Classification Prompt}{subsection.A.2}{}}
+\@LN{701}{9}
+\@LN{702}{9}
+\@LN{703}{9}
+\@LN{704}{9}
+\@LN{705}{9}
+\def\@LN@column{1}
+\@LN{706}{9}
+\@LN{707}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Pairwise Inter-Task Distances}{10}{subsection.A.3}\protected@file@percent }
+\newlabel{sec:appendix_nb7}{{A.3}{10}{Pairwise Inter-Task Distances}{subsection.A.3}{}}
+\@LN{708}{9}
+\@LN{709}{9}
+\@LN{710}{9}
+\@LN{711}{9}
+\@LN{712}{9}
+\@LN{713}{9}
+\@LN{714}{9}
+\@LN{715}{9}
+\@LN{716}{9}
+\@LN{717}{9}
+\@LN{718}{9}
+\@LN{719}{9}
+\@LN{720}{9}
+\@LN{721}{9}
+\@LN{722}{9}
+\@LN{723}{9}
+\@LN{724}{9}
+\@LN{725}{9}
+\@LN{726}{9}
+\@LN{727}{9}
+\@LN{728}{9}
+\@LN{729}{9}
+\@LN{730}{9}
+\@LN{731}{9}
+\@LN{732}{9}
+\@LN{733}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Per-Task Over-Refusal Direction Analysis}{10}{subsection.A.4}\protected@file@percent }
+\newlabel{sec:appendix_directions}{{A.4}{10}{Per-Task Over-Refusal Direction Analysis}{subsection.A.4}{}}
+\@LN{734}{9}
+\@LN{735}{9}
+\@LN{736}{9}
+\@LN{737}{9}
+\@writefile{toc}{\contentsline {paragraph}{Cross-task directional consistency.}{10}{section*.30}\protected@file@percent }
+\@LN{738}{9}
+\@LN{739}{9}
+\@LN{740}{9}
+\@LN{741}{9}
+\@LN{742}{9}
+\@LN{743}{9}
+\@LN{744}{9}
+\@LN{745}{9}
+\@LN{746}{9}
+\@LN{747}{9}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Pairwise L2 centroid distances between all five task clusters at four representative layers. All panels share the same colour scale.}}{11}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:nb7_cross_task}{{13}{11}{Pairwise L2 centroid distances between all five task clusters at four representative layers. All panels share the same colour scale}{figure.caption.29}{}}
+\def\@LN@column{2}
+\@LN{748}{10}
+\@LN{749}{10}
+\@LN{750}{10}
+\@LN{751}{10}
+\@LN{752}{10}
+\@LN{753}{10}
+\@LN{754}{10}
+\@LN{755}{10}
+\@writefile{toc}{\contentsline {paragraph}{Directional geometry at the peak layer.}{11}{section*.31}\protected@file@percent }
+\@LN{756}{10}
+\@LN{757}{10}
+\@LN{758}{10}
+\@LN{759}{10}
+\@LN{760}{10}
+\@LN{761}{10}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Over-Refusal Subspace Dimensionality}{11}{subsection.A.5}\protected@file@percent }
+\newlabel{sec:appendix_circuits}{{A.5}{11}{Over-Refusal Subspace Dimensionality}{subsection.A.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Dimensionality at the peak layer.}{11}{section*.32}\protected@file@percent }
+\@LN{762}{10}
+\@LN{763}{10}
+\@LN{764}{10}
+\@LN{765}{10}
+\@LN{766}{10}
+\@LN{767}{10}
+\@LN{768}{10}
+\@LN{769}{10}
+\@LN{770}{10}
+\@LN{771}{10}
+\@LN{772}{10}
+\@LN{773}{10}
+\@LN{774}{10}
+\@LN{775}{10}
+\@LN{776}{10}
+\@LN{777}{10}
+\@LN{778}{10}
+\@writefile{toc}{\contentsline {paragraph}{What the principal axes encode.}{11}{section*.34}\protected@file@percent }
+\@LN{779}{10}
+\@LN{780}{10}
+\@LN{781}{10}
+\@LN{782}{10}
+\@LN{783}{10}
+\@LN{784}{10}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Subspace dimensionality at layer~11. Left: cumulative explained variance. Right: variance per principal component. Over-refusal requires more components to reach the 80\% threshold (11 vs.\ 8).}}{11}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:nb16_variance}{{14}{11}{Subspace dimensionality at layer~11. Left: cumulative explained variance. Right: variance per principal component. Over-refusal requires more components to reach the 80\% threshold (11 vs.\ 8)}{figure.caption.33}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{Dimensionality across layers.}{11}{section*.35}\protected@file@percent }
+\@LN{785}{10}
+\@LN{786}{10}
+\@LN{787}{10}
+\@LN{788}{10}
+\@LN{789}{10}
+\@LN{790}{10}
+\@LN{791}{10}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.6}Extended Circuit Analysis}{11}{subsection.A.6}\protected@file@percent }
+\newlabel{sec:appendix_heads}{{A.6}{11}{Extended Circuit Analysis}{subsection.A.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Attribution head localisation.}{11}{section*.36}\protected@file@percent }
+\@LN{792}{10}
+\@LN{793}{10}
+\@LN{794}{10}
+\@LN{795}{10}
+\@LN{796}{10}
+\@LN{797}{10}
+\@LN{798}{10}
+\@LN{799}{10}
+\@LN{800}{10}
+\@LN{801}{10}
+\@LN{802}{10}
+\@writefile{toc}{\contentsline {paragraph}{Head ablation results.}{11}{section*.38}\protected@file@percent }
+\@LN{803}{10}
+\@LN{804}{10}
+\@LN{805}{10}
+\@LN{806}{10}
+\@LN{807}{10}
+\@LN{808}{10}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Top refusal-attribution heads by task. Six of seven are task-specific.}}{12}{table.caption.37}\protected@file@percent }
+\newlabel{tab:heads}{{5}{12}{Top refusal-attribution heads by task. Six of seven are task-specific}{table.caption.37}{}}
+\def\@LN@column{2}
+\@LN{809}{11}
+\@LN{810}{11}
+\@writefile{toc}{\contentsline {paragraph}{Causal patching.}{12}{section*.39}\protected@file@percent }
+\@LN{811}{11}
+\@LN{812}{11}
+\@LN{813}{11}
+\@LN{814}{11}
+\@LN{815}{11}
+\@LN{816}{11}
+\@LN{817}{11}
+\@LN{818}{11}
+\@LN{819}{11}
+\@LN{820}{11}
+\@LN{821}{11}
+\@LN{822}{11}
+\@LN{823}{11}
+\@LN{824}{11}
+\@LN{825}{11}
+\@LN{826}{11}
+\@LN{827}{11}
+\@LN{828}{11}
+\@LN{829}{11}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Causal patching flip rates by head and condition. No head reaches the 50\% necessity threshold.}}{12}{table.caption.40}\protected@file@percent }
+\newlabel{tab:causal_flip}{{6}{12}{Causal patching flip rates by head and condition. No head reaches the 50\% necessity threshold}{table.caption.40}{}}
+\@LN{830}{11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7}Cross-Model Replication}{12}{subsection.A.7}\protected@file@percent }
+\newlabel{sec:appendix_qwen}{{A.7}{12}{Cross-Model Replication}{subsection.A.7}{}}
+\@LN{831}{11}
+\@LN{832}{11}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Per-task causal patching flip rates. Blue bars: task-specific attribution heads; purple star ($\star $): shared head L31.H21.}}{12}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:nb18_per_task}{{15}{12}{Per-task causal patching flip rates. Blue bars: task-specific attribution heads; purple star ($\star $): shared head L31.H21}{figure.caption.41}{}}
+\def\@LN@column{1}
+\@LN{833}{11}
+\@LN{834}{11}
+\@LN{835}{11}
+\@LN{836}{11}
+\@LN{837}{11}
+\@LN{838}{11}
+\@LN{839}{11}
+\@LN{840}{11}
+\@LN{841}{11}
+\@LN{842}{11}
+\@LN{843}{11}
+\@LN{844}{11}
+\@LN{845}{11}
+\@LN{846}{11}
+\@LN{847}{11}
+\@LN{848}{11}
+\@LN{849}{11}
+\@LN{850}{11}
+\@LN{851}{11}
+\@LN{852}{11}
+\@LN{853}{11}
+\@LN{854}{11}
+\@LN{855}{11}
+\@LN{856}{11}
+\@LN{857}{11}
+\@LN{858}{11}
+\@LN{859}{11}
+\@LN{860}{11}
+\gdef \@abspage@last{12}

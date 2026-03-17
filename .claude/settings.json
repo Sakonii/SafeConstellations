@@ -17,11 +17,29 @@
       "Bash(ls -lh /private/tmp/claude-501/-Users-sakonii-Files-init-major-SteeringFail/tasks/*.output)",
       "Bash(ls /Users/sakonii/Files/init/major/SteeringFail/*.ipynb)",
       "Bash(find /Users/sakonii/Files/init/major/SteeringFail -name *.csv -o -name *.pt -o -name *.pkl)",
-      "Bash(ls -lh /Users/sakonii/Files/init/major/SteeringFail/paper/figures/fig_nb7_*.png)"
+      "Bash(ls -lh /Users/sakonii/Files/init/major/SteeringFail/paper/figures/fig_nb7_*.png)",
+      "Bash(jupyter kernelspec:*)",
+      "Read(//Users/sakonii/Library/Jupyter/kernels/venv/**)",
+      "Bash(VENV_PY=/Users/sakonii/Files/init/major/multimodal/venv/bin/python)",
+      "Bash($VENV_PY -c \"import numpy, matplotlib; print\\(''OK''\\)\")",
+      "Bash(grep -n \"ha_c\\\\|or_c\\\\|centroid\\\\|FIGURE DATA\\\\|L05\\\\|L17\\\\|L28\\\\|draw_fap\\\\|per.task\" /Users/sakonii/Files/init/major/SteeringFail/13a_[Analysis]_Layer_by_Layer_Constellation_Analysis.ipynb)",
+      "Bash(/Users/sakonii/Files/init/major/multimodal/venv/bin/python -:*)",
+      "Bash(/opt/homebrew/bin/pip3 list:*)",
+      "Bash(/Users/sakonii/Files/init/major/multimodal/venv/bin/python /tmp/gen_silhouette_fig.py)",
+      "Bash(conda env:*)",
+      "Bash(find /Users/sakonii -name python3* -type f)",
+      "Bash(/Users/sakonii/Files/init/major/MQ-Workshops/venv/bin/python3 -c \"import torch, numpy, scipy, matplotlib; print\\(''all ok''\\)\")",
+      "Bash(/Users/sakonii/Files/init/major/MQ-Workshops/venv/bin/python3 /tmp/gen_dual_galaxy.py)",
+      "Bash(/Users/sakonii/Files/init/major/MQ-Workshops/venv/bin/python3 -c \":*)",
+      "Bash(pip3 install:*)",
+      "Bash(/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 -c \"import pandas, torch, sklearn, scipy, matplotlib; print\\(''all ok''\\)\")",
+      "Bash(ls ~/mambaforge/bin/python*)",
+      "Bash(ls /usr/local/bin/python*)"
     ],
     "additionalDirectories": [
       "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail",
-      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail/memory"
+      "/Users/sakonii/.claude/projects/-Users-sakonii-Files-init-major-SteeringFail/memory",
+      "/tmp"
     ]
   }
 }

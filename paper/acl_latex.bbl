@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Arditi et~al.(2024)Arditi, Obeso, Syed, Cunningham, Guo, Rajendran, Conmy, and Nanda}]{arditi2024refusal}
@@ -16,6 +16,11 @@ Patrick Chao, Edgar Debenedetti, Alexander Sichermann, Maksym Andriushchenko, an
 \newblock \href {https://arxiv.org/abs/2404.01318} {{JailbreakBench}: An open robustness benchmark for jailbreaking large language models}.
 \newblock \emph{arXiv preprint arXiv:2404.01318}.
 
+\bibitem[{Conmy et~al.(2023)Conmy, Mavor-Parker, Lynch, Heimersheim, and Garriga-Alonso}]{conmy2023automated}
+Arthur Conmy, Augustine Mavor-Parker, Aengus Lynch, Stefan Heimersheim, and Adri{\`a} Garriga-Alonso. 2023.
+\newblock \href {https://arxiv.org/abs/2304.14997} {Towards automated circuit discovery for mechanistic interpretability}.
+\newblock In \emph{Advances in Neural Information Processing Systems}, volume~36.
+
 \bibitem[{Cui et~al.(2025)Cui, Chiang, Stoica, and Hsieh}]{cui2025orbench}
 Justin Cui, Wei-Lin Chiang, Ion Stoica, and Cho-Jui Hsieh. 2025.
 \newblock \href {https://openreview.net/forum?id=CdFnEu0JZV} {{OR}-bench: An over-refusal benchmark for large language models}.
@@ -31,20 +36,75 @@ Goyal and 1 others. 2025.
 \newblock Detoxifying language models via targeted {SAE} feature suppression.
 \newblock In \emph{Empirical Methods in Natural Language Processing}.
 
+\bibitem[{Han et~al.(2025)}]{han2025safeswitch}
+Pengxu Han and 1 others. 2025.
+\newblock \href {https://arxiv.org/abs/2502.01042} {{SafeSwitch}: Steering unsafe {LLM} behavior via internal activation signals}.
+\newblock \emph{arXiv preprint arXiv:2502.01042}.
+
 \bibitem[{Hedstr{\"o}m et~al.(2025)Hedstr{\"o}m, Amoukou, Bewley, Mishra, and Veloso}]{hedstrom2025steer}
 Anna Hedstr{\"o}m, Salim~I. Amoukou, Tom Bewley, Saumitra Mishra, and Manuela Veloso. 2025.
 \newblock \href {https://proceedings.mlr.press/v267/hedstrom25a.html} {To steer or not to steer? {M}echanistic error reduction with abstention for language models}.
 \newblock In \emph{Proceedings of the 42nd International Conference on Machine Learning}, volume 267 of \emph{Proceedings of Machine Learning Research}, pages 22924--22945. PMLR.
+
+\bibitem[{Karaman et~al.(2025)}]{karaman2025porover}
+Batuhan Karaman and 1 others. 2025.
+\newblock {POROver}: Improving safety and reducing overrefusal in large language models with overgeneration and preference optimization.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine Learning}.
+
+\bibitem[{Levi et~al.(2025)}]{levi2025mosr}
+Yotam Levi and 1 others. 2025.
+\newblock \href {https://arxiv.org/abs/2511.19009} {Understanding and mitigating over-refusal for large language models via safety representation}.
+\newblock \emph{arXiv preprint arXiv:2511.19009}.
+
+\bibitem[{Marks and Tegmark(2023)}]{marks2023geometry}
+Samuel Marks and Max Tegmark. 2023.
+\newblock \href {https://arxiv.org/abs/2310.06824} {The geometry of truth: Emergent linear structure in large language model representations of true/false datasets}.
+\newblock \emph{arXiv preprint arXiv:2310.06824}.
 
 \bibitem[{Maskey et~al.(2025)Maskey, Yadav, Dras, and Naseem}]{safeconstellations2025}
 Utsav Maskey, Sumit Yadav, Mark Dras, and Usman Naseem. 2025.
 \newblock \href {https://arxiv.org/abs/2508.11290} {Safeconstellations: Steering llm safety to reduce over-refusals through task-specific trajectory}.
 \newblock \emph{Preprint}, arXiv:2508.11290.
 
+\bibitem[{Meng et~al.(2022)Meng, Bau, Andonian, and Belinkov}]{meng2022locating}
+Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov. 2022.
+\newblock \href {https://arxiv.org/abs/2202.05262} {Locating and editing factual associations in {GPT}}.
+\newblock In \emph{Advances in Neural Information Processing Systems}, volume~35.
+
+\bibitem[{Panickssery et~al.(2023)Panickssery, Rimsky, Tong, Schraagen, Hubinger, Turner, Kolter, and Sch{\"o}lkopf}]{panickssery2023steering}
+Nina Panickssery, Nick Rimsky, Julia Tong, Ulrike Schraagen, Evan Hubinger, Alex Turner, Zico Kolter, and Bernhard Sch{\"o}lkopf. 2023.
+\newblock \href {https://arxiv.org/abs/2312.06681} {Steering {Llama} 2 via contrastive activation addition}.
+\newblock \emph{arXiv preprint arXiv:2312.06681}.
+
 \bibitem[{Park et~al.(2023)Park, Choe, and Veitch}]{park2023linear}
 Kiho Park, Yo~Joong Choe, and Victor Veitch. 2023.
 \newblock \href {https://arxiv.org/abs/2311.03658} {The linear representation hypothesis and the geometry of large language models}.
 \newblock \emph{arXiv preprint arXiv:2311.03658}.
+
+\bibitem[{R{\"o}ttger et~al.(2024)R{\"o}ttger, Kirk, Vidgen, Attanasio, Bianchi, and Hovy}]{rottger2024xstest}
+Paul R{\"o}ttger, Hannah~Rose Kirk, Bertie Vidgen, Giuseppe Attanasio, Federico Bianchi, and Dirk Hovy. 2024.
+\newblock \href {https://arxiv.org/abs/2308.01263} {{XSTest}: A test suite for identifying exaggerated safety behaviours in large language models}.
+\newblock In \emph{Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies}, pages 3376--3403. Association for Computational Linguistics.
+
+\bibitem[{Rousseeuw(1987)}]{rousseeuw1987silhouettes}
+Peter~J. Rousseeuw. 1987.
+\newblock Silhouettes: A graphical aid to the interpretation and validation of cluster analysis.
+\newblock \emph{Journal of Computational and Applied Mathematics}, 20:53--65.
+
+\bibitem[{Stolfo et~al.(2025)Stolfo, Balachandran, Yousefi, Horvitz, and Nushi}]{stolfo2025instruction}
+Alessandro Stolfo, Vidhisha Balachandran, Safoora Yousefi, Eric Horvitz, and Besmira Nushi. 2025.
+\newblock \href {https://arxiv.org/abs/2410.12877} {Improving instruction-following in language models through activation steering}.
+\newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Suau et~al.(2024)}]{suau2024toxicity}
+Xavier Suau and 1 others. 2024.
+\newblock \href {https://arxiv.org/abs/2407.12824} {Whispering experts: Neural interventions for toxicity mitigation in language models}.
+\newblock In \emph{International Conference on Machine Learning}.
+
+\bibitem[{Syed et~al.(2023)Syed, Rager, and Conmy}]{syed2023attribution}
+Aaquib Syed, Can Rager, and Arthur Conmy. 2023.
+\newblock \href {https://arxiv.org/abs/2310.10348} {Attribution patching outperforms automated circuit discovery}.
+\newblock \emph{arXiv preprint arXiv:2310.10348}.
 
 \bibitem[{Taori et~al.(2023)Taori, Gulrajani, Zhang, Dubois, Li, Guestrin, Liang, and Hashimoto}]{taori2023alpaca}
 Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li, Carlos Guestrin, Percy Liang, and Tatsunori~B. Hashimoto. 2023.
@@ -65,6 +125,31 @@ Tianlong Wang, Xianfeng Jiao, Yinghao Zhu, Zhongzhi Chen, Yifan He, Xu~Chu, Juny
 Xinpeng Wang, Chengzhi Hu, Paul R{\"o}ttger, and Barbara Plank. 2025{\natexlab{b}}.
 \newblock \href {https://arxiv.org/abs/2410.03415} {Surgical, cheap, and flexible: Mitigating false refusal in language models via single vector ablation}.
 \newblock In \emph{International Conference on Learning Representations}.
+
+\bibitem[{Wang et~al.(2025{\natexlab{c}})}]{wang2025g}
+Xinpeng Wang and 1 others. 2025{\natexlab{c}}.
+\newblock \href {https://arxiv.org/abs/2505.17306} {Refusal direction is universal across safety-aligned languages}.
+\newblock In \emph{Advances in Neural Information Processing Systems}.
+
+\bibitem[{Yeo et~al.(2025)}]{yeo2025sae}
+Yeo and 1 others. 2025.
+\newblock {SAE}-based analysis of harm and refusal features in language models.
+\newblock In \emph{Empirical Methods in Natural Language Processing}.
+
+\bibitem[{Yin et~al.(2025)Yin, Leong, Yang, Huang, Li, Wang, Yoon, YunXing, XingYu, and Gu}]{yin2025refusal}
+Qingyu Yin, Chak~Tou Leong, Linyi Yang, Wenxuan Huang, Wenjie Li, Xiting Wang, Jaehong Yoon, YunXing, XingYu, and Jinjin Gu. 2025.
+\newblock \href {https://arxiv.org/abs/2510.06036} {Refusal falls off a cliff: How safety alignment fails in reasoning?}
+\newblock \emph{arXiv preprint arXiv:2510.06036}.
+
+\bibitem[{Zhang et~al.(2026)Zhang, Zhang, Wang, Su, Wang, Wang, Yuan, Nie, Duan, Xue et~al.}]{zhang2026locate}
+Hengyuan Zhang, Zhihao Zhang, Mingyang Wang, Zunhai Su, Yiwei Wang, Qianli Wang, Shuzhou Yuan, Ercong Nie, Xufeng Duan, Qibo Xue, and 1 others. 2026.
+\newblock \href {https://arxiv.org/abs/2601.14004} {Locate, steer, and improve: A practical survey of actionable mechanistic interpretability in large language models}.
+\newblock \emph{arXiv preprint arXiv:2601.14004}.
+
+\bibitem[{Zhang et~al.(2025)Zhang, Xu, Wu, and Reddy}]{falsereject2025}
+Zhehao Zhang, Weijie Xu, Fanyou Wu, and Chandan~K. Reddy. 2025.
+\newblock Falsereject: A resource for improving contextual safety and mitigating over-refusals in llms via structured reasoning.
+\newblock In \emph{Proceedings of the Second Conference on Language Modeling}, Montreal, Canada. COLM.
 
 \bibitem[{Zhao et~al.(2025{\natexlab{a}})}]{zhao2025refusal}
 Jiachen Zhao and 1 others. 2025{\natexlab{a}}.

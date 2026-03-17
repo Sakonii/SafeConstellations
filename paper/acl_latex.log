@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) (preloaded format=pdflatex 2026.3.4)  15 MAR 2026 22:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) (preloaded format=pdflatex 2026.3.4)  17 MAR 2026 20:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -394,43 +394,245 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box57
 \@float@everytoks=\toks33
 \@floatcapt=\box58
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks34
+\pgfutil@tempdima=\dimen256
+\pgfutil@tempdimb=\dimen257
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box59
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks35
+\pgfkeys@temptoks=\toks36
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks37
+))
+\pgf@x=\dimen258
+\pgf@y=\dimen259
+\pgf@xa=\dimen260
+\pgf@ya=\dimen261
+\pgf@xb=\dimen262
+\pgf@yb=\dimen263
+\pgf@xc=\dimen264
+\pgf@yc=\dimen265
+\pgf@xd=\dimen266
+\pgf@yd=\dimen267
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count335
+\c@pgf@countb=\count336
+\c@pgf@countc=\count337
+\c@pgf@countd=\count338
+\t@pgf@toka=\toks38
+\t@pgf@tokb=\toks39
+\t@pgf@tokc=\toks40
+\pgf@sys@id@count=\count339
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count340
+\pgfsyssoftpath@bigbuffer@items=\count341
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen268
+\pgfmath@count=\count342
+\pgfmath@box=\box60
+\pgfmath@toks=\toks41
+\pgfmath@stack@operand=\toks42
+\pgfmath@stack@operation=\toks43
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count343
+)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen269
+\pgf@picmaxx=\dimen270
+\pgf@picminy=\dimen271
+\pgf@picmaxy=\dimen272
+\pgf@pathminx=\dimen273
+\pgf@pathmaxx=\dimen274
+\pgf@pathminy=\dimen275
+\pgf@pathmaxy=\dimen276
+\pgf@xx=\dimen277
+\pgf@xy=\dimen278
+\pgf@yx=\dimen279
+\pgf@yy=\dimen280
+\pgf@zx=\dimen281
+\pgf@zy=\dimen282
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen283
+\pgf@path@lasty=\dimen284
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen285
+\pgf@shorten@start@additional=\dimen286
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count344
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen287
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen288
+\pgf@pt@y=\dimen289
+\pgf@pt@temp=\dimen290
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen291
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen292
+\pgf@sys@shading@range@num=\count345
+\pgf@shadingcount=\count346
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box64
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box65
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen293
+\pgf@nodesepend=\dimen294
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen295
+\pgffor@skip=\dimen296
+\pgffor@stack=\toks44
+\pgffor@toks=\toks45
+)) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count347
+\pgfplotmarksize=\dimen297
+)
+\tikz@lastx=\dimen298
+\tikz@lasty=\dimen299
+\tikz@lastxsaved=\dimen300
+\tikz@lastysaved=\dimen301
+\tikz@lastmovetox=\dimen302
+\tikz@lastmovetoy=\dimen303
+\tikzleveldistance=\dimen304
+\tikzsiblingdistance=\dimen305
+\tikz@figbox=\box66
+\tikz@figbox@bg=\box67
+\tikz@tempbox=\box68
+\tikz@tempbox@bg=\box69
+\tikztreelevel=\count348
+\tikznumberofchildren=\count349
+\tikznumberofcurrentchild=\count350
+\tikz@fig@count=\count351
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count352
+\pgfmatrixcurrentcolumn=\count353
+\pgf@matrix@numberofcolumns=\count354
+)
+\tikz@expandcount=\count355
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks46
+\verbatim@line=\toks47
+\verbatim@in@stream=\read3
+) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box70
+\tcb@upperbox=\box71
+\tcb@lowerbox=\box72
+\tcb@phantombox=\box73
+\c@tcbbreakpart=\count356
+\c@tcblayer=\count357
+\c@tcolorbox@number=\count358
+\l__tcobox_tmpa_box=\box74
+\l__tcobox_tmpa_dim=\dimen306
+\tcb@temp=\box75
+\tcb@temp=\box76
+\tcb@temp=\box77
+\tcb@temp=\box78
 ) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count335
+\l__color_backend_stack_int=\count359
 ) (./acl_latex.aux)
 \openout1 = `acl_latex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
  (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count336
-\scratchdimen=\dimen256
-\scratchbox=\box59
-\nofMPsegments=\count337
-\nofMParguments=\count338
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count339
-\MPscratchDim=\dimen257
-\MPnumerator=\count340
-\makeMPintoPDFobject=\count341
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count360
+\scratchdimen=\dimen307
+\scratchbox=\box79
+\nofMPsegments=\count361
+\nofMParguments=\count362
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count363
+\MPscratchDim=\dimen308
+\MPnumerator=\count364
+\makeMPintoPDFobject=\count365
+\everyMPtoPDFconversion=\toks49
 ) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -475,18 +677,18 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 35.
+Package hyperref Info: Link coloring ON on input line 36.
 (./acl_latex.out) (./acl_latex.out)
-\@outlinefile=\write3
-\openout3 = `acl_latex.out'.
+\@outlinefile=\write4
+\openout4 = `acl_latex.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 35.
-Package microtype Info: Applying patch `item' on input line 35.
-Package microtype Info: Applying patch `toc' on input line 35.
-Package microtype Info: Applying patch `eqnum' on input line 35.
-Package microtype Info: Applying patch `footnote' on input line 35.
-Package microtype Info: Applying patch `verbatim' on input line 35.
-LaTeX Info: Redefining \microtypesetup on input line 35.
+LaTeX Info: Redefining \microtypecontext on input line 36.
+Package microtype Info: Applying patch `item' on input line 36.
+Package microtype Info: Applying patch `toc' on input line 36.
+Package microtype Info: Applying patch `eqnum' on input line 36.
+Package microtype Info: Applying patch `footnote' on input line 36.
+Package microtype Info: Applying patch `verbatim' on input line 36.
+LaTeX Info: Redefining \microtypesetup on input line 36.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -504,256 +706,299 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 ) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 36.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 37.
  (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
  (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
  (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 95.
- (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 103--106
-[]\T1/ptm/m/n/10.95 (+20) We val-i-date em-pir-i-cally that a task-
+Underfull \hbox (badness 1205) in paragraph at lines 40--55
+[]\T1/ptm/m/n/10 (+20) Aligned lan-guage mod-els that are trained
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--106
-\T1/ptm/m/n/10.95 (+20) conditioned method achieves sub-stan-
- []
-
+<figures/fig_nb9_2d_repr_space.png, id=109, 606.265pt x 298.11375pt>
+File: figures/fig_nb9_2d_repr_space.png Graphic file (type png)
+<use figures/fig_nb9_2d_repr_space.png>
+Package pdftex.def Info: figures/fig_nb9_2d_repr_space.png  used on input line 81.
+(pdftex.def)             Requested size: 208.13115pt x 102.34442pt.
+<figures/fig13a_00_2d_key.png, id=110, 594.22pt x 342.27875pt>
+File: figures/fig13a_00_2d_key.png Graphic file (type png)
+<use figures/fig13a_00_2d_key.png>
+Package pdftex.def Info: figures/fig13a_00_2d_key.png  used on input line 82.
+(pdftex.def)             Requested size: 205.9415pt x 118.62422pt.
 [1{/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 134--140
- []\T1/ptm/b/n/10.95 (+20) Task-conditioned rep-re-sen-ta-tions.[] [][]\T1/ptm/m/n/10.95 (+20) Maskey
+ <./figures/fig_nb9_2d_repr_space.png> <./figures/fig13a_00_2d_key.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 127--139
+ []\T1/ptm/b/n/10.95 (+20) Over-refusal Bench-marks and Mit-i-ga-tion.[]
  []
 
 
-Overfull \hbox (5.8302pt too wide) in paragraph at lines 173--173
+Underfull \hbox (badness 1158) in paragraph at lines 127--139
+\T1/ptm/m/n/10.95 (+20) re-fusals; FalseRe-ject ([][]Zhang et al.[][], [][]2025[][]), a
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 178--189
+ []\T1/ptm/b/n/10.95 (+20) Mechanistic Meth-ods.[] \T1/ptm/m/n/10.95 (+20) Mech-a-nis-tic in-ter-
+ []
+
+
+Underfull \hbox (badness 2351) in paragraph at lines 178--189
+\T1/ptm/m/n/10.95 (+20) de-cod-able from a layer's ac-ti-va-tions ([][]Marks
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 178--189
+\T1/ptm/m/n/10.95 (+20) at-tri-bu-tion traces which at-ten-tion heads most
+ []
+
+
+Overfull \hbox (8.67564pt too wide) in paragraph at lines 228--228
 []\T1/ptm/m/n/9 (-20) Cryptanalysis| 
  []
 
 
-Overfull \hbox (4.08313pt too wide) in paragraph at lines 165--179
+Overfull \hbox (4.08315pt too wide) in paragraph at lines 222--238
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 203.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 266.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 203.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 266.
+[3]
+<figures/fig_nb8_projection.png, id=275, 497.57895pt x 208.8603pt>
+File: figures/fig_nb8_projection.png Graphic file (type png)
+<use figures/fig_nb8_projection.png>
+Package pdftex.def Info: figures/fig_nb8_projection.png  used on input line 304.
+(pdftex.def)             Requested size: 219.08614pt x 91.96255pt.
 
-Overfull \hbox (132.13847pt too wide) detected at line 208
-[][][][] \OT1/cmr/m/n/10.95 = []\OML/cmm/m/it/10.95 ;  [] \OT1/cmr/m/n/10.95 = []
+Underfull \hbox (badness 2189) in paragraph at lines 334--338
+\T1/ptm/m/n/10.95 (+20) leav-ing the harm-less re-fusal rate un-changed.
  []
 
-<figures/fig_nb9_2d_repr_space.png, id=128, 508.0581pt x 287.6346pt>
-File: figures/fig_nb9_2d_repr_space.png Graphic file (type png)
-<use figures/fig_nb9_2d_repr_space.png>
-Package pdftex.def Info: figures/fig_nb9_2d_repr_space.png  used on input line 230.
-(pdftex.def)             Requested size: 219.08614pt x 124.03596pt.
-<figures/fig13a_00_2d_key.png, id=130, 511.6716pt x 288.3573pt>
-File: figures/fig13a_00_2d_key.png Graphic file (type png)
-<use figures/fig13a_00_2d_key.png>
-Package pdftex.def Info: figures/fig13a_00_2d_key.png  used on input line 231.
-(pdftex.def)             Requested size: 219.08614pt x 123.46762pt.
-[2]
-<figures/fig_nb13a_dual_galaxy.png, id=174, 494.3268pt x 263.7855pt>
+
+Underfull \vbox (badness 1237) has occurred while \output is active []
+
+<figures/fig_nb13a_dual_galaxy.png, id=282, 442.2924pt x 238.491pt>
 File: figures/fig_nb13a_dual_galaxy.png Graphic file (type png)
 <use figures/fig_nb13a_dual_galaxy.png>
-Package pdftex.def Info: figures/fig_nb13a_dual_galaxy.png  used on input line 284.
-(pdftex.def)             Requested size: 432.48051pt x 230.78758pt.
-<figures/fig13a_02_silhouette_curves.png, id=177, 473.3685pt x 286.1892pt>
+Package pdftex.def Info: figures/fig_nb13a_dual_galaxy.png  used on input line 353.
+(pdftex.def)             Requested size: 219.08614pt x 118.13527pt.
+<figures/fig_nb7_cluster_separation.png, id=283, 486.3771pt x 148.51485pt>
+File: figures/fig_nb7_cluster_separation.png Graphic file (type png)
+<use figures/fig_nb7_cluster_separation.png>
+Package pdftex.def Info: figures/fig_nb7_cluster_separation.png  used on input line 361.
+(pdftex.def)             Requested size: 219.08614pt x 66.89677pt.
+<figures/fig13a_02_silhouette_curves.png, id=285, 436.5108pt x 248.6088pt>
 File: figures/fig13a_02_silhouette_curves.png Graphic file (type png)
 <use figures/fig13a_02_silhouette_curves.png>
-Package pdftex.def Info: figures/fig13a_02_silhouette_curves.png  used on input line 301.
-(pdftex.def)             Requested size: 219.08614pt x 132.45648pt.
+Package pdftex.def Info: figures/fig13a_02_silhouette_curves.png  used on input line 378.
+(pdftex.def)             Requested size: 219.08614pt x 124.77826pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fig2_cosine_h1.png, id=179, 530.4618pt x 253.6677pt>
+
+Underfull \hbox (badness 1215) in paragraph at lines 386--395
+\T1/ptm/m/n/10.95 (+20) over-refusal di-rec-tion aligns sub-stan-tially less
+ []
+
+[4 <./figures/fig_nb8_projection.png> <./figures/fig_nb13a_dual_galaxy.png> <./figures/fig_nb7_cluster_separation.png>]
+<figures/fig2_cosine_h1.png, id=300, 382.5492pt x 227.6505pt>
 File: figures/fig2_cosine_h1.png Graphic file (type png)
 <use figures/fig2_cosine_h1.png>
-Package pdftex.def Info: figures/fig2_cosine_h1.png  used on input line 330.
-(pdftex.def)             Requested size: 219.08614pt x 104.76694pt.
+Package pdftex.def Info: figures/fig2_cosine_h1.png  used on input line 398.
+(pdftex.def)             Requested size: 219.08614pt x 130.37349pt.
+<figures/fig4_h2_or_tasks.png, id=301, 346.896pt x 247.1634pt>
+File: figures/fig4_h2_or_tasks.png Graphic file (type png)
+<use figures/fig4_h2_or_tasks.png>
+Package pdftex.def Info: figures/fig4_h2_or_tasks.png  used on input line 407.
+(pdftex.def)             Requested size: 208.13115pt x 148.29163pt.
+<figures/fig_nb16_layer_sweep.png, id=303, 480.5955pt x 193.2018pt>
+File: figures/fig_nb16_layer_sweep.png Graphic file (type png)
+<use figures/fig_nb16_layer_sweep.png>
+Package pdftex.def Info: figures/fig_nb16_layer_sweep.png  used on input line 435.
+(pdftex.def)             Requested size: 219.08614pt x 88.07204pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 1990) in paragraph at lines 443--445
+[]\T1/ptm/m/n/10.95 (+20) The prop-er-ties of di-rec-tional in-con-sis-tency
+ []
 
-[3 <./figures/fig_nb9_2d_repr_space.png> <./figures/fig13a_00_2d_key.png>]
-<figures/fig9_nb17_probes.png, id=191, 518.8986pt x 308.5929pt>
+<figures/fig9_nb17_probes.png, id=304, 509.5035pt x 252.945pt>
 File: figures/fig9_nb17_probes.png Graphic file (type png)
 <use figures/fig9_nb17_probes.png>
-Package pdftex.def Info: figures/fig9_nb17_probes.png  used on input line 361.
-(pdftex.def)             Requested size: 432.48051pt x 257.21033pt.
-<figures/fig5_h3_ablation.png, id=196, 507.3354pt x 298.4751pt>
+Package pdftex.def Info: figures/fig9_nb17_probes.png  used on input line 450.
+(pdftex.def)             Requested size: 219.08614pt x 108.76422pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./figures/fig13a_02_silhouette_curves.png> <./figures/fig2_cosine_h1.png> <./figures/fig4_h2_or_tasks.png> <./figures/fig_nb16_layer_sweep.png>]
+<figures/fig5_h3_ablation.png, id=325, 496.4949pt x 234.1548pt>
 File: figures/fig5_h3_ablation.png Graphic file (type png)
 <use figures/fig5_h3_ablation.png>
-Package pdftex.def Info: figures/fig5_h3_ablation.png  used on input line 392.
-(pdftex.def)             Requested size: 219.08614pt x 128.89287pt.
+Package pdftex.def Info: figures/fig5_h3_ablation.png  used on input line 487.
+(pdftex.def)             Requested size: 219.08614pt x 103.32497pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 2875) in paragraph at lines 397--406
+Underfull \hbox (badness 2875) in paragraph at lines 492--501
 \T1/ptm/m/n/10.95 (+20) but sup-presses harm-ful re-fusals sub-stan-tially
  []
 
-[4 <./figures/fig_nb13a_dual_galaxy.png> <./figures/fig13a_02_silhouette_curves.png> <./figures/fig2_cosine_h1.png>]
-<figures/fig10_nb18_causal_patching.png, id=210, 258.0039pt x 282.5757pt>
+<figures/fig6_selectivity.png, id=327, 485.6544pt x 188.26335pt>
+File: figures/fig6_selectivity.png Graphic file (type png)
+<use figures/fig6_selectivity.png>
+Package pdftex.def Info: figures/fig6_selectivity.png  used on input line 518.
+(pdftex.def)             Requested size: 219.08614pt x 84.9303pt.
+
+Overfull \hbox (2.67787pt too wide) in paragraph at lines 527--537
+ [][] 
+ []
+
+[6 <./figures/fig9_nb17_probes.png> <./figures/fig5_h3_ablation.png> <./figures/fig6_selectivity.png>]
+<figures/fig10_nb18_causal_patching.png, id=348, 258.0039pt x 282.5757pt>
 File: figures/fig10_nb18_causal_patching.png Graphic file (type png)
 <use figures/fig10_nb18_causal_patching.png>
-Package pdftex.def Info: figures/fig10_nb18_causal_patching.png  used on input line 430.
-(pdftex.def)             Requested size: 219.08614pt x 239.95332pt.
+Package pdftex.def Info: figures/fig10_nb18_causal_patching.png  used on input line 584.
+(pdftex.def)             Requested size: 131.45302pt x 143.97371pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 2990) in paragraph at lines 435--438
+Underfull \hbox (badness 2990) in paragraph at lines 589--592
 []\T1/ptm/m/n/10.95 (+20) This ex-plains why tar-geted head ab-la-tion
  []
 
-[5 <./figures/fig9_nb17_probes.png> <./figures/fig5_h3_ablation.png>]
-<figures/fig6_selectivity.png, id=220, 588.2778pt x 338.9463pt>
-File: figures/fig6_selectivity.png Graphic file (type png)
-<use figures/fig6_selectivity.png>
-Package pdftex.def Info: figures/fig6_selectivity.png  used on input line 453.
-(pdftex.def)             Requested size: 432.48051pt x 249.1872pt.
-
-Overfull \hbox (21.42459pt too wide) in paragraph at lines 462--472
- [][] 
- []
-
-[6 <./figures/fig10_nb18_causal_patching.png>] [7 <./figures/fig6_selectivity.png>] (./acl_latex.bbl
+[7 <./figures/fig10_nb18_causal_patching.png>] (./acl_latex.bbl
 Underfull \hbox (badness 1173) in paragraph at lines 10--13
 []\T1/ptm/m/n/10 (+20) Joschka Braun, Carsten Eick-hoff, David Krueger,
  []
 
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 52.
+
+Underfull \hbox (badness 2205) in paragraph at lines 55--58
+\T1/ptm/m/n/10 (+20) els via safety rep-re-sen-ta-tion[][].  \T1/ptm/m/it/10 (+20) arXiv preprint
+ []
+
+[8]
+Underfull \hbox (badness 1552) in paragraph at lines 85--88
+[]\T1/ptm/m/n/10 (+20) Paul Röttger, Han-nah Rose Kirk, Bertie Vid-gen,
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 112.
 (/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
+(Font)              scaled to size 10.0pt on input line 112.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [8{/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}])
+)
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 597.
-<figures/fig_nb7_cluster_separation.png, id=321, 1289.2968pt x 851.3406pt>
-File: figures/fig_nb7_cluster_separation.png Graphic file (type png)
-<use figures/fig_nb7_cluster_separation.png>
-Package pdftex.def Info: figures/fig_nb7_cluster_separation.png  used on input line 651.
-(pdftex.def)             Requested size: 432.48051pt x 285.56784pt.
+(Font)              scaled to size 10.95pt on input line 700.
+
+Underfull \hbox (badness 6559) in paragraph at lines 699--708
+\T1/ptm/m/n/10.95 (+20) The dataset is struc-tured along two axes:
+ []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 3568) in paragraph at lines 699--708
+\T1/ptm/m/n/10.95 (+20) task frame and prompt con-tent. All five
+ []
 
-<figures/fig_nb7_cross_task_distances.png, id=323, 1697.6223pt x 460.3599pt>
+[9{/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 7.0pt on input line 767.
+
+Underfull \hbox (badness 3029) in paragraph at lines 767--774
+\T1/zi4/m/n/7 (3) indirect refusal --- cannot answer, offers
+ []
+
+<figures/fig_nb7_cross_task_distances.png, id=499, 1697.6223pt x 460.3599pt>
 File: figures/fig_nb7_cross_task_distances.png Graphic file (type png)
 <use figures/fig_nb7_cross_task_distances.png>
-Package pdftex.def Info: figures/fig_nb7_cross_task_distances.png  used on input line 667.
+Package pdftex.def Info: figures/fig_nb7_cross_task_distances.png  used on input line 804.
 (pdftex.def)             Requested size: 432.48051pt x 117.28133pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fig4_h2_or_tasks.png, id=324, 568.7649pt x 334.6101pt>
-File: figures/fig4_h2_or_tasks.png Graphic file (type png)
-<use figures/fig4_h2_or_tasks.png>
-Package pdftex.def Info: figures/fig4_h2_or_tasks.png  used on input line 677.
-(pdftex.def)             Requested size: 432.48051pt x 254.43396pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/fig_nb13b_l12_snapshot.png, id=325, 351.9549pt x 312.9291pt>
-File: figures/fig_nb13b_l12_snapshot.png Graphic file (type png)
-<use figures/fig_nb13b_l12_snapshot.png>
-Package pdftex.def Info: figures/fig_nb13b_l12_snapshot.png  used on input line 684.
-(pdftex.def)             Requested size: 219.08614pt x 194.79233pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/fig7_nb16_variance.png, id=326, 553.5882pt x 286.1892pt>
+[10]
+<figures/fig7_nb16_variance.png, id=512, 553.5882pt x 286.1892pt>
 File: figures/fig7_nb16_variance.png Graphic file (type png)
 <use figures/fig7_nb16_variance.png>
-Package pdftex.def Info: figures/fig7_nb16_variance.png  used on input line 691.
+Package pdftex.def Info: figures/fig7_nb16_variance.png  used on input line 861.
 (pdftex.def)             Requested size: 219.08614pt x 113.25964pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/fig8_nb16_task_pca.png, id=327, 356.2911pt x 297.0297pt>
-File: figures/fig8_nb16_task_pca.png Graphic file (type png)
-<use figures/fig8_nb16_task_pca.png>
-Package pdftex.def Info: figures/fig8_nb16_task_pca.png  used on input line 698.
-(pdftex.def)             Requested size: 219.08614pt x 182.64725pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fig_nb16_layer_sweep.png, id=328, 558.6471pt x 286.1892pt>
-File: figures/fig_nb16_layer_sweep.png Graphic file (type png)
-<use figures/fig_nb16_layer_sweep.png>
-Package pdftex.def Info: figures/fig_nb16_layer_sweep.png  used on input line 705.
-(pdftex.def)             Requested size: 432.48051pt x 221.56287pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 886--894
+ []\T1/ptm/b/n/10.95 (+20) Attribution head lo-cal-i-sa-tion.[] \T1/ptm/m/n/10.95 (+20) Gradient-
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 886--894
+\T1/ptm/m/n/10.95 (+20) weighted at-ten-tion at-tri-bu-tion iden-ti-fies the
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9]
-<figures/fig11_nb18_per_task_causal.png, id=341, 499.3857pt x 272.4579pt>
+[11 <./figures/fig_nb7_cross_task_distances.png> <./figures/fig7_nb16_variance.png>]
+<figures/fig11_nb18_per_task_causal.png, id=533, 499.3857pt x 272.4579pt>
 File: figures/fig11_nb18_per_task_causal.png Graphic file (type png)
 <use figures/fig11_nb18_per_task_causal.png>
-Package pdftex.def Info: figures/fig11_nb18_per_task_causal.png  used on input line 750.
-(pdftex.def)             Requested size: 432.48051pt x 235.95969pt.
+Package pdftex.def Info: figures/fig11_nb18_per_task_causal.png  used on input line 969.
+(pdftex.def)             Requested size: 208.13115pt x 113.55432pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10
 
- <./figures/fig_nb7_cluster_separation.png>] [11 <./figures/fig_nb7_cross_task_distances.png> <./figures/fig4_h2_or_tasks.png>] [12
+Underfull \hbox (badness 6893) in paragraph at lines 980--990
+\T1/ptm/m/n/10.95 (+20) Task-identity clus-ter struc-ture repli-cates on
+ []
 
-
- <./figures/fig_nb13b_l12_snapshot.png> <./figures/fig7_nb16_variance.png> <./figures/fig8_nb16_task_pca.png>] [13 <./figures/fig_nb16_layer_sweep.png> <./figures/fig11_nb18_per_task_causal.png>] (./acl_latex.aux)
+[12 <./figures/fig11_nb18_per_task_causal.png>] (./acl_latex.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `acl_latex.out' has not changed.
-(rerunfilecheck)             Checksum: 823B67FF728CE231F9BA5689308196DF;4168.
+(rerunfilecheck)             Checksum: AE588DD38EDB60C4BE821E9608EE0E1C;4617.
  ) 
 Here is how much of TeX's memory you used:
- 16452 strings out of 467525
- 266490 string characters out of 5408440
- 730480 words of memory out of 5000000
- 44674 multiletter control sequences out of 15000+600000
- 721120 words of font info for 348 fonts, out of 8000000 for 9000
+ 28646 strings out of 467525
+ 546945 string characters out of 5408440
+ 971944 words of memory out of 5000000
+ 56573 multiletter control sequences out of 15000+600000
+ 723314 words of font info for 381 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,93p,1057b,638s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl_latex.pdf (13 pages, 1206334 bytes).
+ 98i,12n,108p,1057b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on acl_latex.pdf (12 pages, 1522222 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 370 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
- 76526 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 630 PDF objects out of 1000 (max. 8388607)
+ 549 compressed objects within 6 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 75029 words of extra memory for PDF output out of 89155 (max. 10000000)
 
